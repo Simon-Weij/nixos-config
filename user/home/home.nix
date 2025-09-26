@@ -1,18 +1,18 @@
 { config, pkgs, inputs, ... }:
-let 
+let
   flakeConfig = import ../../flake-config.nix;
+  username = "simon";
 in
 {
   imports = [
     ./discord.nix
     ./bashrc.nix
     ./gnome.nix
-    inputs.nixcord.homeModules.nixcord
   ];
 
   programs.home-manager.enable = true;
 
-  home.username = "simon";
-  home.homeDirectory = "/home/simon";
+  home.username = username;
+  home.homeDirectory = "/home/" + username;
   home.stateVersion = flakeConfig.stateVersion;
 }
