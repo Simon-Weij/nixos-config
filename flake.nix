@@ -7,14 +7,11 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
 
-    hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, hjem }:
-  let 
+  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, home-manager }:
+  let
     system = "x86_64-linux";
     unstable-pkgs = import unstable {
       inherit system;
@@ -30,7 +27,7 @@
 
         spicetify-nix.nixosModules.spicetify
         flatpaks.nixosModules.nix-flatpak
-        hjem.nixosModules.default
+        home-manager.nixosModules.home-manager
         { nixpkgs.config.allowUnfree = true; }
       ];
     };
