@@ -1,3 +1,3 @@
 {
-  flakePath = "~/Documents/config";
+  flakePath = "/home/simon/Documents/config";
 }

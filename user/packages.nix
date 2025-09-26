@@ -5,10 +5,6 @@ in
 {
   users.users.simon.packages = [
     # system
-    pkgs.gnomeExtensions.blur-my-shell
-    pkgs.gnomeExtensions.hide-minimized
-    pkgs.gnomeExtensions.middle-click-to-close-in-overview
-
     unstable.firefox
     unstable.ungoogled-chromium
     unstable.gnome-terminal
