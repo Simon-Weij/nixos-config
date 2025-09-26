@@ -15,7 +15,6 @@ in
 
     # gaming
     unstable.heroic
-    unstable.vesktop
 
     # creative
     unstable.krita

@@ -38,7 +38,7 @@ in
   nixpkgs.config.allowUnfree = true;
   hardware.bluetooth.enable = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = flakeConfig.stateVersion;
 
   documentation.nixos.enable = false;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

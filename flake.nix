@@ -1,4 +1,5 @@
 {
+  
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -8,9 +9,12 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
 
     home-manager.url = "github:nix-community/home-manager/release-25.05";
+
+    nixcord.url = "github:kaylorben/nixcord";
+  
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, home-manager }:
+  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, home-manager, nixcord }:
   let
     system = "x86_64-linux";
     unstable-pkgs = import unstable {
