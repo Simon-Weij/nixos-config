@@ -1,4 +1,4 @@
 {
-  flakePath = "/home/simon/Documents/config";
+  flakePath = builtins.toString ./.;
   stateVersion = "25.05";
 }
