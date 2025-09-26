@@ -1,0 +1,3 @@
+{
+  flakePath = "~/Documents/config";
+}
