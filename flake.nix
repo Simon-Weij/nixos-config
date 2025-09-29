@@ -9,9 +9,11 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
 
     home-manager.url = "github:nix-community/home-manager/release-25.05";
+
+    winboat.url = "github:TibixDev/winboat";
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, home-manager }:
+  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, home-manager, winboat }:
   let
     system = "x86_64-linux";
     unstable-pkgs = import unstable {

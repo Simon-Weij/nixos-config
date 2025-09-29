@@ -13,6 +13,8 @@ in
     unstable.podman
     unstable.nh
 
+    pkgs.freerdp3
+
     # gaming
     unstable.heroic
     unstable.vesktop
@@ -42,8 +44,9 @@ in
     unstable.nodejs
     unstable.zulu21
     unstable.go
+    
+    (inputs.winboat.packages.${pkgs.stdenv.system}.winboat)
   ];
-
 
   programs.steam = {
     enable = true;

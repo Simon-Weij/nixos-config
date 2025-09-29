@@ -12,10 +12,24 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "blur-my-shell@aunetx"
-        "hide-minimized@danigm.net"
         "middleclickclose@paolo.tranquilli.gmail.com"
+        "hide-minimized@danigm.net"
       ]; 
     };
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      /*
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {
+        name = "terminal";
+        command = "gnome-terminal";
+        binding = "ctrl+alt+t";
+      };
+      "org/gnome/shell/keybindings" = {
+        show-screenshot-ui = ['<Shift>Escape'];
+      };
+      */
+    };
   };
+
+
 }
