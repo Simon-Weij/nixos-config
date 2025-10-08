@@ -1,13 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, flakeConfig, ... }:
 let
-  flakeConfig = import ../../flake-config.nix;
-  username = "simon";
+  username = flakeConfig.username;
 in
 {
   imports = [
     ./discord.nix
     ./bashrc.nix
     ./gnome.nix
+    ./apps/zen.nix
+    ./apps/spicetify.nix
   ];
 
   programs.home-manager.enable = true;

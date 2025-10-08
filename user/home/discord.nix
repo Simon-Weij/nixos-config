@@ -1,8 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, flakeConfig, ... }:
 
-let
-  flakeConfig = import ../../flake-config.nix;
-in
 {
   xdg.desktopEntries.vesktop = {
     name = "Discord";
