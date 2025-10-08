@@ -1,9 +1,10 @@
-{ config, lib, pkgs, modulesPath, inputs, unstable, ... }:
+{ config, lib, pkgs, modulesPath, inputs, unstable, flakeConfig, ... }:
 {
   imports = [
     ./desktop.nix
-    ./system.nix
+    (import ./system.nix { inherit pkgs flakeConfig; })
     ./hardware.nix
+    ./packages/steam.nix
     ../user/user.nix
   ];
 }

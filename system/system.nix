@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  flakeConfig = import ../flake-config.nix;
-in
+{ pkgs, flakeConfig, ... }:
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

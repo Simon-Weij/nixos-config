@@ -1,6 +1,4 @@
-let
-  flakeConfig = import ../../flake-config.nix;
-in
+{ flakeConfig, ... }:
 {
   programs.bash = {
     enable = true;

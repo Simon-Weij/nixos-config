@@ -23,7 +23,7 @@
     yelp
     gnome-calculator
     seahorse
-    pkgs.gnome-tour
+    gnome-tour
   ];
 
   services.xserver.enable = true;

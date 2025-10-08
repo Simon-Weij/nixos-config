@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, flakeConfig, ... }:
 {
-  users.users.simon = {
+  users.users."${flakeConfig.username}" = {
     isNormalUser = true;
     description = "Simon";
     extraGroups = [ "networkmanager" "wheel" "docker" ];

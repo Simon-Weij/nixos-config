@@ -11,11 +11,14 @@
     home-manager.url = "github:nix-community/home-manager/release-25.05";
 
     winboat.url = "github:TibixDev/winboat";
+
+    zen.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, home-manager, winboat }:
+  outputs = inputs@{ self, nixpkgs, unstable, flatpaks, spicetify-nix, home-manager, winboat, zen }:
   let
     system = "x86_64-linux";
+    flakeConfig = import ./flake-config.nix;
     unstable-pkgs = import unstable {
       inherit system;
       config.allowUnfree = true;
@@ -23,7 +26,7 @@
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { unstable = unstable-pkgs; inherit inputs; };
+      specialArgs = { unstable = unstable-pkgs; inherit inputs flakeConfig; };
       modules = [
         ./system/default.nix
         ./user/default.nix

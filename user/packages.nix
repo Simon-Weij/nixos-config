@@ -1,13 +1,13 @@
-{ pkgs, unstable, inputs, ... }:
-let 
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+{ pkgs, unstable, inputs, flakeConfig, ... }:
+let
+  username = flakeConfig.username;
 in
 {
-  users.users.simon.packages = [
+  users.users."${username}".packages = [
     # system
     unstable.firefox
     unstable.ungoogled-chromium
-    unstable.gnome-terminal
+    unstable.ghostty
     unstable.gnome-extension-manager
     unstable.distrobox
     unstable.podman
@@ -44,26 +44,26 @@ in
     unstable.nodejs
     unstable.zulu21
     unstable.go
+    unstable.element-web
+
+    unstable.unityhub
+
+    unstable.dotnetCorePackages.sdk_9_0_1xx-bin
+    unstable.gcc
+    unstable.ninja
+    unstable.gnumake
+    unstable.vcpkg
+
+    unstable.cmake
     
     (inputs.winboat.packages.${pkgs.stdenv.system}.winboat)
   ];
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   virtualisation.docker.enable = true;
 
-  programs.spicetify = {
-    enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    enabledExtensions = with spicePkgs.extensions; [
-      adblockify
-      shuffle
-    ];
-  };
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
 
   services.flatpak = {
     enable = true;
@@ -71,6 +71,8 @@ in
       { appId = "org.vinegarhq.Sober"; origin = "flathub"; }
       { appId = "org.prismlauncher.PrismLauncher"; origin = "flathub"; }
       { appId = "org.gnome.Boxes"; origin = "flathub"; }
+      { appId = "in.cinny.Cinny"; origin = "flathub"; }
+      { appId = "com.ktechpit.whatsie"; origin = "flathub"; }
     ];
   };
 }
