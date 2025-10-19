@@ -53,8 +53,21 @@ in
     unstable.ninja
     unstable.gnumake
     unstable.vcpkg
-
     unstable.cmake
+
+    unstable.rustc
+    unstable.cargo
+    unstable.rustfmt
+    unstable.rust-analyzer
+    unstable.sccache
+    unstable.pkg-config
+    unstable.openssl
+
+    pkgs.rustup
+
+    pkgs.jetbrains.rust-rover
+
+    pkgs.jetbrains.clion
     
     (inputs.winboat.packages.${pkgs.stdenv.system}.winboat)
   ];
