@@ -1,8 +1,6 @@
 { pkgs, unstable, inputs, flakeConfig, ... }:
-let
-  username = flakeConfig.username;
-in
-{
+let username = flakeConfig.username;
+in {
   users.users."${username}".packages = [
     # system
     unstable.firefox
@@ -12,8 +10,6 @@ in
     unstable.distrobox
     unstable.podman
     unstable.nh
-
-    pkgs.freerdp3
 
     # gaming
     unstable.heroic
@@ -32,6 +28,7 @@ in
     pkgs.jetbrains.pycharm-community-bin
 
     unstable.github-desktop
+    pkgs.treefmt
 
     unstable.gh
     unstable.git
@@ -68,24 +65,46 @@ in
     pkgs.jetbrains.rust-rover
 
     pkgs.jetbrains.clion
-    
-    (inputs.winboat.packages.${pkgs.stdenv.system}.winboat)
+
+    unstable.winboat
+    inputs.nix-init.packages.${pkgs.stdenv.system}.nix-init
+
+    unstable.obsidian
+
+    unstable.postman
   ];
 
   virtualisation.docker.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "libsoup-2.74.3"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "libsoup-2.74.3" ];
 
   services.flatpak = {
     enable = true;
     packages = [
-      { appId = "org.vinegarhq.Sober"; origin = "flathub"; }
-      { appId = "org.prismlauncher.PrismLauncher"; origin = "flathub"; }
-      { appId = "org.gnome.Boxes"; origin = "flathub"; }
-      { appId = "in.cinny.Cinny"; origin = "flathub"; }
-      { appId = "com.ktechpit.whatsie"; origin = "flathub"; }
+      {
+        appId = "org.vinegarhq.Sober";
+        origin = "flathub";
+      }
+      {
+        appId = "org.prismlauncher.PrismLauncher";
+        origin = "flathub";
+      }
+      {
+        appId = "org.gnome.Boxes";
+        origin = "flathub";
+      }
+      {
+        appId = "in.cinny.Cinny";
+        origin = "flathub";
+      }
+      {
+        appId = "com.ktechpit.whatsie";
+        origin = "flathub";
+      }
+      {
+        appId = "com.freerdp.FreeRDP";
+        origin = "flathub";
+      }
     ];
   };
 }

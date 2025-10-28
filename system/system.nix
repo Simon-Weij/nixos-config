@@ -1,4 +1,4 @@
-{ pkgs, flakeConfig, ... }:
+{ pkgs, flakeConfig, inputs, ... }:
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -7,11 +7,11 @@
 
   networking.networkmanager.enable = true;
 
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   time.timeZone = "Europe/Amsterdam";
 
   i18n.defaultLocale = "en_US.UTF-8";
-
-  boot.kernelModules = [ "ip_tables" "iptable_nat" ];
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "nl_NL.UTF-8";
@@ -33,6 +33,7 @@
   security.rtkit.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
   hardware.bluetooth.enable = true;
 
   system.stateVersion = flakeConfig.stateVersion;

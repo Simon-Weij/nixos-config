@@ -3,9 +3,9 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      neofetch = "nix-shell -p fastfetch --run fastfetch";
-      tree = "nix-shell -p tree --run tree";
-      tokei = "nix-shell -p tokei --run tokei";
+      neofetch = "nix run nixpkgs#fastfetch";
+      tree = "nix run nixpkgs#tree";
+      tokei = "nix run nixpkgs#tokei";
       please = "sudo";
     };
 
