@@ -8,15 +8,14 @@
   
   dconf = {
     enable = true;
-    settings."org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "blur-my-shell@aunetx"
-        "middleclickclose@paolo.tranquilli.gmail.com"
-        "hide-minimized@danigm.net"
-      ]; 
-    };
     settings = {
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = [
+          "blur-my-shell@aunetx"
+          "middleclickclose@paolo.tranquilli.gmail.com"
+        ];
+      };
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       /*
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {
