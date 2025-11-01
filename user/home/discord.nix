@@ -1,12 +1,15 @@
-{ pkgs, inputs, flakeConfig, ... }:
+{ pkgs, inputs, flakeConfig, config, ... }:
 
 {
-  xdg.desktopEntries.vesktop = {
-    name = "Discord";
-    exec = "vesktop --enable-features=VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,UseMultiPlaneFormatForHardwareVideo";
-    icon = ../appIcons/Discord.png;
-    type = "Application";
-    terminal = false;
-    categories = [ "Network" "Chat" ];
+  home.file = {
+    ".local/share/applications/vesktop.desktop".text = ''
+      [Desktop Entry]
+      Name=Discord
+      Exec=vesktop --enable-features=VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,UseMultiPlaneFormatForHardwareVideo
+      Icon=${../appIcons/Discord.png}
+      Type=Application
+      Terminal=false
+      Categories=Network;Chat;
+    '';
   };
 }

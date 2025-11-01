@@ -4,8 +4,8 @@ let
 in
 {
   imports = [
-    ./discord.nix
     ./bashrc.nix
+    ./discord.nix
     ./gnome.nix
     ./apps/zen.nix
     ./apps/spicetify.nix

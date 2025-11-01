@@ -24,6 +24,7 @@
       home-manager,
       zen,
       nvim,
+      hjem,
     }:
     let
       system = "x86_64-linux";
