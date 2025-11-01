@@ -1,5 +1,6 @@
 { pkgs, unstable, inputs, flakeConfig, ... }:
-let username = flakeConfig.username;
+let 
+  username = flakeConfig.username;
 in {
   users.users."${username}".packages = [
     # system
@@ -10,25 +11,21 @@ in {
     unstable.distrobox
     unstable.podman
     unstable.nh
+    unstable.freerdp
 
     # gaming
     unstable.heroic
     unstable.vesktop
 
-    # creative
-    unstable.krita
-
     # office
-    pkgs.onlyoffice-bin
     unstable.teams-for-linux
 
     # development
     unstable.vscode
     pkgs.jetbrains.idea-community-bin
-    pkgs.jetbrains.pycharm-community-bin
 
     unstable.github-desktop
-    pkgs.treefmt
+    unstable.treefmt
 
     unstable.gh
     unstable.git
@@ -39,39 +36,12 @@ in {
     unstable.nodePackages."@angular/cli"
 
     unstable.nodejs
-    unstable.zulu21
     unstable.go
-    unstable.element-web
-
-    unstable.unityhub
-
-    unstable.dotnetCorePackages.sdk_9_0_1xx-bin
-    unstable.gcc
-    unstable.ninja
-    unstable.gnumake
-    unstable.vcpkg
-    unstable.cmake
-
-    unstable.rustc
-    unstable.cargo
-    unstable.rustfmt
-    unstable.rust-analyzer
-    unstable.sccache
-    unstable.pkg-config
-    unstable.openssl
-
-    pkgs.rustup
-
-    pkgs.jetbrains.rust-rover
-
-    pkgs.jetbrains.clion
 
     unstable.winboat
-    inputs.nix-init.packages.${pkgs.stdenv.system}.nix-init
-
-    unstable.obsidian
-
     unstable.postman
+
+    inputs.nvim.packages.${pkgs.stdenv.system}.default
   ];
 
   virtualisation.docker.enable = true;
@@ -81,6 +51,10 @@ in {
   services.flatpak = {
     enable = true;
     packages = [
+      {
+        appId = "org.onlyoffice.desktopeditors";
+        origin = "flathub";
+      }
       {
         appId = "org.vinegarhq.Sober";
         origin = "flathub";
@@ -99,10 +73,6 @@ in {
       }
       {
         appId = "com.ktechpit.whatsie";
-        origin = "flathub";
-      }
-      {
-        appId = "com.freerdp.FreeRDP";
         origin = "flathub";
       }
     ];

@@ -9,6 +9,8 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
 
+  nix.settings.warn-dirty = false;
+
   time.timeZone = "Europe/Amsterdam";
 
   i18n.defaultLocale = "en_US.UTF-8";

@@ -3,6 +3,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.xserver.enable = true;
+
   environment.gnome.excludePackages = with pkgs; [
     cheese
     eog
@@ -25,6 +27,4 @@
     seahorse
     gnome-tour
   ];
-
-  services.xserver.enable = true;
 }
