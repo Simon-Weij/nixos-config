@@ -11,8 +11,6 @@ in
     ./apps/spicetify.nix
   ];
 
-  programs.home-manager.enable = true;
-
   home.username = username;
   home.homeDirectory = "/home/" + username;
   home.stateVersion = flakeConfig.stateVersion;

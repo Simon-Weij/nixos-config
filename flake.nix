@@ -1,18 +1,17 @@
 {
   inputs = {
+    # repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
-
+    # configuration
     home-manager.url = "github:nix-community/home-manager/release-25.05";
 
+    # apps
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen.url = "github:0xc000022070/zen-browser-flake";
-
-    nix-init.url = "github:nix-community/nix-init";
+    nvim.url = "git+file:///home/simon/Documents/neovim";
   };
 
   outputs =
@@ -24,7 +23,7 @@
       spicetify-nix,
       home-manager,
       zen,
-      nix-init,
+      nvim,
     }:
     let
       system = "x86_64-linux";

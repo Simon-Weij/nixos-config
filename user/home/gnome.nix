@@ -12,7 +12,6 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
-          "blur-my-shell@aunetx"
           "middleclickclose@paolo.tranquilli.gmail.com"
         ];
       };
