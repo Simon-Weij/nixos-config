@@ -1,30 +1,27 @@
-{ pkgs, ... }:
 {
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  pkgs,
+  unstable,
+  inputs,
+  flakeConfig,
+  ...
+}:
+{
+  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
 
-  services.xserver.enable = true;
+  niri-flake.cache.enable = false;
 
-  environment.gnome.excludePackages = with pkgs; [
-    cheese
-    eog
-    epiphany
-    evince
-    geary
-    gnome-characters
-    gnome-clocks
-    gnome-contacts
-    gnome-calendar
-    gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-music
-    gnome-weather
-    simple-scan
-    totem
-    yelp
-    gnome-calculator
-    seahorse
-    gnome-tour
+  environment.systemPackages = [
+    unstable.swaylock
+    unstable.fuzzel
+    unstable.yazi
+    unstable.xwayland
+    unstable.xwayland-satellite
+    unstable.swww
+    unstable.gnome-screenshot
   ];
+
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+  };
 }

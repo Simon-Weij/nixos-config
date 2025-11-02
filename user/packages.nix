@@ -1,7 +1,14 @@
-{ pkgs, unstable, inputs, flakeConfig, ... }:
-let 
+{
+  pkgs,
+  unstable,
+  inputs,
+  flakeConfig,
+  ...
+}:
+let
   username = flakeConfig.username;
-in {
+in
+{
   users.users."${username}".packages = [
     # system
     unstable.firefox
@@ -40,6 +47,8 @@ in {
 
     unstable.winboat
     unstable.postman
+
+    unstable.overskride
 
     inputs.nvim.packages.${pkgs.stdenv.system}.default
   ];

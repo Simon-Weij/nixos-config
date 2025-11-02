@@ -7,11 +7,16 @@
 
     # configuration
     home-manager.url = "github:nix-community/home-manager/release-25.05";
+    niri-flake.url = "github:sodiboo/niri-flake";
+    stylix = {
+      url = "github:danth/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # apps
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen.url = "github:0xc000022070/zen-browser-flake";
-    nvim.url = "git+file:///home/simon/Documents/neovim";
+    nvim.url = "github:Simon-Weij/neovim";
   };
 
   outputs =
@@ -24,7 +29,8 @@
       home-manager,
       zen,
       nvim,
-      hjem,
+      niri-flake,
+      stylix,
     }:
     let
       system = "x86_64-linux";
@@ -47,7 +53,8 @@
         modules = [
           ./system/default.nix
           ./user/default.nix
-
+          niri-flake.nixosModules.niri
+          stylix.nixosModules.stylix
           spicetify-nix.nixosModules.spicetify
           flatpaks.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
