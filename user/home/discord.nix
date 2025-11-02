@@ -1,4 +1,10 @@
-{ pkgs, inputs, flakeConfig, config, ... }:
+{
+  pkgs,
+  inputs,
+  flakeConfig,
+  config,
+  ...
+}:
 
 {
   home.file = {

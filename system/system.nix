@@ -1,4 +1,9 @@
-{ pkgs, flakeConfig, inputs, ... }:
+{
+  pkgs,
+  flakeConfig,
+  inputs,
+  ...
+}:
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -41,21 +46,16 @@
   system.stateVersion = flakeConfig.stateVersion;
 
   documentation.nixos.enable = false;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  };
-
-  xdg.portal = {
-    enable = true;
-    config.common.default = [ "gtk" ];
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-    ];
   };
 
   virtualisation.libvirtd = {
@@ -65,10 +65,12 @@
       swtpm.enable = true;
       ovmf = {
         enable = true;
-        packages = [ (pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }) ];
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })
+        ];
       };
     };
   };

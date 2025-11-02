@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, flakeConfig, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  flakeConfig,
+  ...
+}:
 let
   username = flakeConfig.username;
 in
@@ -6,9 +12,10 @@ in
   imports = [
     ./bashrc.nix
     ./discord.nix
-    ./gnome.nix
+    ./niri.nix
     ./apps/zen.nix
     ./apps/spicetify.nix
+    ./theme.nix
   ];
 
   home.username = username;
