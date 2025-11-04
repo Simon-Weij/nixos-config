@@ -12,7 +12,9 @@ in
   imports = [
     ./bashrc.nix
     ./discord.nix
-    ./niri.nix
+    ./config/niri/niri.nix
+    ./config/rofi/rofi.nix
+    ./config/waybar/waybar.nix
     ./apps/zen.nix
     ./apps/spicetify.nix
     ./theme.nix
