@@ -24,6 +24,7 @@
     unstable.nerd-fonts.symbols-only
     unstable.noto-fonts-color-emoji
     unstable.pavucontrol
+    unstable.libnotify
   ];
 
   programs.niri = {

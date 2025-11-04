@@ -15,6 +15,7 @@ in
     ./config/niri/niri.nix
     ./config/rofi/rofi.nix
     ./config/waybar/waybar.nix
+    ./config/mako/mako.nix
     ./apps/zen.nix
     ./apps/spicetify.nix
     ./theme.nix
