@@ -27,16 +27,16 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 16
+    gaps 3 // 16
     center-focused-column "never"
     preset-column-widths {
-        proportion 0.33333
         proportion 0.5
-        proportion 0.66667
+        proportion 0.95
+        proportion 1.0
     }
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.95; }
     focus-ring {
-        width 3
+        width 1
         active-color "#0262acff"
         inactive-color "#505050"
     }
@@ -87,13 +87,15 @@ window-rule {
 }
 
 spawn-at-startup "swww-daemon"
+spawn-at-startup "mako"
+spawn-at-startup "waybar"
 spawn-at-startup "swww" "img" "~/Pictures/wallpapers/wallpaper.png"
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Shift+Escape { screenshot; }
-    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Super+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }

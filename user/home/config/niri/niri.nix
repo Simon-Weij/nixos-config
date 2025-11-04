@@ -6,7 +6,7 @@
   ...
 }:
 {
-  programs.niri.config = builtins.readFile ./config/niri/config.kdl;
+  programs.niri.config = builtins.readFile ./config.kdl;
 
   home.file."Pictures/wallpapers/wallpaper.png" = {
     source = "${pkgs.fetchurl flakeConfig.wallpaper}";

@@ -12,16 +12,39 @@
 
   environment.systemPackages = [
     unstable.swaylock
-    unstable.fuzzel
+    unstable.rofi
     unstable.yazi
     unstable.xwayland
     unstable.xwayland-satellite
     unstable.swww
-    unstable.gnome-screenshot
+    unstable.nautilus
+    unstable.waybar
+    unstable.mako
+    unstable.nerd-fonts.jetbrains-mono
+    unstable.nerd-fonts.symbols-only
+    unstable.noto-fonts-color-emoji
+    unstable.pavucontrol
   ];
 
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
+  };
+
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+      dejavu_fonts
+      noto-fonts-color-emoji
+    ];
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "JetBrainsMono Nerd Font" "Symbols Nerd Font" ];
+        sansSerif = [ "DejaVu Sans" ];
+        serif = [ "DejaVu Serif" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
   };
 }

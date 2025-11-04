@@ -36,6 +36,7 @@ in
 
     unstable.gh
     unstable.git
+    unstable.git-lfs
 
     unstable.nil
     unstable.gopls
