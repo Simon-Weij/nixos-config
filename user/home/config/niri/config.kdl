@@ -8,10 +8,17 @@ input {
         tap
         natural-scroll
     }
-    mouse {
+    mouse { 
     }
     trackpoint {
     }
+}
+
+prefer-no-csd
+
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
 }
 
 cursor {
@@ -19,16 +26,17 @@ cursor {
     xcursor-size 24
 }
 
-output "eDP-1" {
-    mode "1920x1080@165"
-    scale 2
+output "HDMI-A-1" {
+    mode "1920x1080@165.003"
+    scale 1
     transform "normal"
-    position x=1280 y=0
+    position x=0 y=0
 }
 
 layout {
     gaps 3 // 16
     center-focused-column "never"
+    background-color "transparent"
     preset-column-widths {
         proportion 0.5
         proportion 0.95
@@ -112,8 +120,8 @@ binds {
     Mod+L     { focus-column-right; }
 
     Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+J     { move-window-to-workspace-down; }
+    Mod+Ctrl+K     { move-window-to-workspace-up; }
     Mod+Ctrl+L     { move-column-right; }
 
     Mod+J              { focus-workspace-down; }

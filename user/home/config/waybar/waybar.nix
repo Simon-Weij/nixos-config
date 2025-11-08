@@ -12,7 +12,7 @@
       layer = "top";
       modules-left = [ "niri/workspaces"];
       modules-center = [ "clock" ];
-      modules-right = [ "bluetooth" "pulseaudio" ];
+      modules-right = [ "custom/spotify" "bluetooth" "pulseaudio" ];
 
       "clock" = {
         format-alt = "{:%Y-%m-%d %a %H:%M}";

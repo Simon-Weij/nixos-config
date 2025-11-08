@@ -42,6 +42,7 @@ in
     unstable.gopls
 
     unstable.nodePackages."@angular/cli"
+    unstable.nodePackages."@nestjs/cli"
 
     unstable.nodejs
     unstable.go
@@ -50,13 +51,12 @@ in
     unstable.postman
 
     unstable.overskride
+    unstable.playerctl
 
     inputs.nvim.packages.${pkgs.stdenv.system}.default
   ];
 
   virtualisation.docker.enable = true;
-
-  nixpkgs.config.permittedInsecurePackages = [ "libsoup-2.74.3" ];
 
   services.flatpak = {
     enable = true;
