@@ -1,4 +1,9 @@
-{ inputs, flakeConfig, unstable, ... }:
+{
+  inputs,
+  flakeConfig,
+  unstable,
+  ...
+}:
 let
   username = flakeConfig.username;
 in

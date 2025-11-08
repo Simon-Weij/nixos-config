@@ -14,7 +14,7 @@ in
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   programs.spicetify = {
-    enable = true; 
+    enable = true;
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
       shuffle
