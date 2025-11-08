@@ -8,8 +8,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos";
-
   networking.networkmanager.enable = true;
 
   nix.package = pkgs.lixPackageSets.stable.lix;
@@ -39,11 +37,16 @@
 
   security.rtkit.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "libsoup-2.74.3" ];
+  };
 
   hardware.bluetooth.enable = true;
 
   system.stateVersion = flakeConfig.stateVersion;
+
+  networking.hostName = flakeConfig.networking.hostName;
 
   documentation.nixos.enable = false;
   nix.settings.experimental-features = [

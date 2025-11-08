@@ -34,7 +34,7 @@
     }:
     let
       system = "x86_64-linux";
-      flakeConfig = import ./flake-config.nix;
+      sapphireConfig = import ./hosts/sapphire/sapphire.nix;
       pkgs = nixpkgs.legacyPackages.${system};
       unstablepkgs = import unstable {
         inherit system;
@@ -44,21 +44,26 @@
     {
       formatter.${system} = pkgs.nixfmt-tree;
 
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          unstable = unstablepkgs;
-          inherit inputs flakeConfig;
+      nixosConfigurations = {
+        sapphire = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            unstable = unstablepkgs;
+            inherit inputs;
+            flakeConfig = sapphireConfig;
+          };
+          modules = [
+            ./hosts/sapphire/default.nix
+            ./user/default.nix
+            home-manager.nixosModules.home-manager
+            niri-flake.nixosModules.niri
+            stylix.nixosModules.stylix
+            spicetify-nix.nixosModules.spicetify
+            flatpaks.nixosModules.nix-flatpak
+          ];
         };
-        modules = [
-          ./system/default.nix
-          ./user/default.nix
-          niri-flake.nixosModules.niri
-          stylix.nixosModules.stylix
-          spicetify-nix.nixosModules.spicetify
-          flatpaks.nixosModules.nix-flatpak
-          home-manager.nixosModules.home-manager
-        ];
       };
+
+      sapphire = self.nixosConfigurations.sapphire;
     };
 }

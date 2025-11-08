@@ -10,7 +10,7 @@
     };
 
     sessionVariables = {
-      NH_FLAKE = flakeConfig.flakePath;
+      NH_FLAKE = "${flakeConfig.flakePath}#sapphire";
     };
   };
 }
