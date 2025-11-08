@@ -34,11 +34,18 @@
     }:
     let
       system = "x86_64-linux";
-      sapphireConfig = import ./hosts/sapphire/sapphire.nix;
       pkgs = nixpkgs.legacyPackages.${system};
       unstablepkgs = import unstable {
         inherit system;
         config.allowUnfree = true;
+      };
+      sapphireConfig = import ./hosts/sapphire/sapphire.nix {
+        inherit pkgs;
+        unstable = unstablepkgs;
+      };
+      onyxConfig = import ./hosts/onyx/onyx.nix {
+        inherit pkgs;
+        unstable = unstablepkgs;
       };
     in
     {
@@ -62,8 +69,26 @@
             flatpaks.nixosModules.nix-flatpak
           ];
         };
+        onyx = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            unstable = unstablepkgs;
+            inherit inputs;
+            flakeConfig = onyxConfig;
+          };
+          modules = [
+            ./hosts/onyx/default.nix
+            ./user/default.nix
+            home-manager.nixosModules.home-manager
+            niri-flake.nixosModules.niri
+            stylix.nixosModules.stylix
+            spicetify-nix.nixosModules.spicetify
+            flatpaks.nixosModules.nix-flatpak
+          ];
+        };
       };
 
       sapphire = self.nixosConfigurations.sapphire;
+      onyx = self.nixosConfigurations.onyx;
     };
 }

@@ -2,6 +2,7 @@
   pkgs,
   flakeConfig,
   inputs,
+  unstable,
   ...
 }:
 {
@@ -10,7 +11,7 @@
 
   networking.networkmanager.enable = true;
 
-  nix.package = pkgs.lixPackageSets.stable.lix;
+  nix.package = unstable.nix;
 
   nix.settings.warn-dirty = false;
 

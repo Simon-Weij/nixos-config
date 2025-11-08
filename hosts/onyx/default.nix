@@ -9,7 +9,7 @@
   ...
 }:
 let
-  sapphireConfig = import ./sapphire.nix;
+  onyxConfig = import ./onyx.nix;
 in
 {
   imports = [
@@ -19,5 +19,6 @@ in
     ../../system/desktop.nix
 
     ../../user/default.nix
+    ./packages.nix
   ];
 }

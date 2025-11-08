@@ -17,22 +17,21 @@
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
-    "ahci"
     "usb_storage"
-    "usbhid"
     "sd_mod"
+    "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/17c5130d-1f09-42ce-ab6e-c22373a9495d";
+    device = "/dev/disk/by-uuid/daec5c2e-febd-44d4-bf40-b48c76078140";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/5A91-9947";
+    device = "/dev/disk/by-uuid/DB62-123D";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -47,9 +46,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-3a4b63e05a4b.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp37s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

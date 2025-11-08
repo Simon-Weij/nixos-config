@@ -25,11 +25,13 @@
     unstable.noto-fonts-color-emoji
     unstable.pavucontrol
     unstable.libnotify
+    unstable.overskride
+    unstable.playerctl
   ];
 
   programs.niri = {
     enable = true;
-    package = pkgs.niri-unstable;
+    package = flakeConfig.niri-package;
   };
 
   fonts = {
@@ -41,7 +43,10 @@
     ];
     fontconfig = {
       defaultFonts = {
-        monospace = [ "JetBrainsMono Nerd Font" "Symbols Nerd Font" ];
+        monospace = [
+          "JetBrainsMono Nerd Font"
+          "Symbols Nerd Font"
+        ];
         sansSerif = [ "DejaVu Sans" ];
         serif = [ "DejaVu Serif" ];
         emoji = [ "Noto Color Emoji" ];

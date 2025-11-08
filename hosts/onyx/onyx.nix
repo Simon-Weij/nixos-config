@@ -4,14 +4,14 @@
   stateVersion = "25.05";
   username = "simon";
 
-  niri-package = unstable.niri;
-
   wallpaper = {
     url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/space.png";
     hash = "sha256-u4pX5GqKYFWNV9fbXMgj/eqJtmNsjS7TF2lFijj39tI=";
   };
 
+  niri-package = pkgs.niri;
+
   networking = {
-    hostName = "sapphire";
+    hostName = "onyx";
   };
 }
