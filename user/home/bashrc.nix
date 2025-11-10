@@ -7,7 +7,8 @@
       tree = "nix run nixpkgs#tree";
       tokei = "nix run nixpkgs#tokei";
       please = "sudo";
-    } // lib.optionalAttrs (flakeConfig.networking.hostName == "onyx") {
+    }
+    // lib.optionalAttrs (flakeConfig.networking.hostName == "onyx") {
       config-rebuild = "sudo nixos-rebuild switch --flake ${flakeConfig.flakePath}#onyx | nom";
     };
 

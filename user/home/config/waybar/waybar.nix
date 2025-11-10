@@ -15,12 +15,9 @@
         modules-center = [ "clock" ];
         modules-right = [
           "backlight"
-          "|"
           "battery"
-          "|"
-          "bluetooth"
-          "|"
           "pulseaudio"
+          "bluetooth"
         ];
 
         "clock" = {
@@ -72,7 +69,6 @@
               "󰂋"
               "󰂅"
             ];
-            full = "󰂈";
           };
         };
         "backlight" = lib.mkIf (flakeConfig.networking.hostName == "onyx") {
