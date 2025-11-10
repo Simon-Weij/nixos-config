@@ -10,5 +10,6 @@ in
 {
   users.users."${username}".packages = [
     unstable.nix-output-monitor
+    unstable.brightnessctl
   ];
 }

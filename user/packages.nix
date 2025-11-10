@@ -31,8 +31,6 @@ in
 
     unstable.nil
 
-    unstable.brightnessctl
-
     unstable.nodePackages."@angular/cli"
     unstable.nodePackages."@nestjs/cli"
 
