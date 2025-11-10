@@ -17,6 +17,7 @@
           "backlight"
           "battery"
           "pulseaudio"
+          "power-profiles-daemon"
           "bluetooth"
         ];
 
@@ -30,6 +31,8 @@
             enabled = "󰂯";
             disabled = "󰂲";
           };
+          tooltip-format = "Open bluetooth settings";
+          tooltip = true;
           on-click = "overskride";
         };
         "pulseaudio" = {
@@ -80,6 +83,18 @@
           ];
           on-scroll-up = "brightnessctl set +5%";
           on-scroll-down = "brightnessctl set 5%-";
+        };
+
+        "power-profiles-daemon" = lib.mkIf (flakeConfig.networking.hostName == "onyx") {
+          format = "{icon}";
+          tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+          tooltip = true;
+          format-icons = {
+            default = "";
+            performance = "󱐋";
+            balanced = "󰾅";
+            power-saver = "󰌪";
+          };
         };
       }
     ];
