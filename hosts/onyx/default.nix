@@ -17,8 +17,8 @@ in
 
     ../../system/system.nix
     ../../system/desktop.nix
+    ./packages.nix
 
     ../../user/default.nix
-    ./packages.nix
   ];
 }

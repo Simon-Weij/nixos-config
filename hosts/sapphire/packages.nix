@@ -11,6 +11,8 @@ in
     unstable.freerdp
 
     unstable.heroic
+
+    unstable.nh
   ];
   programs.steam = {
     enable = true;
