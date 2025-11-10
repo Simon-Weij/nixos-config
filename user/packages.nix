@@ -13,7 +13,6 @@ in
     # system
     unstable.ungoogled-chromium
     unstable.ghostty
-    unstable.nh
 
     # gaming
     unstable.heroic
@@ -31,6 +30,8 @@ in
     unstable.git
 
     unstable.nil
+
+    unstable.brightnessctl
 
     unstable.nodePackages."@angular/cli"
     unstable.nodePackages."@nestjs/cli"

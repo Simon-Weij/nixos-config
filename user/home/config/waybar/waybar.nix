@@ -14,8 +14,12 @@
         modules-left = [ "niri/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = [
-          "custom/spotify"
+          "backlight"
+          "|"
+          "battery"
+          "|"
           "bluetooth"
+          "|"
           "pulseaudio"
         ];
 
@@ -45,6 +49,41 @@
           on-click-middle = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        };
+        "battery" = lib.mkIf (flakeConfig.networking.hostName == "onyx") {
+          format = "{icon} {capacity}%";
+          format-icons = {
+            discharging = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
+            charging = [
+              "󰢟"
+              "󰂆"
+              "󰂇"
+              "󰂈"
+              "󰢝"
+              "󰂉"
+              "󰢞"
+              "󰂊"
+              "󰂋"
+              "󰂅"
+            ];
+            full = "󰂈";
+          };
+        };
+        "backlight" = lib.mkIf (flakeConfig.networking.hostName == "onyx") {
+          format = "{icon} {percent}%";
+          format-icons = [
+            "󰃞"
+            "󰃟"
+            "󰃠"
+          ];
+          on-scroll-up = "brightnessctl set +5%";
+          on-scroll-down = "brightnessctl set 5%-";
         };
       }
     ];
