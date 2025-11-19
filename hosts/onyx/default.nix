@@ -14,6 +14,7 @@ in
 {
   imports = [
     ./hardware.nix
+    ./../../system/security.nix
 
     ../../system/system.nix
     ../../system/desktop.nix
