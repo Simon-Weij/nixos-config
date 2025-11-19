@@ -47,6 +47,10 @@
         inherit pkgs;
         unstable = unstablepkgs;
       };
+      opalConfig = import ./hosts/opal/opal.nix {
+        inherit pkgs;
+        unstable = unstablepkgs;
+      };
     in
     {
       formatter.${system} = pkgs.nixfmt-tree;
@@ -86,9 +90,21 @@
             flatpaks.nixosModules.nix-flatpak
           ];
         };
+        opal = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            unstable = unstablepkgs;
+            inherit inputs;
+            flakeConfig = opalConfig;
+          };
+          modules = [
+            ./hosts/opal/opal.nix
+          ];
+        };
       };
 
       sapphire = self.nixosConfigurations.sapphire;
       onyx = self.nixosConfigurations.onyx;
+      opal = self.nixosConfigurations.opal;
     };
 }

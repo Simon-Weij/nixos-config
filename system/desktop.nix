@@ -10,6 +10,8 @@
 
   niri-flake.cache.enable = false;
 
+  services.xserver.desktopManager.gnome.enable = true;
+
   environment.systemPackages = [
     unstable.swaylock
     unstable.rofi
@@ -27,7 +29,19 @@
     unstable.libnotify
     unstable.overskride
     unstable.playerctl
+    unstable.librsvg
+    unstable.adwaita-icon-theme
   ];
+
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "ghostty";
+  };
+
+  services.gvfs.enable = true;
+  services.gnome.sushi.enable = true;
+
+  services.xserver.displayManager.gdm.enable = true;
 
   programs.niri = {
     enable = true;

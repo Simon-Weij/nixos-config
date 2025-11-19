@@ -31,10 +31,19 @@ in
 
     unstable.nil
 
+    unstable.gnome-extension-manager
+
+    unstable.seahorse
+
     unstable.nodePackages."@angular/cli"
     unstable.nodePackages."@nestjs/cli"
 
-    inputs.nvim.packages.${pkgs.stdenv.system}.default
+    unstable.hoppscotch
+
+    unstable.go
+    unstable.gopls
+
+    #inputs.nvim.packages.${pkgs.stdenv.system}.default
   ];
 
   virtualisation.docker.enable = true;

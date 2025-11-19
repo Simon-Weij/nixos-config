@@ -8,7 +8,7 @@
       };
     };
   };
-
+  /*
   stylix = {
     enable = true;
     autoEnable = true;
@@ -39,4 +39,5 @@
       package = pkgs.adwaita-icon-theme;
     };
   };
+  */
 }

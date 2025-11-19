@@ -19,6 +19,7 @@ in
     ./config/mako/mako.nix
     ./apps/zen.nix
     ./apps/spicetify.nix
+    ./apps/neovim.nix
     ./theme.nix
   ];
 
