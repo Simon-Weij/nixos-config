@@ -4,7 +4,6 @@
   lib,
   config,
   flakeConfig,
-  unstable,
   ...
 }:
 let
