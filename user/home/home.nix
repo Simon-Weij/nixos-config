@@ -8,22 +8,36 @@
 }:
 let
   username = flakeConfig.username;
+  hostName = flakeConfig.networking.hostName;
 in
 {
-  imports = [
-    ./bashrc.nix
-    ./discord.nix
-    ./config/niri/niri.nix
-    ./config/rofi/rofi.nix
-    ./config/waybar/waybar.nix
-    ./config/mako/mako.nix
-    ./apps/zen.nix
-    ./apps/spicetify.nix
-    ./apps/neovim.nix
-    ./theme.nix
-  ];
+  imports = [ ./apps/spicetify.nix ];
 
   home.username = username;
-  home.homeDirectory = "/home/" + username;
+  home.homeDirectory = lib.mkDefault "/home/${username}";
   home.stateVersion = flakeConfig.stateVersion;
+
+  home.file.".local/share/applications/vesktop.desktop".text = ''
+    [Desktop Entry]
+    Name=Discord
+    Exec=vesktop --enable-features=VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,UseMultiPlaneFormatForHardwareVideo
+    Icon=${../appIcons/Discord.png}
+    Type=Application
+    Terminal=false
+    Categories=Network;Chat;
+  '';
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      neofetch = "nix run nixpkgs#fastfetch";
+      tree = "nix run nixpkgs#tree";
+      tokei = "nix run nixpkgs#tokei";
+      please = "sudo";
+    };
+
+    sessionVariables = {
+      NH_FLAKE = "${flakeConfig.flakePath}#${hostName}";
+    };
+  };
 }

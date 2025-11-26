@@ -2,7 +2,6 @@
   pkgs,
   flakeConfig,
   inputs,
-  unstable,
   ...
 }:
 {
@@ -10,15 +9,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
+  networking.hostName = flakeConfig.networking.hostName;
+  networking.firewall.enable = true;
 
-  nix.package = unstable.nix;
+  nix.settings = {
+    warn-dirty = false;
+    experimental-features = [ "nix-command" "flakes" ];
+    sandbox = true;
+  };
 
-  nix.settings.warn-dirty = false;
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
 
   time.timeZone = "Europe/Amsterdam";
 
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "nl_NL.UTF-8";
     LC_IDENTIFICATION = "nl_NL.UTF-8";
@@ -36,7 +41,10 @@
     variant = "";
   };
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    apparmor.enable = true;
+  };
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -47,13 +55,7 @@
 
   system.stateVersion = flakeConfig.stateVersion;
 
-  networking.hostName = flakeConfig.networking.hostName;
-
   documentation.nixos.enable = false;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
   services.pipewire = {
     enable = true;
@@ -62,20 +64,5 @@
     pulse.enable = true;
   };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [
-          (pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          })
-        ];
-      };
-    };
-  };
+  virtualisation.docker.enable = true;
 }
