@@ -31,9 +31,7 @@ in
     enable = true;
     shellAliases = {
       neofetch = "nix run nixpkgs#fastfetch";
-      tree = "nix run nixpkgs#tree";
-      tokei = "nix run nixpkgs#tokei";
-      please = "sudo";
+      config = "code ${flakeConfig.flakePath}";
     };
 
     sessionVariables = {

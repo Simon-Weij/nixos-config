@@ -20,6 +20,7 @@
 
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
+  services.gnome.core-apps.enable = false;
 
   time.timeZone = "Europe/Amsterdam";
 
@@ -64,10 +65,14 @@
     pulse.enable = true;
   };
 
-  virtualisation.docker.enable = true;
-
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 16*1024;
   } ];
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
 }

@@ -28,7 +28,20 @@ in
       distrobox
       nh
       git
+
+      nautilus
+
+      nixfmt-rfc-style
+
+      nix-init
+
+      geary
     ];
+  };
+
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "ghostty";
   };
 
   programs.steam = {
@@ -46,6 +59,8 @@ in
       "in.cinny.Cinny"
     ];
   };
+
+  virtualisation.docker.enable = true;
 
   home-manager = {
     useGlobalPkgs = false;
