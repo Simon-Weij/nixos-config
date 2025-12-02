@@ -34,8 +34,6 @@ in
       nixfmt-rfc-style
 
       nix-init
-
-      geary
     ];
   };
 

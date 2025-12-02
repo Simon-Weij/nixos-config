@@ -45,9 +45,11 @@
       nixosConfigurations = {
         sapphire = mkSystem "sapphire" ./hardware/sapphire.nix;
         onyx = mkSystem "onyx" ./hardware/onyx.nix;
+        opal = mkSystem "opal" ./hardware/opal.nix;
       };
 
       sapphire = self.nixosConfigurations.sapphire;
       onyx = self.nixosConfigurations.onyx;
+      opal = self.nixosConfigurations.opal;
     };
 }
