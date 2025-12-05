@@ -36,6 +36,11 @@ in
       nix-init
 
       geary
+ 
+      winboat
+
+      nodejs
+      nodePackages."@angular/cli"
     ];
   };
 
