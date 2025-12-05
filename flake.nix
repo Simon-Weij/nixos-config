@@ -4,6 +4,7 @@
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
     home-manager.url = "github:nix-community/home-manager";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =
@@ -13,6 +14,7 @@
       flatpaks,
       spicetify-nix,
       home-manager,
+      chaotic,
     }:
     let
       system = "x86_64-linux";
@@ -36,6 +38,7 @@
             home-manager.nixosModules.home-manager
             spicetify-nix.nixosModules.spicetify
             flatpaks.nixosModules.nix-flatpak
+            chaotic.nixosModules.default
           ];
         };
     in

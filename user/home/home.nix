@@ -32,6 +32,8 @@ in
     shellAliases = {
       neofetch = "nix run nixpkgs#fastfetch";
       config = "code ${flakeConfig.flakePath}";
+      docs = "cd ~/Documents";
+      dockernuke  = "docker system prune -a -f --volumes";
     };
 
     sessionVariables = {

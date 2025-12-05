@@ -12,6 +12,8 @@
   networking.hostName = flakeConfig.networking.hostName;
   networking.firewall.enable = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+
   nix.settings = {
     warn-dirty = false;
     experimental-features = [ "nix-command" "flakes" ];
@@ -75,4 +77,5 @@
     binfmt = true;
   };
 
+  programs.nix-ld.enable = true;
 }
