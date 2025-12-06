@@ -34,6 +34,7 @@ in
       config = "code ${flakeConfig.flakePath}";
       docs = "cd ~/Documents";
       dockernuke  = "docker system prune -a -f --volumes";
+      dockerstop = "docker stop $(docker ps -q)";
     };
 
     sessionVariables = {
