@@ -2,7 +2,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
-    home-manager.url = "github:nix-community/home-manager";
+
+    hjem.url = "github:feel-co/hjem";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
@@ -12,6 +13,7 @@
       self,
       nixpkgs,
       flatpaks,
+      hjem,
       spicetify-nix,
       home-manager,
       chaotic,
@@ -32,13 +34,17 @@
             };
           };
           modules = [
-            hardwareModule
             ./system/system.nix
-            ./user/default.nix
+            ./packages.nix
+            ./user/hjem.nix
+            ./user/config/gnome/dconf.nix
+            ./user/config/gnome/extensions.nix
+            hardwareModule
             home-manager.nixosModules.home-manager
             spicetify-nix.nixosModules.spicetify
             flatpaks.nixosModules.nix-flatpak
             chaotic.nixosModules.default
+            inputs.hjem.nixosModules.default
           ];
         };
     in

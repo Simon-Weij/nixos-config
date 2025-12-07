@@ -1,17 +1,10 @@
-{
-  inputs,
-  flakeConfig,
-  pkgs,
-  ...
-}:
+{ pkgs, flakeConfig, inputs, ... }:
 let
   username = flakeConfig.username;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in
 {
   users.users."${username}" = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    hashedPassword = "REMOVED";
     packages = with pkgs; [
       ungoogled-chromium
       ghostty
@@ -44,11 +37,6 @@ in
     ];
   };
 
-  programs.nautilus-open-any-terminal = {
-    enable = true;
-    terminal = "ghostty";
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -66,17 +54,13 @@ in
     ];
   };
 
-  virtualisation.docker.enable = true;
-
-  home-manager = {
-    useGlobalPkgs = false;
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs flakeConfig; };
-    users."${username}" = import ./home/home.nix;
-    sharedModules = [
-      {
-        nixpkgs.config.allowUnfree = true;
-      }
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblockify
+      shuffle
     ];
   };
+
+  virtualisation.docker.enable = true;
 }

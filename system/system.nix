@@ -4,6 +4,9 @@
   inputs,
   ...
 }:
+let 
+  username = flakeConfig.username;
+in
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -18,6 +21,12 @@
     warn-dirty = false;
     experimental-features = [ "nix-command" "flakes" ];
     sandbox = true;
+  };
+
+  users.users."${username}" = {
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    hashedPassword = "REMOVED";
   };
 
   services.desktopManager.gnome.enable = true;
