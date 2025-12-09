@@ -5,7 +5,6 @@
 
     hjem.url = "github:feel-co/hjem";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =
@@ -16,7 +15,6 @@
       hjem,
       spicetify-nix,
       home-manager,
-      chaotic,
     }:
     let
       system = "x86_64-linux";
@@ -43,7 +41,6 @@
             home-manager.nixosModules.home-manager
             spicetify-nix.nixosModules.spicetify
             flatpaks.nixosModules.nix-flatpak
-            chaotic.nixosModules.default
             inputs.hjem.nixosModules.default
           ];
         };
