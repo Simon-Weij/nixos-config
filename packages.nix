@@ -7,7 +7,6 @@ in
   users.users."${username}" = {
     packages = with pkgs; [
       ungoogled-chromium
-      ghostty
       floorp-bin
 
       heroic
@@ -34,6 +33,8 @@ in
 
       nodejs
       nodePackages."@angular/cli"
+
+      gnome-console
     ];
   };
 
