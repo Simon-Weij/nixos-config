@@ -14,7 +14,6 @@
       flatpaks,
       hjem,
       spicetify-nix,
-      home-manager,
     }:
     let
       system = "x86_64-linux";
@@ -38,7 +37,6 @@
             ./user/config/gnome/dconf.nix
             ./user/config/gnome/extensions.nix
             hardwareModule
-            home-manager.nixosModules.home-manager
             spicetify-nix.nixosModules.spicetify
             flatpaks.nixosModules.nix-flatpak
             inputs.hjem.nixosModules.default
