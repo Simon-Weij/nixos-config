@@ -53,7 +53,6 @@ in
       "org.prismlauncher.PrismLauncher"
       "org.gnome.Boxes"
       "in.cinny.Cinny"
-      "org.gnome.design.IconLibrary"
     ];
   };
 
