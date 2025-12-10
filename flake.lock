@@ -22,34 +22,17 @@
         "smfh": "smfh"
       },
       "locked": {
-        "lastModified": 1765156362,
-        "narHash": "sha256-47jAko8cZlKsEMpmxU5rCNP+xjjWGus8VRsT5EQTzdg=",
+        "lastModified": 1765329698,
+        "narHash": "sha256-JSMFBEEicqtplwipoMRHHrp9Xl0kpyD6LmbpWT6/CQw=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "2648bb3db14f5ad516d9ca3c670120837ad715f7",
+        "rev": "95a63e57deb3ae53e0f792a0d79c761e52bf9001",
         "type": "github"
       },
       "original": {
         "owner": "feel-co",
         "repo": "hjem",
         "type": "github"
-      }
-    },
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1765202646,
-        "narHash": "sha256-Cgceqa+xPgI8JiS1fMaviGw4dthTeW2RqE6RUR4OcS8=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "caa47b637d877124ac891a64abc14de09fce1675",
-        "type": "github"
-      },
-      "original": {
-        "id": "home-manager",
-        "type": "indirect"
       }
     },
     "nixpkgs": {
@@ -70,11 +53,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1764950072,
-        "narHash": "sha256-BmPWzogsG2GsXZtlT+MTcAWeDK5hkbGRZTeZNW42fwA=",
+        "lastModified": 1765186076,
+        "narHash": "sha256-hM20uyap1a0M9d344I692r+ik4gTMyj60cQWO+hAYP8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f61125a668a320878494449750330ca58b78c557",
+        "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
         "type": "github"
       },
       "original": {
@@ -100,28 +83,11 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1764950072,
-        "narHash": "sha256-BmPWzogsG2GsXZtlT+MTcAWeDK5hkbGRZTeZNW42fwA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "f61125a668a320878494449750330ca58b78c557",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "flatpaks": "flatpaks",
         "hjem": "hjem",
-        "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "spicetify-nix": "spicetify-nix"
       }
     },
@@ -172,7 +138,7 @@
     },
     "spicetify-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "systems": "systems_2"
       },
       "locked": {
