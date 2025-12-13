@@ -1,4 +1,9 @@
-{ pkgs, flakeConfig, inputs, ... }:
+{
+  pkgs,
+  flakeConfig,
+  inputs,
+  ...
+}:
 let
   username = flakeConfig.username;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
@@ -28,7 +33,7 @@ in
       nix-init
 
       geary
- 
+
       winboat
 
       nodejs
@@ -37,8 +42,18 @@ in
       gnome-console
 
       hoppscotch
+
+      alejandra
+
+      nixd
+
+      go
+      gopls
+      cobra-cli
     ];
   };
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   programs.steam = {
     enable = true;
