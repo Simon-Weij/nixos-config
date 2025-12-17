@@ -17,6 +17,7 @@ in
       heroic
       vesktop
       steam
+      vlc
 
       teams-for-linux
       vscode
@@ -48,6 +49,7 @@ in
       nixd
 
       go
+      gcc
       gopls
       cobra-cli
     ];
