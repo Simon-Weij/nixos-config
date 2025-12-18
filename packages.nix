@@ -52,6 +52,8 @@ in
       gcc
       gopls
       cobra-cli
+
+      zapzap
     ];
   };
 
