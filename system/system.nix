@@ -1,15 +1,16 @@
 {
   pkgs,
   flakeConfig,
-  inputs,
   ...
 }:
-let 
+let
   username = flakeConfig.username;
 in
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.networkmanager.enable = true;
   networking.hostName = flakeConfig.networking.hostName;
@@ -17,13 +18,20 @@ in
 
   nix.settings = {
     warn-dirty = false;
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     sandbox = true;
   };
 
   users.users."${username}" = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     hashedPassword = "REMOVED";
   };
 
@@ -56,13 +64,9 @@ in
     apparmor.enable = true;
   };
 
-  programs.bash.enableCompletion = true;
+  programs.bash.completion.enable = true;
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [ "libsoup-2.74.3" ];
-  };
-
+  nixpkgs.config.allowUnfree = true;
   hardware.bluetooth.enable = true;
 
   system.stateVersion = flakeConfig.stateVersion;
@@ -76,10 +80,12 @@ in
     pulse.enable = true;
   };
 
-  swapDevices = [ {
-    device = "/var/lib/swapfile";
-    size = 16*1024;
-  } ];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
 
   programs.appimage = {
     enable = true;

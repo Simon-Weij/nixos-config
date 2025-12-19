@@ -17,8 +17,9 @@
     }:
     let
       system = "x86_64-linux";
-      
-      mkSystem = hostName: hardwareModule:
+
+      mkSystem =
+        hostName: hardwareModule:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
@@ -36,6 +37,9 @@
             ./user/hjem.nix
             ./user/config/gnome/dconf.nix
             ./user/config/gnome/extensions.nix
+            ./user/packages/spicetify.nix
+            ./user/packages/steam.nix
+            ./user/packages/flatpak.nix
             hardwareModule
             spicetify-nix.nixosModules.spicetify
             flatpaks.nixosModules.nix-flatpak
