@@ -1,4 +1,4 @@
-{ pkgs, flakeConfig, ... }:
+{ flakeConfig, ... }:
 let
   username = flakeConfig.username;
   bashrcFiles = import ./config/bashrc/bashrc.nix { inherit flakeConfig; };
