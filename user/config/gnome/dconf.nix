@@ -6,6 +6,7 @@
         "org/gnome/desktop/interface" = {
           accent-color = "blue";
           color-scheme = "prefer-dark";
+          icon-theme = "Adwaita";
         };
         "org/gnome/desktop/wm/keybindings" = {
           close = [ "<Super>q" ];
