@@ -12,8 +12,8 @@
       self,
       nixpkgs,
       flatpaks,
-      hjem,
       spicetify-nix,
+      ...
     }:
     let
       system = "x86_64-linux";
