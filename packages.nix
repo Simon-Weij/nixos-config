@@ -27,6 +27,7 @@ in
       git
       nodePackages."@angular/cli"
       hoppscotch
+      distrobox
 
       #nix
       nh

@@ -11,6 +11,7 @@
         "org/gnome/desktop/wm/keybindings" = {
           close = [ "<Super>q" ];
           show-screenshot-ui = [ "<Shift>Escape" ];
+          toggle-maximized = [ "<Super>f" ];
         };
         "org/gnome/shell/keybindings" = {
           show-screenshot-ui = [ "<Shift>Escape" ];
