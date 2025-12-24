@@ -19,17 +19,16 @@
       system = "x86_64-linux";
 
       mkSystem =
-        hostName: hardwareModule:
+        hostModule:
+        let
+          hostConfig = import hostModule;
+          hardwareModule = builtins.replaceStrings ["hosts/"] ["hardware/"] (toString hostModule);
+        in
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs;
-            flakeConfig = {
-              flakePath = "/home/simon/Documents/nixos-config";
-              stateVersion = "25.05";
-              username = "simon";
-              networking.hostName = hostName;
-            };
+            flakeConfig = hostConfig.flakeConfig;
           };
           modules = [
             ./system/system.nix
@@ -51,9 +50,9 @@
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
       nixosConfigurations = {
-        sapphire = mkSystem "sapphire" ./hardware/sapphire.nix;
-        onyx = mkSystem "onyx" ./hardware/onyx.nix;
-        opal = mkSystem "opal" ./hardware/opal.nix;
+        sapphire = mkSystem ./hosts/sapphire.nix;
+        onyx = mkSystem ./hosts/onyx.nix;
+        opal = mkSystem ./hosts/opal.nix;
       };
 
       sapphire = self.nixosConfigurations.sapphire;
