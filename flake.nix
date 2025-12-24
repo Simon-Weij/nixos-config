@@ -5,6 +5,7 @@
 
     hjem.url = "github:feel-co/hjem";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs =
@@ -22,7 +23,7 @@
         hostModule:
         let
           hostConfig = import hostModule;
-          hardwareModule = builtins.replaceStrings ["hosts/"] ["hardware/"] (toString hostModule);
+          hardwareModule = builtins.replaceStrings [ "hosts/" ] [ "hardware/" ] (toString hostModule);
         in
         nixpkgs.lib.nixosSystem {
           inherit system;

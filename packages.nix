@@ -19,13 +19,15 @@ in
       nautilus
       gnome-console
       zapzap
-      firefox-bin
+      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       #development
       vscode
       github-desktop
       git
+      nodejs
       nodePackages."@angular/cli"
+      nodePackages."@nestjs/cli"
       hoppscotch
       distrobox
 
