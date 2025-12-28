@@ -40,6 +40,7 @@
             ./user/packages/spicetify.nix
             ./user/packages/steam.nix
             ./user/packages/flatpak.nix
+            ./system/systemd.nix
             hardwareModule
             spicetify-nix.nixosModules.spicetify
             flatpaks.nixosModules.nix-flatpak
