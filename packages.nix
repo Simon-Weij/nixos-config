@@ -36,6 +36,11 @@ in
       nixfmt-rfc-style
       alejandra
       nixd
+
+      #games
+      godot
+      aseprite
+      lmms
     ];
   };
 
