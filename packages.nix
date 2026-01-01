@@ -20,6 +20,7 @@ in
       gnome-console
       zapzap
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+      thunderbird
 
       #development
       vscode
