@@ -5,7 +5,7 @@
       lockAll = true;
       settings = {
         "org/gnome/shell" = {
-          enabled-extensions = [ "blur-my-shell@aunetx" "middleclickclose@paolo.tranquilli.gmail.com" ];
+          enabled-extensions = [ "middleclickclose@paolo.tranquilli.gmail.com" ];
         };
       };
     }
