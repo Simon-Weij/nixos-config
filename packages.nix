@@ -18,9 +18,9 @@ in
       teams-for-linux
       nautilus
       gnome-console
-      zapzap
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
+      waydroid
 
       #development
       vscode
@@ -34,7 +34,6 @@ in
 
       #nix
       nh
-      nixfmt-rfc-style
       alejandra
       nixd
     ];
