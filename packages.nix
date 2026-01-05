@@ -20,7 +20,6 @@ in
       gnome-console
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
-      waydroid
 
       #development
       vscode
@@ -39,6 +38,10 @@ in
     ];
   };
 
+  virtualisation = {
+    docker.enable = true;
+    waydroid.enable = true;
+  };
+
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-  virtualisation.docker.enable = true;
 }
