@@ -8,6 +8,8 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     nix-casks.url = "github:atahanyorganci/nix-casks/archive";
+
+    helium.url = "github:vikingnope/helium-browser-nix-flake";
   };
 
   outputs =

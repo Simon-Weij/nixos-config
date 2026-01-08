@@ -19,7 +19,9 @@ in
       nautilus
       gnome-console
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
+      gradia
 
       #development
       vscode
@@ -38,10 +40,7 @@ in
     ];
   };
 
-  virtualisation = {
-    docker.enable = true;
-    waydroid.enable = true;
-  };
+  virtualisation.docker.enable = true;
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }

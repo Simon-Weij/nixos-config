@@ -13,18 +13,24 @@
           show-screenshot-ui = [ "<Shift>Escape" ];
           toggle-maximized = [ "<Super>f" ];
         };
-        "org/gnome/shell/keybindings" = {
+        /*"org/gnome/shell/keybindings" = {
           show-screenshot-ui = [ "<Shift>Escape" ];
-        };
+        };*/
         "org/gnome/settings-daemon/plugins/media-keys" = {
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
           ];
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           binding = "<Super>t";
           command = "kgx";
           name = "Terminal";
+        };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+          binding = "<Shift>Escape";
+          command = "gradia --screenshot=INTERACTIVE";
+          name = "Screenshot";
         };
       };
     }
