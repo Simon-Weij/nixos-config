@@ -9,13 +9,15 @@
           icon-theme = "Adwaita";
         };
         "org/gnome/desktop/wm/keybindings" = {
-          close = [ "<Super>q" ];
-          show-screenshot-ui = [ "<Shift>Escape" ];
-          toggle-maximized = [ "<Super>f" ];
+          close = ["<Super>q"];
+          show-screenshot-ui = ["<Shift>Escape"];
+          toggle-maximized = ["<Super>f"];
         };
-        /*"org/gnome/shell/keybindings" = {
+        /*
+          "org/gnome/shell/keybindings" = {
           show-screenshot-ui = [ "<Shift>Escape" ];
-        };*/
+        };
+        */
         "org/gnome/settings-daemon/plugins/media-keys" = {
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"

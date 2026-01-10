@@ -1,5 +1,4 @@
-{ flakeConfig }:
-{
+{flakeConfig}: {
   ".bashrc".text = ''
     alias config='code /home/simon/Documents/nixos-config'
     alias dockernuke='docker system prune -a -f --volumes'
