@@ -1,5 +1,4 @@
-{ flakeConfig }:
-{
+{flakeConfig}: {
   ".config/user-dirs.dirs".text = ''
     XDG_DOWNLOAD_DIR="$HOME/Downloads"
     XDG_DOCUMENTS_DIR="$HOME/Documents"

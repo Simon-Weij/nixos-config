@@ -1,11 +1,6 @@
-{
-  flakeConfig,
-  ...
-}:
-let
+{flakeConfig, ...}: let
   username = flakeConfig.username;
-in
-{
+in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

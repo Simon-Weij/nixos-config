@@ -3,11 +3,9 @@
   flakeConfig,
   inputs,
   ...
-}:
-let
+}: let
   username = flakeConfig.username;
-in
-{
+in {
   users.users."${username}" = {
     packages = with pkgs; [
       #packages
@@ -19,9 +17,9 @@ in
       nautilus
       gnome-console
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
       gradia
+      linuxHeaders
 
       #development
       vscode
@@ -32,6 +30,7 @@ in
       nodePackages."@nestjs/cli"
       hoppscotch
       distrobox
+      python313
 
       #nix
       nh
@@ -42,5 +41,5 @@ in
 
   virtualisation.docker.enable = true;
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }
