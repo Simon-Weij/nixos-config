@@ -5,6 +5,10 @@
   ...
 }: let
   username = flakeConfig.username;
+  unstable = import inputs.unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
 in {
   users.users."${username}" = {
     packages = with pkgs; [
@@ -22,7 +26,7 @@ in {
       linuxHeaders
 
       #development
-      vscode
+      unstable.vscode
       github-desktop
       git
       nodejs
@@ -30,7 +34,10 @@ in {
       nodePackages."@nestjs/cli"
       hoppscotch
       distrobox
+
       python313
+      poetry
+      jetbrains.pycharm
 
       #nix
       nh
@@ -40,6 +47,8 @@ in {
   };
 
   virtualisation.docker.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }

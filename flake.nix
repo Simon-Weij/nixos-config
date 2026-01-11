@@ -3,6 +3,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
 
+    unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     hjem.url = "github:feel-co/hjem";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -46,8 +48,6 @@
         ];
       };
   in {
-    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
-
     nixosConfigurations = {
       sapphire = mkSystem ./hosts/sapphire.nix;
       onyx = mkSystem ./hosts/onyx.nix;
