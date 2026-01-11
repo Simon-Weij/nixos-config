@@ -58,7 +58,6 @@ in {
 
   programs.bash.completion.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
   hardware.bluetooth.enable = true;
 
   system.stateVersion = flakeConfig.stateVersion;
