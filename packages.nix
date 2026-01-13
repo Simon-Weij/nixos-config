@@ -23,7 +23,7 @@ in {
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
       gradia
-      linuxHeaders
+      inputs.hytale.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       #development
       unstable.vscode
