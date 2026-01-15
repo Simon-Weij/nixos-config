@@ -10,8 +10,6 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     nix-casks.url = "github:atahanyorganci/nix-casks/archive";
-
-    hytale.url = "github:TNAZEP/HytaleLauncherFlake";
   };
 
   outputs = inputs @ {
