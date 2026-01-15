@@ -23,7 +23,8 @@ in {
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
       gradia
-      inputs.hytale.packages.${pkgs.stdenv.hostPlatform.system}.default
+      blender
+      chromium
 
       #development
       unstable.vscode
@@ -34,10 +35,12 @@ in {
       nodePackages."@nestjs/cli"
       hoppscotch
       distrobox
+      openjdk25
 
       python313
       poetry
       jetbrains.pycharm
+      jetbrains.idea-oss
 
       #nix
       nh
