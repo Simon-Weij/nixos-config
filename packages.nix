@@ -23,7 +23,6 @@ in {
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
       gradia
-      blender
       chromium
 
       #development
@@ -31,15 +30,13 @@ in {
       github-desktop
       git
       nodejs
-      nodePackages."@angular/cli"
-      nodePackages."@nestjs/cli"
       hoppscotch
       distrobox
       openjdk25
+      unstable.zed-editor
 
       python313
       poetry
-      jetbrains.pycharm
       jetbrains.idea-oss
 
       #nix
