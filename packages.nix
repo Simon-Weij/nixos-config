@@ -33,7 +33,7 @@ in {
       hoppscotch
       distrobox
       openjdk25
-      unstable.zed-editor
+      gnome-builder
 
       python313
       poetry
