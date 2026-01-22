@@ -24,6 +24,7 @@ in {
       thunderbird
       gradia
       chromium
+      onlyoffice-desktopeditors
 
       #development
       unstable.vscode
@@ -33,8 +34,6 @@ in {
       hoppscotch
       distrobox
       openjdk25
-      gnome-builder
-
       python313
       poetry
       jetbrains.idea-oss
@@ -43,10 +42,15 @@ in {
       nh
       alejandra
       nixd
+
+      #extra
+      starship
+      zsh-powerlevel10k
     ];
   };
 
   virtualisation.docker.enable = true;
+  programs.zsh.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

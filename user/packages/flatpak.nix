@@ -9,6 +9,7 @@ in {
       "org.gnome.Boxes"
       "com.usebottles.bottles"
       "org.vinegarhq.Sober"
+      "org.gnome.Builder"
       {
         appId = "com.hytale.Launcher";
         sha256 = hytale-hash;

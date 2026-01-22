@@ -34,6 +34,10 @@
           command = "gradia --screenshot=INTERACTIVE";
           name = "Screenshot";
         };
+        "org/gnome/Console" = {
+          use-system-font = false;
+          custom-font = "JetBrainsMono Nerd Font";
+        };
       };
     }
   ];
