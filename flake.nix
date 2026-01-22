@@ -39,6 +39,7 @@
           ./user/packages/steam.nix
           ./user/packages/flatpak.nix
           ./system/systemd.nix
+          ./user/config/fonts/fonts.nix
           hardwareModule
           spicetify-nix.nixosModules.spicetify
           flatpaks.nixosModules.nix-flatpak

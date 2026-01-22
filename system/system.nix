@@ -1,4 +1,8 @@
-{flakeConfig, ...}: let
+{
+  flakeConfig,
+  pkgs,
+  ...
+}: let
   username = flakeConfig.username;
 in {
   boot.loader.systemd-boot.enable = true;
@@ -24,6 +28,7 @@ in {
       "wheel"
       "docker"
     ];
+    shell = pkgs.zsh;
     hashedPassword = "REMOVED";
   };
 
@@ -56,7 +61,7 @@ in {
     apparmor.enable = true;
   };
 
-  programs.bash.completion.enable = true;
+  # programs.bash.completion.enable = true;
 
   hardware.bluetooth.enable = true;
 
