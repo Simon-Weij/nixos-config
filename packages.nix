@@ -9,22 +9,27 @@
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
+  vesktopModule = import ./user/config/vesktop/vesktop.nix {
+    inherit pkgs;
+    wrappers = inputs.wrappers;
+  };
+  nautilusWrapped = import ./user/config/nautilus/nautilus.nix {
+    inherit pkgs;
+    inputs = inputs;
+  };
 in {
   users.users."${username}" = {
     packages = with pkgs; [
       #packages
-      heroic
-      vesktop
-      steam
+      vesktopModule.package
       vlc
       teams-for-linux
-      nautilus
+      nautilusWrapped.package
       gnome-console
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
       gradia
       chromium
-      onlyoffice-desktopeditors
 
       #development
       unstable.vscode
@@ -36,7 +41,6 @@ in {
       openjdk25
       python313
       poetry
-      jetbrains.idea-oss
 
       #nix
       nh
@@ -46,8 +50,6 @@ in {
   };
 
   virtualisation.docker.enable = true;
-
   nixpkgs.config.allowUnfree = true;
-
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }

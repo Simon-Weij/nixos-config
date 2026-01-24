@@ -60,7 +60,7 @@ in {
     apparmor.enable = true;
   };
 
-  # programs.bash.completion.enable = true;
+  programs.bash.completion.enable = true;
 
   hardware.bluetooth.enable = true;
 
@@ -81,11 +81,4 @@ in {
       size = 16 * 1024;
     }
   ];
-
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
-
-  programs.nix-ld.enable = true;
 }

@@ -5,9 +5,10 @@
 
     unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    hjem.url = "github:feel-co/hjem";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    wrappers.url = "github:Lassulus/wrappers";
   };
 
   outputs = inputs @ {
@@ -15,13 +16,13 @@
     nixpkgs,
     flatpaks,
     spicetify-nix,
+    wrappers,
     ...
   }: let
     system = "x86_64-linux";
 
-    mkSystem = hostModule: let
-      hostConfig = import hostModule;
-      hardwareModule = builtins.replaceStrings ["hosts/"] ["hardware/"] (toString hostModule);
+    mkSystem = hostName: let
+      hostConfig = import (./hosts + "/${hostName}/meta.nix");
     in
       nixpkgs.lib.nixosSystem {
         inherit system;
@@ -32,25 +33,24 @@
         modules = [
           ./system/system.nix
           ./packages.nix
-          ./user/hjem.nix
           ./user/config/gnome/dconf.nix
           ./user/config/gnome/extensions.nix
           ./user/packages/spicetify.nix
           ./user/packages/steam.nix
-          ./user/packages/flatpak.nix
           ./system/systemd.nix
           ./user/config/fonts/fonts.nix
-          hardwareModule
+          ./user/config/bash/bash.nix
+          (./hosts + "/${hostName}/hardware.nix")
+          (./hosts + "/${hostName}/config.nix")
           spicetify-nix.nixosModules.spicetify
           flatpaks.nixosModules.nix-flatpak
-          inputs.hjem.nixosModules.default
         ];
       };
   in {
     nixosConfigurations = {
-      sapphire = mkSystem ./hosts/sapphire.nix;
-      onyx = mkSystem ./hosts/onyx.nix;
-      opal = mkSystem ./hosts/opal.nix;
+      sapphire = mkSystem "sapphire";
+      onyx = mkSystem "onyx";
+      opal = mkSystem "opal";
     };
 
     sapphire = self.nixosConfigurations.sapphire;

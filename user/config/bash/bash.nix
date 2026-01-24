@@ -1,14 +1,17 @@
 {
   pkgs,
   flakeConfig,
+  inputs,
+  ...
 }: {
-  ".bashrc".text = ''
-    alias config='code /home/simon/Documents/nixos-config'
+  programs.bash.promptInit = ''
+    alias config='code ${flakeConfig.flakePath}'
     alias dockernuke='docker system prune -a -f --volumes'
     alias dockerstop='docker stop $(docker ps -q)'
     alias docs='cd ~/Documents'
-    alias neofetch='nix run nixpkgs#fastfetch'
 
     export NH_FLAKE="${flakeConfig.flakePath}#${flakeConfig.networking.hostName}"
+
+    export PS1="\[\e[38;5;153m\]\u\[\e[0m\]\[\e[38;5;250m\]@\[\e[0m\]\[\e[38;5;33m\]\h\[\e[0m\] \[\e[38;5;250m\]\W\[\e[0m\] ❯ "
   '';
 }
