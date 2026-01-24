@@ -42,15 +42,10 @@ in {
       nh
       alejandra
       nixd
-
-      #extra
-      starship
-      zsh-powerlevel10k
     ];
   };
 
   virtualisation.docker.enable = true;
-  programs.zsh.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

@@ -28,7 +28,6 @@ in {
       "wheel"
       "docker"
     ];
-    shell = pkgs.zsh;
     hashedPassword = "REMOVED";
   };
 
