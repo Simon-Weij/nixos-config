@@ -21,6 +21,7 @@ in {
       "com.dec05eba.gpu_screen_recorder"
       "org.gnome.Boxes"
       "org.vinegarhq.Sober"
+      "com.usebottles.bottles"
       {
         appId = "com.hytale.Launcher";
         sha256 = hytale-hash;
