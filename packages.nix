@@ -5,31 +5,22 @@
   ...
 }: let
   username = flakeConfig.username;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   unstable = import inputs.unstable {
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
-  };
-  vesktopModule = import ./user/config/vesktop/vesktop.nix {
-    inherit pkgs;
-    wrappers = inputs.wrappers;
-  };
-  nautilusWrapped = import ./user/config/nautilus/nautilus.nix {
-    inherit pkgs;
-    inputs = inputs;
   };
 in {
   users.users."${username}" = {
     packages = with pkgs; [
       #packages
-      vesktopModule.package
       vlc
       teams-for-linux
-      nautilusWrapped.package
+      nautilus
       gnome-console
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
       gradia
-      chromium
 
       #development
       unstable.vscode
@@ -46,6 +37,20 @@ in {
       nh
       alejandra
       nixd
+    ];
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblockify
+      shuffle
     ];
   };
 
