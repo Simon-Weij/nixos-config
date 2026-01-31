@@ -9,6 +9,10 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     wrappers.url = "github:Lassulus/wrappers";
+
+    hjem.url = "github:feel-co/hjem";
+
+    helium.url = "github:vikingnope/helium-browser-nix-flake";
   };
 
   outputs = inputs @ {
@@ -20,7 +24,6 @@
     ...
   }: let
     system = "x86_64-linux";
-
     mkSystem = hostName: let
       hostConfig = import (./hosts + "/${hostName}/meta.nix");
     in
@@ -35,13 +38,13 @@
           ./packages.nix
           ./user/config/gnome/dconf.nix
           ./user/config/gnome/extensions.nix
-          ./user/packages/spicetify.nix
-          ./user/packages/steam.nix
           ./system/systemd.nix
           ./user/config/fonts/fonts.nix
           ./user/config/bash/bash.nix
+          ./user/config/home/home.nix
           (./hosts + "/${hostName}/hardware.nix")
           (./hosts + "/${hostName}/config.nix")
+          inputs.hjem.nixosModules.default
           spicetify-nix.nixosModules.spicetify
           flatpaks.nixosModules.nix-flatpak
         ];
@@ -50,11 +53,9 @@
     nixosConfigurations = {
       sapphire = mkSystem "sapphire";
       onyx = mkSystem "onyx";
-      opal = mkSystem "opal";
     };
 
     sapphire = self.nixosConfigurations.sapphire;
     onyx = self.nixosConfigurations.onyx;
-    opal = self.nixosConfigurations.opal;
   };
 }
