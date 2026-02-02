@@ -11,8 +11,6 @@
     wrappers.url = "github:Lassulus/wrappers";
 
     hjem.url = "github:feel-co/hjem";
-
-    helium.url = "github:vikingnope/helium-browser-nix-flake";
   };
 
   outputs = inputs @ {

@@ -13,5 +13,7 @@
     export NH_FLAKE="${flakeConfig.flakePath}#${flakeConfig.networking.hostName}"
 
     export PS1="\[\e[38;5;153m\]\u\[\e[0m\]\[\e[38;5;250m\]@\[\e[0m\]\[\e[38;5;33m\]\h\[\e[0m\] \[\e[38;5;250m\]\W\[\e[0m\] ❯ "
+
+    export EDITOR=code
   '';
 }
