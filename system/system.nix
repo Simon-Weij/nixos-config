@@ -81,4 +81,6 @@ in {
       size = 16 * 1024;
     }
   ];
+
+  programs.nix-ld.enable = true;
 }

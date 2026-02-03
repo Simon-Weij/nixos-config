@@ -32,6 +32,7 @@ in {
       openjdk25
       python313
       poetry
+      android-studio
 
       #nix
       nh
