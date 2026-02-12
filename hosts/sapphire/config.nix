@@ -8,17 +8,11 @@
 }: let
   username = flakeConfig.username;
   hytale-hash = "sha256-8tWZakGhG0CXiH8yP+Nxukye0XdxbFwYS0H6n2x7AGc=";
-
-  vesktopModule = import ../../user/config/vesktop/vesktop.nix {
-    inherit pkgs;
-    wrappers = inputs.wrappers;
-  };
 in {
   users.users."${username}" = {
     packages = with pkgs; [
       steam
       heroic
-      vesktopModule.package
     ];
   };
   services.flatpak = {
