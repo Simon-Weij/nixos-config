@@ -33,6 +33,7 @@ in {
       python313
       poetry
       android-studio
+      unstable.stoat-desktop
 
       #nix
       nh
