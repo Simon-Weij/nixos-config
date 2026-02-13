@@ -10,6 +10,11 @@
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
+
+  vesktopModule = import ./user/config/vesktop/vesktop.nix {
+    inherit pkgs;
+    wrappers = inputs.wrappers;
+  };
 in {
   users.users."${username}" = {
     packages = with pkgs; [
@@ -21,6 +26,8 @@ in {
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       thunderbird
       gradia
+      vesktopModule.package
+      penpot-desktop
 
       #development
       unstable.vscode
@@ -30,7 +37,6 @@ in {
       hoppscotch
       distrobox
       openjdk25
-      python313
       poetry
       android-studio
       unstable.stoat-desktop
