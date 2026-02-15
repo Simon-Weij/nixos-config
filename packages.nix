@@ -10,6 +10,10 @@
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
+  veryunstable = import inputs.veryunstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
 
   vesktopModule = import ./user/config/vesktop/vesktop.nix {
     inherit pkgs;
@@ -28,9 +32,10 @@ in {
       gradia
       vesktopModule.package
       penpot-desktop
+      olympus
 
       #development
-      unstable.vscode
+      veryunstable.vscode
       github-desktop
       git
       nodejs
