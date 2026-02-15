@@ -2,15 +2,15 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
-
     unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
+    veryunstable.url = "github:NixOS/nixpkgs/master";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
     wrappers.url = "github:Lassulus/wrappers";
-
     hjem.url = "github:feel-co/hjem";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.home-manager.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
