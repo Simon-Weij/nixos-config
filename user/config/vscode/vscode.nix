@@ -1,12 +1,11 @@
-{
-  pkgs,
-}:
+{pkgs}:
 pkgs.vscode-with-extensions.override {
   vscode = pkgs.vscodium;
   vscodeExtensions = with pkgs.vscode-extensions;
     [
       # Nix
       bbenoist.nix
+      kamadorueda.alejandra
 
       # Angular
       angular.ng-template
@@ -55,7 +54,6 @@ pkgs.vscode-with-extensions.override {
       usernamehw.errorlens
       pkief.material-icon-theme
       christian-kohler.path-intellisense
-      serayuzgur.crates
       vadimcn.vscode-lldb
     ]
     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -88,6 +86,12 @@ pkgs.vscode-with-extensions.override {
         name = "vscode-css-peek";
         version = "4.4.3";
         sha256 = "sha256-oY+mpDv2OTy5hFEk2DMNHi9epFm4Ay4qi0drCXPuYhU=";
+      }
+      {
+        publisher = "jnoortheen";
+        name = "nix-ide";
+        version = "0.5.5";
+        sha256 = "sha256-epdEMPAkSo0IXsd+ozicI8bjPPquDKIzB3ONRUYWwn8=";
       }
     ];
 }

@@ -38,6 +38,7 @@ in {
       vesktopModule.package
       penpot-desktop
       olympus
+      ungoogled-chromium
 
       #development
       github-desktop
@@ -71,13 +72,13 @@ in {
     ];
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify"
-    "steam"
-    "steam-unwrapped"
-    "android-studio-stable"
-  ];
-
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "spotify"
+      "steam"
+      "steam-unwrapped"
+      "android-studio-stable"
+    ];
 
   services.flatpak = {
     enable = true;

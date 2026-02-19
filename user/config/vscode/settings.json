@@ -1,0 +1,31 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "alejandra",
+  "nix.formatterPath": "alejandra",
+  "nix.serverSettings": {
+    "alejandra": {
+      "formatting": {
+        "command": ["alejandra"]
+      }
+    }
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+
+  "editor.formatOnSave": true,
+
+  "emmet.includeLanguages": {
+    "vue": "html",
+    "javascript": "javascriptreact",
+    "html": "html",
+    "svelte": "html"
+  },
+
+  "docker.lsp.telemetry": "off",
+
+  "telemetry.editStats.enabled": false,
+  "telemetry.feedback.enabled": false,
+}
