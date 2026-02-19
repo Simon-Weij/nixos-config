@@ -2,17 +2,16 @@
   pkgs,
   flakeConfig,
   inputs,
+  lib,
   ...
 }: let
   username = flakeConfig.username;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   unstable = import inputs.unstable {
     system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
   };
   veryunstable = import inputs.veryunstable {
     system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
   };
 
   vesktopModule = import ./user/config/vesktop/vesktop.nix {
@@ -22,7 +21,6 @@
 
   vscodeModule = import ./user/config/vscode/vscode.nix {
     inherit pkgs;
-    inherit lib;
   };
 in {
   users.users."${username}" = {
@@ -73,6 +71,14 @@ in {
     ];
   };
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
+    "steam"
+    "steam-unwrapped"
+    "android-studio-stable"
+  ];
+
+
   services.flatpak = {
     enable = true;
     packages = [
@@ -81,6 +87,5 @@ in {
   };
 
   virtualisation.docker.enable = true;
-  nixpkgs.config.allowUnfree = true;
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }
