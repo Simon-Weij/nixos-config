@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
 }:
 pkgs.vscode-with-extensions.override {
   vscode = pkgs.vscodium;
@@ -40,7 +39,7 @@ pkgs.vscode-with-extensions.override {
 
       # Python
       ms-python.python
-      ms-python.vscode-pylance
+      #ms-python.vscode-pylance
       ms-python.debugpy
 
       # Docker
@@ -56,7 +55,7 @@ pkgs.vscode-with-extensions.override {
       usernamehw.errorlens
       pkief.material-icon-theme
       christian-kohler.path-intellisense
-      fill-labs.dependi
+      serayuzgur.crates
       vadimcn.vscode-lldb
     ]
     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -65,12 +64,6 @@ pkgs.vscode-with-extensions.override {
         publisher = "pivaszbs";
         version = "1.0.4";
         sha256 = "sha256-MqxZYKxmbuXKQkgSZFhPVts1h6l7/sxYo/cqMirRKpE=";
-      }
-      {
-        publisher = "rvest";
-        name = "vs-code-prettier-eslint";
-        version = "6.0.0";
-        sha256 = "sha256-PogNeKhIlcGxUKrW5gHvFhNluUelWDGHCdg5K+xGXJY=";
       }
       {
         publisher = "pmneo";

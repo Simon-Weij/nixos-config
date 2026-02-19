@@ -21,11 +21,18 @@
     spicetify-nix,
     wrappers,
     ...
-  }: let
+  }:
+  let
     system = "x86_64-linux";
-    mkSystem = hostName: let
-      hostConfig = import (./hosts + "/${hostName}/meta.nix");
-    in
+
+    pkgs = import nixpkgs {
+      inherit system;
+    };
+
+    mkSystem = hostName:
+      let
+        hostConfig = import (./hosts + "/${hostName}/meta.nix");
+      in
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
@@ -46,11 +53,19 @@
           flatpaks.nixosModules.nix-flatpak
         ];
       };
+
   in {
     nixosConfigurations = {
       sapphire = mkSystem "sapphire";
       onyx = mkSystem "onyx";
     };
+
+    packages.${system}.vscode =
+      import ./user/config/vscode/vscode.nix {
+        inherit pkgs;
+      };
+
+    defaultPackage.${system} = self.packages.${system}.vscode;
 
     sapphire = self.nixosConfigurations.sapphire;
     onyx = self.nixosConfigurations.onyx;
