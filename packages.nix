@@ -2,7 +2,6 @@
   pkgs,
   flakeConfig,
   inputs,
-  lib,
   ...
 }: let
   username = flakeConfig.username;
