@@ -65,8 +65,6 @@
         inherit pkgs;
       };
 
-    defaultPackage.${system} = self.packages.${system}.vscode;
-
     sapphire = self.nixosConfigurations.sapphire;
     onyx = self.nixosConfigurations.onyx;
   };
