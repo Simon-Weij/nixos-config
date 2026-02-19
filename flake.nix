@@ -6,11 +6,12 @@
     veryunstable.url = "github:NixOS/nixpkgs/master";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     wrappers.url = "github:Lassulus/wrappers";
-    hjem.url = "github:feel-co/hjem";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.home-manager.follows = "nixpkgs";
     };
+    fluxer.url = "github:Simon-Weij/Fluxer-nix";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/master";
   };
 
   outputs = inputs @ {
@@ -39,10 +40,8 @@
           ./system/systemd.nix
           ./user/config/fonts/fonts.nix
           ./user/config/bash/bash.nix
-          ./user/config/home/home.nix
           (./hosts + "/${hostName}/hardware.nix")
           (./hosts + "/${hostName}/config.nix")
-          inputs.hjem.nixosModules.default
           spicetify-nix.nixosModules.spicetify
           flatpaks.nixosModules.nix-flatpak
         ];

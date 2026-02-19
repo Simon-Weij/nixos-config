@@ -2,6 +2,7 @@
   pkgs,
   flakeConfig,
   inputs,
+  lib,
   ...
 }: let
   username = flakeConfig.username;
@@ -19,6 +20,11 @@
     inherit pkgs;
     wrappers = inputs.wrappers;
   };
+
+  vscodeModule = import ./user/config/vscode/vscode.nix {
+    inherit pkgs;
+    inherit lib;
+  };
 in {
   users.users."${username}" = {
     packages = with pkgs; [
@@ -28,6 +34,8 @@ in {
       nautilus
       gnome-console
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.fluxer.packages.${pkgs.stdenv.hostPlatform.system}.default
+      vscodeModule
       thunderbird
       gradia
       vesktopModule.package
@@ -35,11 +43,10 @@ in {
       olympus
 
       #development
-      veryunstable.vscode
       github-desktop
       git
       nodejs
-      hoppscotch
+      veryunstable.hoppscotch
       distrobox
       openjdk25
       poetry
@@ -64,6 +71,13 @@ in {
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
       shuffle
+    ];
+  };
+
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "in.cinny.Cinny"
     ];
   };
 
