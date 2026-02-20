@@ -24,11 +24,6 @@
           command = "kgx";
           name = "Terminal";
         };
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-          binding = "<Shift>Escape";
-          command = "gradia --screenshot=INTERACTIVE";
-          name = "Screenshot";
-        };
         "org/gnome/Console" = {
           use-system-font = false;
           custom-font = "JetBrainsMono Nerd Font";
