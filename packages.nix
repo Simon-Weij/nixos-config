@@ -30,26 +30,17 @@ in {
       teams-for-linux
       nautilus
       gnome-console
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.fluxer.packages.${pkgs.stdenv.hostPlatform.system}.default
       vscodeModule
-      thunderbird
-      gradia
       vesktopModule.package
-      penpot-desktop
-      olympus
       ungoogled-chromium
 
       #development
       github-desktop
       git
-      nodejs
       veryunstable.hoppscotch
       distrobox
-      openjdk25
-      poetry
       android-studio
-      unstable.stoat-desktop
 
       #nix
       nh
