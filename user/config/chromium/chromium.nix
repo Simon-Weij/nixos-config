@@ -1,5 +1,8 @@
-{pkgs, inputs, ...}: {
-
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.chromium = {
     enable = true;
 
@@ -20,25 +23,11 @@
     ];
 
     extraOpts = {
-
       DefaultSearchProviderEnabled = true;
-
       DefaultSearchProviderName = "Startpage";
       DefaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms}";
       DefaultSearchProviderSuggestURL = "https://www.startpage.com/sp/search?query={searchTerms}";
       DefaultSearchProviderIconURL = "https://www.startpage.com/favicon.ico";
-      
-      "WebAppInstallForceList" = [
-        {
-          "custom_name" = "Youtube";
-
-          "create_desktop_shortcut" = false;
-
-          "default_launch_container" = "window";
-
-          "url" = "https://youtube.com";
-        }
-      ];
     };
   };
 }

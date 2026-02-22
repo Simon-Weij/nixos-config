@@ -87,11 +87,5 @@ pkgs.vscode-with-extensions.override {
         version = "4.4.3";
         sha256 = "sha256-oY+mpDv2OTy5hFEk2DMNHi9epFm4Ay4qi0drCXPuYhU=";
       }
-      {
-        publisher = "jnoortheen";
-        name = "nix-ide";
-        version = "0.5.5";
-        sha256 = "sha256-epdEMPAkSo0IXsd+ozicI8bjPPquDKIzB3ONRUYWwn8=";
-      }
     ];
 }
