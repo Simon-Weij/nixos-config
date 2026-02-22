@@ -20,7 +20,13 @@
   };
 
   vscodeModule = import ./user/config/vscode/vscode.nix {
+    pkgs = veryunstable;
+  };
+
+  heliumModule = import ./user/config/chromium/helium.nix {
     inherit pkgs;
+    inherit inputs;
+    wrappers = inputs.wrappers;
   };
 in {
   users.users."${username}" = {
@@ -33,7 +39,7 @@ in {
       inputs.fluxer.packages.${pkgs.stdenv.hostPlatform.system}.default
       vscodeModule
       vesktopModule.package
-      ungoogled-chromium
+      chromium
 
       #development
       github-desktop
