@@ -37,16 +37,16 @@ in {
       nautilus
       gnome-console
       inputs.fluxer.packages.${pkgs.stdenv.hostPlatform.system}.default
-      vscodeModule
       vesktopModule.package
       chromium
 
       #development
       github-desktop
       git
-      veryunstable.hoppscotch
+      bruno
       distrobox
       android-studio
+      vscodeModule
 
       #nix
       nh
