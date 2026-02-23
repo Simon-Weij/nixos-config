@@ -20,6 +20,8 @@
       "hfjbmagddngcpeloejdejnfgbamkjaeg;https://clients2.google.com/service/update2/crx" # vimium C
 
       "kchgllkpfcggmdaoopkhlkbcokngahlg;https://clients2.google.com/service/update2/crx" # DF youtube
+
+      "bihgaolammfihpmkpphbngkhdelcnkfa;https://clients2.google.com/service/update2/crx" # Middle click scroll
     ];
 
     extraOpts = {

@@ -7,6 +7,7 @@
           accent-color = "blue";
           color-scheme = "prefer-dark";
           icon-theme = "Adwaita";
+          gtk-enable-primary-paste = false;
         };
         "org/gnome/desktop/wm/keybindings" = {
           close = ["<Super>q"];
