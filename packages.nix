@@ -20,7 +20,7 @@
   };
 
   vscodeModule = import ./user/config/vscode/vscode.nix {
-    pkgs = veryunstable;
+    inherit pkgs;
   };
 
   heliumModule = import ./user/config/chromium/helium.nix {

@@ -18,6 +18,8 @@
       export EDITOR=codium
 
       alias code=codium
+
+      alias nd="nix develop"
     '';
 
     completion.enable = true;
