@@ -19,6 +19,8 @@
 
       alias code=codium
 
+      alias clr=clear 
+
       alias nd="nix develop"
     '';
 

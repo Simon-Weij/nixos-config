@@ -23,11 +23,6 @@
     inherit pkgs;
   };
 
-  heliumModule = import ./user/config/chromium/helium.nix {
-    inherit pkgs;
-    inherit inputs;
-    wrappers = inputs.wrappers;
-  };
 in {
   users.users."${username}" = {
     packages = with pkgs; [
