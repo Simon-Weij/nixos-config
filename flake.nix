@@ -9,7 +9,6 @@
     fluxer.url = "github:Simon-Weij/Fluxer-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/master";
     hjem.url = "github:feel-co/hjem";
-    helium.url = "github:Simon-Weij/Helium-flake";
   };
 
   outputs = inputs @ {
