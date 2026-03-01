@@ -21,6 +21,13 @@ in {
             type = "copy";
             permissions = "0644";
           };
+        }
+        // {
+          ".config/niri/config.kdl" = {
+            source = ../niri/niri.kdl;
+            type = "copy";
+            permissions = "0644";
+          };
         };
     };
   };
