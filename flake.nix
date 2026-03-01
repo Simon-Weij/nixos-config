@@ -45,6 +45,9 @@
           ./user/config/bash/bash.nix
           ./user/config/home/home.nix
           ./user/config/chromium/chromium.nix
+          ./user/config/niri/niri.nix
+          ./user/config/niri/wrappers.nix
+          ./user/config/niri/swww/swww.nix
           (./hosts + "/${hostName}/hardware.nix")
           (./hosts + "/${hostName}/config.nix")
           spicetify-nix.nixosModules.spicetify

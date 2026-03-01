@@ -88,5 +88,11 @@ pkgs.vscode-with-extensions.override {
         version = "4.4.3";
         sha256 = "sha256-oY+mpDv2OTy5hFEk2DMNHi9epFm4Ay4qi0drCXPuYhU=";
       }
+      {
+        publisher = "kdl-org";
+        name = "kdl";
+        version = "2.1.3";
+        sha256 = "sha256-Jssmb5owrgNWlmLFSKCgqMJKp3sPpOrlEUBwzZSSpbM=";
+      }
     ];
 }

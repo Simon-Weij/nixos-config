@@ -1,0 +1,59 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: white;
+}
+
+tooltip {
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 3px solid transparent;
+    letter-spacing: -3px;
+}
+
+#workspaces button.focused {
+    background: transparent;
+    border-bottom: 3px solid #4a9eff;
+    color: white;
+}
+
+#mode, #clock, #battery {
+    padding: 0 10px;
+}
+
+#mode {
+    background: transparent;
+    border-bottom: 3px solid white;
+}
+
+#clock {
+    background: transparent;
+    margin: 0;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#bluetooth, #power-profiles-daemon {
+    margin: 0 8px;
+    padding: 0 4px;
+}
+
+#backlight, #battery, #pulseaudio {
+    margin: 0 2px;
+}
