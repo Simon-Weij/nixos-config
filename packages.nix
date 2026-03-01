@@ -22,7 +22,6 @@
   vscodeModule = import ./user/config/vscode/vscode.nix {
     inherit pkgs;
   };
-
 in {
   users.users."${username}" = {
     packages = with pkgs; [
