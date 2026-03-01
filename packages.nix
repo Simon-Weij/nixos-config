@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: let
+}:
+let
   username = flakeConfig.username;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   unstable = import inputs.unstable {
@@ -22,7 +23,8 @@
   vscodeModule = import ./user/config/vscode/vscode.nix {
     inherit pkgs;
   };
-in {
+in
+{
   users.users."${username}" = {
     packages = with pkgs; [
       #packages
@@ -41,6 +43,7 @@ in {
       distrobox
       android-studio
       vscodeModule
+      inputs.self.packages.x86_64-linux.neovim
 
       #nix
       nh
@@ -63,7 +66,8 @@ in {
     ];
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "spotify"
       "steam"
@@ -79,5 +83,5 @@ in {
   };
 
   virtualisation.docker.enable = true;
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }
