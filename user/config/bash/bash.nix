@@ -19,7 +19,7 @@
 
       alias code=codium
 
-      alias clr=clear 
+      alias cl=clear
 
       alias nd="nix develop"
     '';

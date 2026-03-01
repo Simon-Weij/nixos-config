@@ -12,7 +12,7 @@
     }
   },
   "[nix]": {
-    "editor.defaultFormatter": "jnoortheen.nix-ide"
+    "editor.defaultFormatter": "kamadorueda.alejandra"
   },
 
   "editor.formatOnSave": true,
@@ -28,4 +28,7 @@
 
   "telemetry.editStats.enabled": false,
   "telemetry.feedback.enabled": false,
+
+  "svelte.enable-ts-plugin": true
+
 }

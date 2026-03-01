@@ -20,6 +20,7 @@ pkgs.vscode-with-extensions.override {
 
       # Rust
       rust-lang.rust-analyzer
+      tauri-apps.tauri-vscode
 
       # Svelte
       svelte.svelte-vscode
