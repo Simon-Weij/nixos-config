@@ -6,12 +6,15 @@
   config.vim = {
     theme = {
       enable = true;
-      name = "onedark";
-      style = "dark";
+      name = "tokyonight";
+      style = "storm";
     };
+
     lsp.enable = true;
     languages = {
       enableTreesitter = true;
+      enableFormat = true;
+      enableExtraDiagnostics = true;
       nix = {
         enable = true;
         format = {
@@ -19,12 +22,11 @@
           type = ["alejandra"];
         };
       };
-      ts.enable = true;
       go.enable = true;
-      svelte = {
-        enable = true;
-        lsp.enable = true;
-      };
+      ts.enable = true;
+      html.enable = true;
+      css.enable = true;
+      svelte.enable = true;
     };
     statusline.lualine.enable = true;
     telescope.enable = true;
@@ -36,7 +38,7 @@
     filetree.nvimTree = {
       enable = true;
       setupOpts = {
-        filters.dotfiles = true;
+        filters.dotfiles = false;
         renderer.icons.show.git = false;
       };
     };
@@ -57,8 +59,12 @@
           enable = true,
           ignore = false,
         },
+        filters = {
+          dotfiles = false,
+          custom = { "^.git$" },
+        },
         renderer = {
-          highlight_git = "name",
+          highlight_git = true,
           icons = {
             show = {
               git = false,
