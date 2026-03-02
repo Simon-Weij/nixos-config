@@ -6,7 +6,7 @@
 }: {
   programs.bash = {
     promptInit = ''
-      alias config='code ${flakeConfig.flakePath}'
+      alias config='nvim ${flakeConfig.flakePath}'
       alias dockernuke='docker system prune -a -f --volumes'
       alias dockerstop='docker stop $(docker ps -q)'
       alias docs='cd ~/Documents'
@@ -15,11 +15,11 @@
 
       export PS1="\[\e[38;5;153m\]\u\[\e[0m\]\[\e[38;5;250m\]@\[\e[0m\]\[\e[38;5;33m\]\h\[\e[0m\] \[\e[38;5;250m\]\W\[\e[0m\] ❯ "
 
-      export EDITOR=codium
+      export EDITOR=nvim
 
       alias code=codium
 
-      alias cl=clear
+      alias cls=clear
 
       alias nd="nix develop"
     '';
