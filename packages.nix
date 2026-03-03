@@ -29,7 +29,8 @@ in {
       vlc
       teams-for-linux
       nautilus
-      gnome-console
+      nautilus-open-any-terminal
+      ghostty
       inputs.fluxer.packages.${pkgs.stdenv.hostPlatform.system}.default
       vesktopModule.package
       chromium

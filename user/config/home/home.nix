@@ -28,13 +28,6 @@ in {
             type = "copy";
             permissions = "0644";
           };
-        }
-        // {
-          ".config/swaylock/config" = {
-            source = ../../config/niri/swaylock;
-            type = "copy";
-            permissions = "0644";
-          };
         };
     };
   };
