@@ -27,13 +27,17 @@
       alias nd="nix develop"
 
       lfcd() {
-      tmp="$(mktemp)"
-      command lf -last-dir-path="$tmp" "$@"
-      if [ -f "$tmp" ]; then
+        tmp="$(mktemp)"
+        command lf -last-dir-path="$tmp" "$@"
+        if [ -f "$tmp" ]; then
           dir="$(cat "$tmp")"
           rm -f "$tmp"
           [ -d "$dir" ] && cd "$dir"
-      fi
+        fi
+      }
+
+      calc() {
+        echo "$(($*))"
       }
 
       lf() {
