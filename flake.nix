@@ -12,77 +12,76 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      flatpaks,
-      spicetify-nix,
-      wrappers,
-      hjem,
-      nvf,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    flatpaks,
+    spicetify-nix,
+    wrappers,
+    hjem,
+    nvf,
+    ...
+  }: let
+    system = "x86_64-linux";
 
-      pkgs = import nixpkgs {
+    pkgs = import nixpkgs {
+      inherit system;
+    };
+
+    unstablePkgs = import inputs.unstable {
+      inherit system;
+    };
+
+    mkSystem = hostName: let
+      hostConfig = import (./hosts + "/${hostName}/meta.nix");
+    in
+      nixpkgs.lib.nixosSystem {
         inherit system;
-      };
-
-      mkSystem =
-        hostName:
-        let
-          hostConfig = import (./hosts + "/${hostName}/meta.nix");
-        in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            flakeConfig = hostConfig.flakeConfig;
-          };
-          modules = [
-            ./system/system.nix
-            ./packages.nix
-            ./user/config/gnome/dconf.nix
-            ./user/config/gnome/extensions.nix
-            ./system/systemd.nix
-            ./user/config/fonts/fonts.nix
-            ./user/config/bash/bash.nix
-            ./user/config/home/home.nix
-            ./user/config/chromium/chromium.nix
-            ./user/config/niri/niri.nix
-            ./user/config/niri/wrappers.nix
-            ./user/config/niri/swww/swww.nix
-            ./user/config/niri/misc/misc.nix
-            (./hosts + "/${hostName}/hardware.nix")
-            (./hosts + "/${hostName}/config.nix")
-            spicetify-nix.nixosModules.spicetify
-            flatpaks.nixosModules.nix-flatpak
-            inputs.hjem.nixosModules.default
-            nvf.nixosModules.default
-          ];
+        specialArgs = {
+          inherit inputs;
+          flakeConfig = hostConfig.flakeConfig;
         };
-
-      neovimConfig = nvf.lib.neovimConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
         modules = [
-          ./user/config/neovim/neovim.nix
+          ./system/system.nix
+          ./packages.nix
+          ./user/config/gnome/dconf.nix
+          ./user/config/gnome/extensions.nix
+          ./system/systemd.nix
+          ./user/config/fonts/fonts.nix
+          ./user/config/bash/bash.nix
+          ./user/config/home/home.nix
+          ./user/config/chromium/chromium.nix
+          ./user/config/niri/niri.nix
+          ./user/config/niri/wrappers.nix
+          ./user/config/niri/swww/swww.nix
+          ./user/config/niri/misc/misc.nix
+          (./hosts + "/${hostName}/hardware.nix")
+          (./hosts + "/${hostName}/config.nix")
+          spicetify-nix.nixosModules.spicetify
+          flatpaks.nixosModules.nix-flatpak
+          inputs.hjem.nixosModules.default
+          nvf.nixosModules.default
         ];
       };
-    in
-    {
-      nixosConfigurations = {
-        sapphire = mkSystem "sapphire";
-        onyx = mkSystem "onyx";
-      };
 
-      packages.${system} = {
-        neovim = neovimConfig.neovim;
-        default = neovimConfig.neovim;
-      };
-
-      sapphire = self.nixosConfigurations.sapphire;
-      onyx = self.nixosConfigurations.onyx;
+    neovimConfig = nvf.lib.neovimConfiguration {
+      pkgs = unstablePkgs;
+      modules = [
+        ./user/config/neovim/neovim.nix
+      ];
     };
+  in {
+    nixosConfigurations = {
+      sapphire = mkSystem "sapphire";
+      onyx = mkSystem "onyx";
+    };
+
+    packages.${system} = {
+      neovim = neovimConfig.neovim;
+      default = neovimConfig.neovim;
+    };
+
+    sapphire = self.nixosConfigurations.sapphire;
+    onyx = self.nixosConfigurations.onyx;
+  };
 }

@@ -22,6 +22,7 @@
       alias code=${pkgs.vscodium}/bin/codium
 
       alias cls=clear
+      alias cls=clear
 
       alias nd="nix develop"
     '';
