@@ -4,6 +4,7 @@
   ...
 }: let
   dotfiles = ./.;
+
   mkConfigWrapper = package: flag: conf:
     inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
@@ -17,6 +18,7 @@ in {
   environment.systemPackages = [
     mako
     rofi
+    pkgs.swaylock
   ];
 
   programs.niri.enable = true;

@@ -16,7 +16,6 @@
   };
 in {
   environment.systemPackages = [
-    unstable.swaylock
     unstable.xwayland
     unstable.xwayland-satellite
     unstable.swww

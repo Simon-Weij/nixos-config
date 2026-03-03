@@ -1,12 +1,8 @@
-{
-  pkgs,
-  system,
-  ...
-}: {
+{...}: {
   config.vim = {
     theme = {
       enable = true;
-      name = "onedark";
+      name = "nord";
       style = "dark";
     };
     lsp.enable = true;
@@ -25,6 +21,7 @@
         enable = true;
         lsp.enable = true;
       };
+      dart.enable = true;
     };
     statusline.lualine.enable = true;
     telescope.enable = true;
