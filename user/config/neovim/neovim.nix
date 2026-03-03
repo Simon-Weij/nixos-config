@@ -5,9 +5,12 @@
       name = "nord";
       style = "dark";
     };
+
     lsp.enable = true;
     languages = {
       enableTreesitter = true;
+      enableFormat = true;
+      enableExtraDiagnostics = true;
       nix = {
         enable = true;
         format = {
@@ -15,6 +18,7 @@
           type = ["alejandra"];
         };
       };
+      go.enable = true;
       ts.enable = true;
       go.enable = true;
       svelte = {
@@ -33,7 +37,7 @@
     filetree.nvimTree = {
       enable = true;
       setupOpts = {
-        filters.dotfiles = true;
+        filters.dotfiles = false;
         renderer.icons.show.git = false;
       };
     };
@@ -54,8 +58,12 @@
           enable = true,
           ignore = false,
         },
+        filters = {
+          dotfiles = false,
+          custom = { "^.git$" },
+        },
         renderer = {
-          highlight_git = "name",
+          highlight_git = true,
           icons = {
             show = {
               git = false,
