@@ -11,14 +11,14 @@
       package = pkgs.${package};
       flags.${flag} = "${dotfiles}/${conf}";
     };
-
+  swaylock = mkConfigWrapper "swaylock" "--config" "swaylock";
   mako = mkConfigWrapper "mako" "--config" "mako";
   rofi = mkConfigWrapper "rofi" "-config" "rofi.rasi";
 in {
   environment.systemPackages = [
     mako
     rofi
-    pkgs.swaylock
+    swaylock
   ];
 
   programs.niri.enable = true;
