@@ -105,7 +105,6 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Shift+Escape { screenshot; }
     Super+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -125,10 +124,10 @@ binds {
     Mod+H     { focus-column-left; }
     Mod+L     { focus-column-right; }
 
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-to-workspace-down; }
-    Mod+Ctrl+K     { move-window-to-workspace-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Alt+H     { move-column-left; }
+    Mod+Alt+J     { move-window-to-workspace-down; }
+    Mod+Alt+K     { move-window-to-workspace-up; }
+    Mod+Alt+L     { move-column-right; }
 
     Mod+J              { focus-workspace-down; }
     Mod+K              { focus-workspace-up; }

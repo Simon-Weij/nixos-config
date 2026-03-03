@@ -20,6 +20,7 @@
       export EDITOR=nvim
 
       alias code=codium
+      export GTK_CSD=0
 
       alias cls=clear
       alias cls=clear
