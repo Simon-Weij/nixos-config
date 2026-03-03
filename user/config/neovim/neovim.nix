@@ -1,9 +1,32 @@
-{...}: {
+{pkgs, ...}: {
   config.vim = {
     theme = {
       enable = true;
       name = "nord";
       style = "dark";
+    };
+
+    terminal.toggleterm = {
+      enable = true;
+      setupOpts = {
+        direction = "horizontal";
+        size = 15;
+      };
+    };
+
+    clipboard = {
+      enable = true;
+      registers = "unnamedplus";
+      providers.wl-copy.enable = true;
+    };
+
+    extraPlugins = {
+      markdown-preview = {
+        package = pkgs.vimPlugins.markdown-preview-nvim;
+      };
+      tiny-inline-diagnostic = {
+        package = pkgs.vimPlugins.tiny-inline-diagnostic-nvim;
+      };
     };
 
     lsp.enable = true;
@@ -18,8 +41,15 @@
           type = ["alejandra"];
         };
       };
+      rust.enable = true;
+      markdown = {
+        enable = true;
+        extensions.markview-nvim.enable = true;
+      };
       go.enable = true;
       ts.enable = true;
+      html.enable = true;
+      css.enable = true;
       svelte = {
         enable = true;
         lsp.enable = true;
@@ -96,6 +126,15 @@
           end,
         })
       '';
+
+      terminal-esc = ''
+        vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = "Exit terminal mode" })
+      '';
+
+      tiny-inline-diagnostic = ''
+        vim.diagnostic.config({ virtual_text = false })
+        require("tiny-inline-diagnostic").setup()
+      '';
     };
 
     keymaps = [
@@ -140,6 +179,20 @@
         action = "<cmd>lua vim.lsp.buf.format()<CR><cmd>w<CR>";
         silent = true;
         desc = "Format and save";
+      }
+      {
+        key = "<leader>mp";
+        mode = ["n"];
+        action = ":MarkdownPreview<CR>";
+        silent = true;
+        desc = "Markdown preview in browser";
+      }
+      {
+        key = "<leader>t";
+        mode = ["n"];
+        action = ":ToggleTerm<CR>";
+        silent = true;
+        desc = "Toggle terminal";
       }
     ];
   };
