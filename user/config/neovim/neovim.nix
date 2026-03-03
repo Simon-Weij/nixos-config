@@ -133,7 +133,14 @@
 
       tiny-inline-diagnostic = ''
         vim.diagnostic.config({ virtual_text = false })
-        require("tiny-inline-diagnostic").setup()
+        require("tiny-inline-diagnostic").setup({
+          options = {
+            multilines = {
+              enabled = true,
+              always_show = true,
+            },
+          },
+        })
       '';
     };
 
