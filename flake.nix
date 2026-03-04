@@ -44,15 +44,18 @@
         modules = [
           ./system/system.nix
           ./packages.nix
-          ./user/config/gnome/dconf.nix
-          ./user/config/gnome/extensions.nix
+          #./user/config/gnome/dconf.nix
+          #./user/config/gnome/extensions.nix
+          #./user/config/gnome/gnome.nix
           ./system/systemd.nix
           ./user/config/fonts/fonts.nix
           ./user/config/bash/bash.nix
           ./user/config/home/home.nix
           ./user/config/chromium/chromium.nix
           ./user/config/niri/niri.nix
+          ./user/config/niri/portal/portal.nix
           ./user/config/niri/wrappers.nix
+          ./user/config/niri/theme/theme.nix
           ./user/config/niri/swww/swww.nix
           ./user/config/niri/misc/misc.nix
           (./hosts + "/${hostName}/hardware.nix")
