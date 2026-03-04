@@ -24,7 +24,7 @@ layer-rule {
 
 cursor {
     xcursor-theme "Adwaita"
-    xcursor-size 28
+    xcursor-size 16
 }
 
 output "HDMI-A-1" {
