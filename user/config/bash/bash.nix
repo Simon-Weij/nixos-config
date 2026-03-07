@@ -6,7 +6,7 @@
 }: {
   programs.bash = {
     promptInit = ''
-      alias config='nvim ${flakeConfig.flakePath}'
+      alias config='codium ${flakeConfig.flakePath}'
       alias dockernuke='docker system prune -a -f --volumes'
       alias dockerstop='docker stop $(docker ps -q)'
       alias docs='cd ~/Documents'
@@ -17,9 +17,11 @@
 
       export PS1="\[\e[38;5;153m\]\u\[\e[0m\]\[\e[38;5;250m\]@\[\e[0m\]\[\e[38;5;33m\]\h\[\e[0m\] \[\e[38;5;250m\]\W\[\e[0m\] ❯ "
 
-      export EDITOR=nvim
+      export EDITOR=codium
 
       alias code=codium
+
+      export GTK_CSD=0
 
       alias cls=clear
       alias cls=clear
