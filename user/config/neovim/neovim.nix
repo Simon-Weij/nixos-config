@@ -49,10 +49,16 @@
       go.enable = true;
       ts.enable = true;
       html.enable = true;
+      yaml.enable = true;
+      qml.enable = true;
       css.enable = true;
       svelte = {
         enable = true;
         lsp.enable = true;
+        format = {
+          enable = true;
+          type = ["prettier"];
+        };
       };
       dart.enable = true;
     };
@@ -84,14 +90,6 @@
       };
     };
 
-    formatter.conform-nvim = {
-      enable = true;
-      setupOpts.format_on_save = {
-        lsp_fallback = true;
-        timeout_ms = 500;
-      };
-    };
-
     globals.mapleader = " ";
 
     luaConfigRC = {
@@ -119,6 +117,17 @@
       nix-indent = ''
         vim.api.nvim_create_autocmd("FileType", {
           pattern = "nix",
+          callback = function()
+            vim.opt_local.tabstop = 2
+            vim.opt_local.shiftwidth = 2
+            vim.opt_local.expandtab = true
+          end,
+        })
+      '';
+
+      html-indent = ''
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = "html",
           callback = function()
             vim.opt_local.tabstop = 2
             vim.opt_local.shiftwidth = 2
@@ -183,9 +192,9 @@
       {
         key = "<leader>s";
         mode = ["n"];
-        action = "<cmd>lua vim.lsp.buf.format()<CR><cmd>w<CR>";
+        action = "<cmd>w<CR>";
         silent = true;
-        desc = "Format and save";
+        desc = "Save";
       }
       {
         key = "<leader>mp";

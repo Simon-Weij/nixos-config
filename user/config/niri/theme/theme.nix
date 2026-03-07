@@ -23,6 +23,8 @@
     pkgs.darkly-qt5
   ];
 
+  qt.platformTheme = "qt5ct";
+
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT6_QPA_PLATFORMTHEME = "qt6ct";
