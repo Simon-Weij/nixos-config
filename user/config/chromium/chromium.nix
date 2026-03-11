@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  flakeConfig,
   ...
 }: {
   programs.chromium = {
@@ -19,8 +20,6 @@
 
       "hfjbmagddngcpeloejdejnfgbamkjaeg;https://clients2.google.com/service/update2/crx" # vimium C
 
-      "kchgllkpfcggmdaoopkhlkbcokngahlg;https://clients2.google.com/service/update2/crx" # DF youtube
-
       "bihgaolammfihpmkpphbngkhdelcnkfa;https://clients2.google.com/service/update2/crx" # Middle click scroll
     ];
 
@@ -32,4 +31,7 @@
       DefaultSearchProviderIconURL = "https://www.startpage.com/favicon.ico";
     };
   };
+  users.users."${flakeConfig.username}".packages = with pkgs; [
+    chromium
+  ];
 }
