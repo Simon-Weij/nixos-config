@@ -1,6 +1,7 @@
 {pkgs}:
 pkgs.vscode-with-extensions.override {
   vscode = pkgs.vscodium;
+
   vscodeExtensions = with pkgs.vscode-extensions;
     [
       # Nix
