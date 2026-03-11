@@ -42,6 +42,7 @@
           flakeConfig = hostConfig.flakeConfig;
         };
         modules = [
+          ./system/unfree.nix
           (./hosts + "/${hostName}/hardware.nix")
           (./hosts + "/${hostName}/modules.nix")
           spicetify-nix.nixosModules.spicetify
