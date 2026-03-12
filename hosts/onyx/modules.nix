@@ -1,11 +1,11 @@
 {flakeConfig, ...}: {
+  boot.kernelPackages = pkgs.linuxPackages_6_19;
   imports = [
     ../../modules/user/chromium.nix
     ../../modules/user/niri.nix
     ../../modules/user/development.nix
     ../../modules/user/essentials.nix
     ../../modules/user/messaging.nix
-    ../../modules/user/gaming.nix
     ../../modules/user/music.nix
     ../../modules/user/nix.nix
     ../../modules/user/bash.nix
