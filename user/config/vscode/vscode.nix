@@ -66,12 +66,6 @@ pkgs.vscode-with-extensions.override {
         sha256 = "sha256-MqxZYKxmbuXKQkgSZFhPVts1h6l7/sxYo/cqMirRKpE=";
       }
       {
-        publisher = "pmneo";
-        name = "tsimporter";
-        version = "2.0.1";
-        sha256 = "sha256-JQ7dAliryvVXH0Rg1uheSznOHqbp/BMwwlePH9P0kog=";
-      }
-      {
         publisher = "orta";
         name = "vscode-jest";
         version = "6.4.4";
