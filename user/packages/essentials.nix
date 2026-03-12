@@ -8,5 +8,6 @@
     teams-for-linux
     nautilus
     ghostty
+    lf
   ];
 }
