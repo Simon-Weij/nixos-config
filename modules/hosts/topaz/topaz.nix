@@ -7,14 +7,60 @@
     flakePath = "/home/simon/Documents/nixos-config";
     stateVersion = "25.11";
     username = "simon";
-    networking.hostName = "onyx";
+    networking.hostName = "topaz";
     hashedPassword = "REMOVED";
   };
+  modules = self.nixosModules;
 in {
-  flake.nixosConfigurations.onyx = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.topaz = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {inherit flakeConfig inputs self;};
-    modules = [
+    modules = with modules; [
+      {
+        services.keyd = {
+          enable = true;
+          keyboards.default = {
+            ids = ["*"];
+            settings = {
+              main = {
+                leftalt = "leftmeta";
+                leftmeta = "leftalt";
+              };
+            };
+          };
+        };
+      }
       ./hardware.nix
+      inputs.hjem.nixosModules.default
+      inputs.nix-flatpak.nixosModules.nix-flatpak
+      inputs.spicetify-nix.nixosModules.default
+
+      bluetooth
+      bootloader
+      desktop-hardening
+      networking
+      nix
+      timezone
+      unfree
+      user
+      wait-online
+      vesktop
+
+      swww
+      vscodium
+      waybar
+      wrappers
+      bash
+      chromium
+      development
+      docker
+      essentials
+      fonts
+      matrix
+      niri
+      pipewire
+      spotify
+      theme
+      user-dirs
     ];
   };
 }
