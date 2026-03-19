@@ -8,9 +8,7 @@
       (inputs.wrappers.wrapperModules.swaylock.apply {
         inherit pkgs;
         settings = {
-          color = "1e1e2e";
-          indicator-radius = 100;
-          show-failed-attempts = true;
+          color = "#000000";
         };
       }).wrapper;
   in {
