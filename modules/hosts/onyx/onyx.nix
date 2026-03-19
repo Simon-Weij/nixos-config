@@ -9,10 +9,11 @@
     username = "simon";
     networking.hostName = "onyx";
     hashedPassword = "$y$j9T$Lh5xfMWjdQPXq1SY5h1if.$H04U9/Kfl1YHR7shomYVpltWWjx/oNR4PCtuLQ8IxRA";
+    isLaptop = true;
   };
   modules = self.nixosModules;
 in {
-  flake.nixosConfigurations.sapphire = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.onyx = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {inherit flakeConfig inputs self;};
     modules = with modules; [
       ./hardware.nix
@@ -49,6 +50,7 @@ in {
       spotify
       theme
       user-dirs
+      clankers
     ];
   };
 }

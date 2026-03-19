@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  flakeConfig,
   ...
 }: {
   flake.nixosModules.waybar = {
@@ -8,8 +9,6 @@
     flakeConfig,
     ...
   }: let
-    isOnyx = flakeConfig.networking.hostName == "onyx";
-
     configFile = pkgs.writeText "waybar-config.json" (builtins.toJSON [
       ({
           layer = "top";
@@ -17,18 +16,18 @@
           modules-center = ["clock"];
           modules-right = lib.filter (x: x != null) [
             (
-              if isOnyx
+              if flakeConfig.isLaptop
               then "backlight"
               else null
             )
             (
-              if isOnyx
+              if flakeConfig.isLaptop
               then "battery"
               else null
             )
             "pulseaudio"
             (
-              if isOnyx
+              if flakeConfig.isLaptop
               then "power-profiles-daemon"
               else null
             )
@@ -62,7 +61,7 @@
             on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           };
         }
-        // lib.optionalAttrs isOnyx {
+        // lib.optionalAttrs flakeConfig.isLaptop {
           "battery" = {
             format = "{icon} {capacity}%";
             format-icons = {

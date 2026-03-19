@@ -9,6 +9,7 @@
     username = "simon";
     networking.hostName = "sapphire";
     hashedPassword = "$y$j9T$Lh5xfMWjdQPXq1SY5h1if.$H04U9/Kfl1YHR7shomYVpltWWjx/oNR4PCtuLQ8IxRA";
+    isLaptop = false;
   };
   modules = self.nixosModules;
 in {
@@ -36,7 +37,6 @@ in {
       swww
       vscodium
       waybar
-      wrappers
       bash
       chromium
       development
@@ -45,6 +45,9 @@ in {
       fonts
       matrix
       niri
+      mako
+      rofi
+      swaylock
       pipewire
       spotify
       theme
