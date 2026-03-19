@@ -7,13 +7,12 @@
     hjem.url = "github:feel-co/hjem";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
     wrappers.url = "github:Lassulus/wrappers";
   };
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [ "x86_64-linux" ];
-      imports = [ ((inputs.import-tree.matchNot ".*/hardware\\.nix") ./modules) ];
+      systems = ["x86_64-linux"];
+      imports = [((inputs.import-tree.matchNot ".*/hardware\\.nix") ./modules)];
     };
 }

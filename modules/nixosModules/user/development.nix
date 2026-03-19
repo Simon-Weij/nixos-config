@@ -11,6 +11,7 @@
         bruno
         distrobox
         android-studio
+        act
 
         nh
         alejandra

@@ -9,6 +9,7 @@
     username = "simon";
     networking.hostName = "topaz";
     hashedPassword = "REMOVED";
+    isLaptop = true;
   };
   modules = self.nixosModules;
 in {
@@ -61,6 +62,7 @@ in {
       spotify
       theme
       user-dirs
+      clankers
     ];
   };
 }
