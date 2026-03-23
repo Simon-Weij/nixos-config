@@ -37,7 +37,7 @@ in {
       swww
       vscodium
       waybar
-      bash
+      zsh
       chromium
       development
       docker
@@ -52,6 +52,7 @@ in {
       spotify
       theme
       user-dirs
+      gamedev
     ];
   };
 }

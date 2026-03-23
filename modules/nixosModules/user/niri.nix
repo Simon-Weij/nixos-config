@@ -2,6 +2,7 @@
   flake.nixosModules.niri = {
     pkgs,
     self,
+    flakeConfig,
     ...
   }: let
     niriWrapped =
@@ -19,17 +20,19 @@
             ["mako"]
             ["waybar"]
             ["swww" "img" "/etc/wallpapers/wallpaper.jpg"]
+            ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"]
           ];
 
           layout = {
             gaps = 3;
             center-focused-column = "never";
             preset-column-widths = [
+              {proportion = 0.33;}
               {proportion = 0.5;}
               {proportion = 0.7;}
               {proportion = 0.95;}
             ];
-            default-column-width = {proportion = 0.95;};
+            default-column-width = {proportion = 0.5;};
             focus-ring = {
               width = 1;
               active-color = "#0262acff";
@@ -151,10 +154,14 @@
       pkgs.libnotify
       pkgs.overskride
       pkgs.playerctl
+      pkgs.polkit_gnome
     ];
     programs.niri = {
       enable = true;
       package = niriWrapped;
     };
+
+    services.udisks2.enable = true;
+    security.polkit.enable = true;
   };
 }

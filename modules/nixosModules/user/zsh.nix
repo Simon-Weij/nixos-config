@@ -1,10 +1,11 @@
 {inputs, ...}: {
-  flake.nixosModules.bash = {
+  flake.nixosModules.zsh = {
     pkgs,
     flakeConfig,
     ...
   }: {
-    programs.bash = {
+    programs.zsh = {
+      enable = true;
       promptInit = ''
         alias config='codium ${flakeConfig.flakePath}'
         alias dockernuke='docker system prune -a -f --volumes'
@@ -15,7 +16,7 @@
 
         export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
 
-        export PS1="\[\e[38;5;153m\]\u\[\e[0m\]\[\e[38;5;250m\]@\[\e[0m\]\[\e[38;5;33m\]\h\[\e[0m\] \[\e[38;5;250m\]\W\[\e[0m\] ❯ "
+        PS1="%F{153}%n%f%F{250}@%f%F{33}%m%f %F{250}%1~%f ❯ "
 
         export EDITOR=codium
 
@@ -23,7 +24,6 @@
 
         export GTK_CSD=0
 
-        alias cls=clear
         alias cls=clear
 
         alias nd="nix develop"
@@ -45,9 +45,10 @@
         lf() {
           lfcd "$@"
         }
-      '';
 
-      completion.enable = true;
+        autoload -Uz compinit
+        compinit
+      '';
     };
   };
 }
