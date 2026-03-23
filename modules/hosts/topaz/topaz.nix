@@ -49,8 +49,7 @@ in {
       swww
       vscodium
       waybar
-      wrappers
-      bash
+      zsh
       chromium
       development
       docker

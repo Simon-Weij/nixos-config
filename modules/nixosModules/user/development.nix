@@ -21,6 +21,11 @@
 
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
+    programs.direnv = {
+      enable = true;
+      silent = true;
+    };
+
     programs.nix-ld.enable = true;
   };
 }

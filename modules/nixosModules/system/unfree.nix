@@ -11,6 +11,7 @@
         "steam-unwrapped"
         "android-studio-stable"
         "spicetify-Default"
+        "aseprite"
       ];
   };
 }

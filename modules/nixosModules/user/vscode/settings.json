@@ -29,6 +29,9 @@
   "telemetry.editStats.enabled": false,
   "telemetry.feedback.enabled": false,
 
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+
+  "basedpyright.analysis.typeCheckingMode": "strict"
+
 
 }

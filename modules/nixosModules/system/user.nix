@@ -11,6 +11,7 @@
         "wheel"
       ];
       hashedPassword = flakeConfig.hashedPassword;
+      shell = pkgs.zsh;
     };
   };
 }

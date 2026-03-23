@@ -37,8 +37,7 @@ in {
       swww
       vscodium
       waybar
-      wrappers
-      bash
+      zsh
       chromium
       development
       docker
@@ -50,7 +49,6 @@ in {
       spotify
       theme
       user-dirs
-      clankers
     ];
   };
 }
