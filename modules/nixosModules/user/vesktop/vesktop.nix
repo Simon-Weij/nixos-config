@@ -29,6 +29,18 @@
       paths = [wrappedVesktop vesktopDesktopItem vesktopIcon];
     };
   in {
-    users.users.${flakeConfig.username}.packages = [package];
+    users.users.${flakeConfig.username}.packages = [
+      (pkgs.symlinkJoin {
+        name = "vesktop-icons";
+        paths = [package];
+        pathsToLink = ["/share/icons"];
+      })
+    ];
+
+    programs.firejail.wrappedBinaries.vesktop = {
+      executable = "${package}/bin/vesktop";
+      profile = "${pkgs.firejail}/etc/firejail/vesktop.profile";
+      desktop = "${package}/share/applications/vesktop.desktop";
+    };
   };
 }

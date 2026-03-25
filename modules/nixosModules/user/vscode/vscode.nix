@@ -78,7 +78,19 @@
       ];
     };
   in {
-    users.users.${username}.packages = [vscodium];
+    users.users.${username}.packages = [
+      (pkgs.symlinkJoin {
+        name = "codium-icons";
+        paths = [vscodium];
+        pathsToLink = ["/share/icons"];
+      })
+    ];
+
+    programs.firejail.wrappedBinaries.codium = {
+      executable = "${vscodium}/bin/codium";
+      profile = "${pkgs.firejail}/etc/firejail/codium.profile";
+      desktop = "${vscodium}/share/applications/codium.desktop";
+    };
 
     hjem.users.${username} = {
       user = username;
