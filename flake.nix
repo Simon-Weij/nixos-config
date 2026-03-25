@@ -10,6 +10,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     wrappers.url = "github:Lassulus/wrappers";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
   };
 
   outputs = inputs:

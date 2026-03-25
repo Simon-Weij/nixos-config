@@ -20,6 +20,7 @@ in {
       inputs.hjem.nixosModules.default
       inputs.nix-flatpak.nixosModules.nix-flatpak
       inputs.spicetify-nix.nixosModules.default
+      inputs.lanzaboote.nixosModules.lanzaboote
 
       bluetooth
       bootloader
