@@ -31,8 +31,18 @@
         DefaultSearchProviderIconURL = "https://www.startpage.com/favicon.ico";
       };
     };
-    users.users."${flakeConfig.username}".packages = with pkgs; [
-      chromium
+
+    users.users."${flakeConfig.username}".packages = [
+      (pkgs.symlinkJoin {
+        name = "chromium-icons";
+        paths = [pkgs.chromium];
+        pathsToLink = ["/share/icons"];
+      })
     ];
+    programs.firejail.wrappedBinaries.chromium = {
+      executable = "${pkgs.chromium}/bin/chromium";
+      profile = "${pkgs.firejail}/etc/firejail/chromium.profile";
+      desktop = "${pkgs.chromium}/share/applications/chromium-browser.desktop";
+    };
   };
 }
