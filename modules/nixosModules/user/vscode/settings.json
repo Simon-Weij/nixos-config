@@ -31,7 +31,9 @@
 
   "svelte.enable-ts-plugin": true,
 
-  "basedpyright.analysis.typeCheckingMode": "strict"
+  "basedpyright.analysis.typeCheckingMode": "strict",
 
-
+  "files.exclude": {
+    "**/.jj": true
+  }
 }
