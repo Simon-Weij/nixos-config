@@ -34,6 +34,8 @@
   "basedpyright.analysis.typeCheckingMode": "strict",
 
   "files.exclude": {
-    "**/.jj": true
+    "**/.jj": true,
+    "**/.direnv": true,
+    "**/node_modules": true
   }
 }

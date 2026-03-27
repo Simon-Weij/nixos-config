@@ -9,7 +9,6 @@
     ];
     virtualisation.docker = {
       enable = true;
-      extraPackages = [pkgs.docker-buildx];
     };
   };
 }
