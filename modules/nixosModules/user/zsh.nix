@@ -11,6 +11,7 @@
         alias dockernuke='docker system prune -a -f --volumes'
         alias dockerstop='docker stop $(docker ps -q)'
         alias docs='cd ~/Documents'
+        alias dcu='docker compose up'
 
         alias lock=swaylock
 
