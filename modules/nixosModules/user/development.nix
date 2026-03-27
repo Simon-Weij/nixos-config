@@ -6,7 +6,6 @@
   }: {
     users.users."${flakeConfig.username}" = {
       packages = with pkgs; [
-        jujutsu
         git
         distrobox
         act
