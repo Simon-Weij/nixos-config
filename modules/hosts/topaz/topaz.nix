@@ -58,11 +58,13 @@ in {
       fonts
       matrix
       niri
+      rofi
+      mako
+      swaylock
       pipewire
       spotify
       theme
       user-dirs
-      clankers
     ];
   };
 }
