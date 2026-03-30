@@ -47,7 +47,10 @@
             }
           ];
 
-          input.mouse.accel-profile = "flat";
+          input = {
+            mouse.accel-profile = "flat";
+            touchpad.natural-scroll = null;
+          };
 
           outputs = {
             "HDMI-A-1" = {

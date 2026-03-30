@@ -33,6 +33,11 @@
 
   "basedpyright.analysis.typeCheckingMode": "strict",
 
+  "prettier.ignorePath": ".prettierignore",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+
   "files.exclude": {
     "**/.jj": true,
     "**/.direnv": true,
