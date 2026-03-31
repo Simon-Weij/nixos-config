@@ -155,10 +155,11 @@
       pkgs.xwayland-satellite
       pkgs.pavucontrol
       pkgs.libnotify
-      pkgs.overskride
       pkgs.playerctl
+      pkgs.overskride
       pkgs.polkit_gnome
     ];
+
     programs.niri = {
       enable = true;
       package = niriWrapped;
