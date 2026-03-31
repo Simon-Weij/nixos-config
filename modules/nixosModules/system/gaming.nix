@@ -5,7 +5,7 @@
     flakeConfig,
     ...
   }: let
-    hytale-hash = "sha256-8tWZakGhG0CXiH8yP+Nxukye0XdxbFwYS0H6n2x7AGc=";
+    #    hytale-hash = "sha256-uu7FA36M4wSqDXRF1ffN1a8S5MjL1N1kZi4gwbpw1oY=";
   in {
     programs.steam = {
       enable = true;
@@ -22,14 +22,14 @@
         "org.prismlauncher.PrismLauncher"
         "org.vinegarhq.Sober"
         "com.usebottles.bottles"
-        {
-          appId = "com.hytale.Launcher";
-          sha256 = hytale-hash;
-          bundle = "${pkgs.fetchurl {
-            url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-            sha256 = hytale-hash;
-          }}";
-        }
+        #        {
+        #         appId = "com.hytale.Launcher";
+        #        sha256 = hytale-hash;
+        #       bundle = "${pkgs.fetchurl {
+        #        url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
+        #       sha256 = hytale-hash;
+        #    }}";
+        #   }
       ];
     };
   };
