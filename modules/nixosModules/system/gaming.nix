@@ -22,14 +22,6 @@
         "org.prismlauncher.PrismLauncher"
         "org.vinegarhq.Sober"
         "com.usebottles.bottles"
-        #        {
-        #         appId = "com.hytale.Launcher";
-        #        sha256 = hytale-hash;
-        #       bundle = "${pkgs.fetchurl {
-        #        url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-        #       sha256 = hytale-hash;
-        #    }}";
-        #   }
       ];
     };
   };
