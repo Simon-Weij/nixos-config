@@ -35,9 +35,7 @@ in {
       wait-online
       vesktop
 
-      swww
       vscodium
-      waybar
       zsh
       chromium
       development
@@ -46,14 +44,10 @@ in {
       fonts
       matrix
       niri
-      mako
-      rofi
-      swaylock
       pipewire
       spotify
       theme
       user-dirs
-      gamedev
     ];
   };
 }
