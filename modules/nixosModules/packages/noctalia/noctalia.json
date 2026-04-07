@@ -7,11 +7,11 @@
       "monitors": [],
       "density": "default",
       "showOutline": false,
-      "showCapsule": true,
+      "showCapsule": false,
       "capsuleOpacity": 1,
       "capsuleColorKey": "none",
-      "widgetSpacing": 6,
-      "contentPadding": 2,
+      "widgetSpacing": 12,
+      "contentPadding": 5,
       "fontScale": 1,
       "enableExclusionZoneInset": true,
       "backgroundOpacity": 0.93,
@@ -29,55 +29,13 @@
       "widgets": {
         "left": [
           {
-            "colorizeSystemIcon": "none",
-            "customIconPath": "",
-            "enableColorization": false,
-            "icon": "rocket",
-            "iconColor": "none",
-            "id": "Launcher",
-            "useDistroLogo": false
-          },
-          {
             "clockColor": "none",
             "customFont": "",
-            "formatHorizontal": "HH:mm ddd, MMM dd",
+            "formatHorizontal": "HH:mm",
             "formatVertical": "HH mm - dd MM",
             "id": "Clock",
             "tooltipFormat": "HH:mm ddd, MMM dd",
             "useCustomFont": false
-          },
-          {
-            "compactMode": true,
-            "diskPath": "/",
-            "iconColor": "none",
-            "id": "SystemMonitor",
-            "showCpuCores": false,
-            "showCpuFreq": false,
-            "showCpuTemp": true,
-            "showCpuUsage": true,
-            "showDiskAvailable": false,
-            "showDiskUsage": false,
-            "showDiskUsageAsPercent": false,
-            "showGpuTemp": false,
-            "showLoadAverage": false,
-            "showMemoryAsPercent": false,
-            "showMemoryUsage": true,
-            "showNetworkStats": false,
-            "showSwapUsage": false,
-            "textColor": "none",
-            "useMonospaceFont": true,
-            "usePadding": false
-          },
-          {
-            "colorizeIcons": false,
-            "hideMode": "hidden",
-            "id": "ActiveWindow",
-            "maxWidth": 145,
-            "scrollingMode": "hover",
-            "showIcon": true,
-            "showText": true,
-            "textColor": "none",
-            "useFixedWidth": false
           },
           {
             "compactMode": false,
@@ -121,15 +79,6 @@
         ],
         "right": [
           {
-            "blacklist": [],
-            "chevronColor": "none",
-            "colorizeIcons": false,
-            "drawerEnabled": true,
-            "hidePassive": false,
-            "id": "Tray",
-            "pinned": []
-          },
-          {
             "hideWhenZero": false,
             "hideWhenZeroUnread": false,
             "iconColor": "none",
@@ -154,18 +103,11 @@
             "textColor": "none"
           },
           {
-            "applyToAllMonitors": false,
-            "displayMode": "onhover",
-            "iconColor": "none",
-            "id": "Brightness",
-            "textColor": "none"
-          },
-          {
             "colorizeDistroLogo": false,
             "colorizeSystemIcon": "none",
             "customIconPath": "",
             "enableColorization": false,
-            "icon": "noctalia",
+            "icon": "adjustments",
             "id": "ControlCenter",
             "useDistroLogo": false
           }
@@ -194,8 +136,8 @@
       "screenRadiusRatio": 1,
       "animationSpeed": 1,
       "animationDisabled": false,
-      "compactLockScreen": false,
-      "lockScreenAnimations": false,
+      "compactLockScreen": true,
+      "lockScreenAnimations": true,
       "lockOnSuspend": true,
       "showSessionButtonsOnLockScreen": true,
       "showHibernateOnLockScreen": false,
@@ -209,8 +151,8 @@
       "allowPanelsOnScreenWithoutBar": true,
       "showChangelogOnStartup": true,
       "telemetryEnabled": false,
-      "enableLockScreenCountdown": true,
-      "lockScreenCountdownDuration": 10000,
+      "enableLockScreenCountdown": false,
+      "lockScreenCountdownDuration": 5000,
       "autoStartAuth": false,
       "allowPasswordWithFprintd": false,
       "clockStyle": "custom",
@@ -294,12 +236,12 @@
     },
     "wallpaper": {
       "enabled": true,
-      "overviewEnabled": false,
+      "overviewEnabled": true,
       "directory": "/home/simon/Pictures/Wallpapers",
       "monitorDirectories": [],
       "enableMultiMonitorDirectories": false,
       "showHiddenFiles": false,
-      "viewMode": "single",
+      "viewMode": "recursive",
       "setWallpaperOnAllMonitors": true,
       "linkLightAndDarkWallpapers": true,
       "fillMode": "crop",
@@ -340,7 +282,7 @@
       "favorites": []
     },
     "appLauncher": {
-      "enableClipboardHistory": false,
+      "enableClipboardHistory": true,
       "autoPasteClipboard": false,
       "enableClipPreview": true,
       "clipboardWrapText": true,
@@ -351,16 +293,16 @@
       "position": "center",
       "pinnedApps": [],
       "sortByMostUsed": true,
-      "terminalCommand": "alacritty -e",
+      "terminalCommand": "ghostty --",
       "customLaunchPrefixEnabled": false,
       "customLaunchPrefix": "",
       "viewMode": "list",
-      "showCategories": true,
+      "showCategories": false,
       "iconMode": "tabler",
       "showIconBackground": false,
-      "enableSettingsSearch": true,
-      "enableWindowsSearch": true,
-      "enableSessionSearch": true,
+      "enableSettingsSearch": false,
+      "enableWindowsSearch": false,
+      "enableSessionSearch": false,
       "ignoreMouseInput": false,
       "screenshotAnnotationTool": "",
       "overviewLayer": false,
@@ -378,9 +320,6 @@
             "id": "Bluetooth"
           },
           {
-            "id": "WallpaperSelector"
-          },
-          {
             "id": "NoctaliaPerformance"
           }
         ],
@@ -390,12 +329,6 @@
           },
           {
             "id": "PowerProfile"
-          },
-          {
-            "id": "KeepAwake"
-          },
-          {
-            "id": "NightLight"
           }
         ]
       },
@@ -413,11 +346,11 @@
           "id": "audio-card"
         },
         {
-          "enabled": false,
+          "enabled": true,
           "id": "brightness-card"
         },
         {
-          "enabled": true,
+          "enabled": false,
           "id": "weather-card"
         },
         {
@@ -454,7 +387,7 @@
       "disableDesktopWidgets": true
     },
     "dock": {
-      "enabled": true,
+      "enabled": false,
       "position": "bottom",
       "displayMode": "auto_hide",
       "dockType": "floating",
@@ -496,47 +429,68 @@
     },
     "sessionMenu": {
       "enableCountdown": true,
-      "countdownDuration": 10000,
+      "countdownDuration": 3000,
       "position": "center",
       "showHeader": true,
       "showKeybinds": true,
       "largeButtonsStyle": true,
-      "largeButtonsLayout": "single-row",
+      "largeButtonsLayout": "grid",
       "powerOptions": [
         {
           "action": "lock",
+          "command": "",
+          "countdownEnabled": false,
           "enabled": true,
           "keybind": "1"
         },
         {
           "action": "suspend",
+          "command": "",
+          "countdownEnabled": false,
           "enabled": true,
           "keybind": "2"
         },
         {
           "action": "hibernate",
+          "command": "",
+          "countdownEnabled": false,
+          "enabled": false,
+          "keybind": ""
+        },
+        {
+          "action": "reboot",
+          "command": "",
+          "countdownEnabled": true,
           "enabled": true,
           "keybind": "3"
         },
         {
-          "action": "reboot",
+          "action": "logout",
+          "command": "",
+          "countdownEnabled": false,
           "enabled": true,
           "keybind": "4"
         },
         {
-          "action": "logout",
+          "action": "shutdown",
+          "command": "",
+          "countdownEnabled": true,
           "enabled": true,
           "keybind": "5"
         },
         {
-          "action": "shutdown",
-          "enabled": true,
-          "keybind": "6"
+          "action": "rebootToUefi",
+          "command": "",
+          "countdownEnabled": false,
+          "enabled": false,
+          "keybind": ""
         },
         {
-          "action": "rebootToUefi",
-          "enabled": true,
-          "keybind": "7"
+          "action": "userspaceReboot",
+          "command": "",
+          "countdownEnabled": false,
+          "enabled": false,
+          "keybind": ""
         }
       ]
     },
@@ -602,8 +556,8 @@
       "backlightDeviceMappings": []
     },
     "colorSchemes": {
-      "useWallpaperColors": false,
-      "predefinedScheme": "Noctalia (default)",
+      "useWallpaperColors": true,
+      "predefinedScheme": "Nord",
       "darkMode": true,
       "schedulingMode": "off",
       "manualSunrise": "06:30",
@@ -642,7 +596,7 @@
       "notifyUpdates": true
     },
     "idle": {
-      "enabled": false,
+      "enabled": true,
       "screenOffTimeout": 600,
       "lockTimeout": 660,
       "suspendTimeout": 1800,
@@ -670,7 +624,7 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "HDMI-A-1": "/home/simon/Pictures/Wallpapers/wallpaper.png"
+      "HDMI-A-1": "/home/simon/Pictures/Wallpapers/astronaut.png"
     },
     "desktopWidgetsEditMode": false,
     "display": {
@@ -691,7 +645,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1775582813000
+      "lastSeenTs": 1775587688000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.5"
@@ -2039,7 +1993,7 @@
           "path": "Vesper"
         }
       ],
-      "timestamp": 1775567316
+      "timestamp": 1775585922
     },
     "ui": {
       "settingsSidebarExpanded": true
