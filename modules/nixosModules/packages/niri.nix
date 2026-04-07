@@ -2,10 +2,39 @@
   flake.nixosModules.niri = {
     pkgs,
     self,
-    flakeConfig,
     ...
   }: let
-    niriWrapped =
+    unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in {
+    environment.systemPackages = [
+      pkgs.xwayland
+      pkgs.xwayland-satellite
+      pkgs.pavucontrol
+      pkgs.libnotify
+      pkgs.playerctl
+      pkgs.overskride
+      pkgs.polkit_gnome
+      self.packages.${pkgs.stdenv.hostPlatform.system}.noctaliaWrapped
+    ];
+
+    programs.niri = {
+      enable = true;
+      package = self.packages.${pkgs.stdenv.hostPlatform.system}.niriWrapped;
+    };
+
+    services.udisks2.enable = true;
+    security.polkit.enable = true;
+  };
+
+  perSystem = {
+    pkgs,
+    lib,
+    self',
+    ...
+  }: let
+    unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in {
+    packages.niriWrapped =
       (inputs.wrappers.wrapperModules.niri.apply {
         inherit pkgs;
         settings = {
@@ -16,11 +45,7 @@
           screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
           spawn-at-startup = [
-            ["swww-daemon"]
-            ["mako"]
-            ["waybar"]
-            ["swww" "img" "/etc/wallpapers/wallpaper.jpg"]
-            ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"]
+            [(lib.getExe self'.packages.noctaliaWrapped)]
           ];
 
           layout = {
@@ -148,24 +173,5 @@
           };
         };
       }).wrapper;
-  in {
-    environment.systemPackages = [
-      niriWrapped
-      pkgs.xwayland
-      pkgs.xwayland-satellite
-      pkgs.pavucontrol
-      pkgs.libnotify
-      pkgs.playerctl
-      pkgs.overskride
-      pkgs.polkit_gnome
-    ];
-
-    programs.niri = {
-      enable = true;
-      package = niriWrapped;
-    };
-
-    services.udisks2.enable = true;
-    security.polkit.enable = true;
   };
 }

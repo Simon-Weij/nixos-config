@@ -13,8 +13,6 @@
         alias docs='cd ~/Documents'
         alias dcu='docker compose up'
 
-        alias lock=swaylock
-
         export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
 
         PS1="%F{153}%n%f%F{250}@%f%F{33}%m%f %F{250}%1~%f ❯ "

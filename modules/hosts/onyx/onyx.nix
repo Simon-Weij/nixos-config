@@ -35,9 +35,7 @@ in {
       wait-online
       vesktop
 
-      swww
       vscodium
-      waybar
       zsh
       chromium
       development
