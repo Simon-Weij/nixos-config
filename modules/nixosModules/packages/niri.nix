@@ -48,6 +48,14 @@
             [(lib.getExe self'.packages.noctaliaWrapped)]
           ];
 
+          layer-rule = {
+            match = {
+              _attrs.namespace = "^noctalia-overview.*";
+            };
+            place-within-backdrop = true;
+
+          };
+
           layout = {
             gaps = 3;
             center-focused-column = "never";
@@ -105,7 +113,7 @@
             "Shift+Escape".screenshot = null;
             "Super+Space" = {
               _attrs.hotkey-overlay-title = "Run an Application: rofi";
-              spawn = ["rofi" "-show" "drun"];
+              spawn = [(lib.getExe self'.packages.noctaliaWrapped) "ipc" "call" "launcher" "toggle"];
             };
 
             "Mod+D" = {
