@@ -95,10 +95,17 @@
     hjem.users.${username} = {
       user = username;
       directory = "/home/${username}";
-      files.".config/VSCodium/User/settings.json" = {
-        source = ./settings.json;
-        type = "copy";
-        permissions = "0644";
+      files = {
+        ".config/VSCodium/User/settings.json" = {
+          source = ./settings.json;
+          type = "copy";
+          permissions = "0644";
+        };
+        ".config/VSCodium/User/keybindings.json" = {
+          source = ./keybindings.json;
+          type = "copy";
+          permissions = "0644";
+        };
       };
     };
   };

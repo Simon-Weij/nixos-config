@@ -43,6 +43,8 @@
     "**/.direnv": true,
     "**/node_modules": true
   },
-  "git.autofetch": true
+  "git.autofetch": true,
 
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 5
 }
