@@ -15,15 +15,13 @@
 
     services.flatpak = {
       enable = true;
+      forceRunOnActivation = true;
       packages = [
-        {
-          appId = "com.commet.app";
+        ":${pkgs.fetchurl {
+          url = "https://github.com/commetchat/commet/releases/download/v0.4.1/chat.commet.commetapp.flatpak";
           sha256 = commetHash;
-          bundle = "${pkgs.fetchurl {
-            url = "https://github.com/commetchat/commet/releases/download/v0.4.1/chat.commet.commetapp.flatpak";
-            sha256 = commetHash;
-          }}";
-        }
+          name = "chat.commet.commetapp.flatpak";
+        }}"
       ];
     };
   };

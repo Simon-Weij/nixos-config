@@ -116,6 +116,10 @@
               _attrs.hotkey-overlay-title = "Run an Application: rofi";
               spawn = [(lib.getExe self'.packages.noctaliaWrapped) "ipc" "call" "launcher" "toggle"];
             };
+            "Mod+V" = {
+              _attrs.hotkey-overlay-title = "Open control panel";
+              spawn = [(lib.getExe self'.packages.noctaliaWrapped) "ipc" "call" "controlCenter" "toggle"];
+            };
 
             "Mod+D" = {
               _attrs.repeat = false;

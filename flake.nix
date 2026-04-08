@@ -6,7 +6,7 @@
     import-tree.url = "github:vic/import-tree";
     fluxer.url = "github:Simon-Weij/Fluxer-nix";
     hjem.url = "github:feel-co/hjem";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     wrappers.url = "github:Lassulus/wrappers";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
