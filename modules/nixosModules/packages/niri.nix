@@ -16,6 +16,8 @@
       pkgs.polkit_gnome
       self.packages.${pkgs.stdenv.hostPlatform.system}.noctaliaWrapped
     ];
+    services.upower.enable = true;
+    services.power-profiles-daemon.enable = true;
 
     programs.niri = {
       enable = true;
@@ -53,7 +55,6 @@
               _attrs.namespace = "^noctalia-overview.*";
             };
             place-within-backdrop = true;
-
           };
 
           layout = {
