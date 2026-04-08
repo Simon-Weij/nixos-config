@@ -42,5 +42,22 @@
       profile = "${pkgs.firejail}/etc/firejail/vesktop.profile";
       desktop = "${package}/share/applications/vesktop.desktop";
     };
+
+    hjem.users.${flakeConfig.username} = {
+      user = flakeConfig.username;
+      directory = "/home/${flakeConfig.username}";
+      files = {
+        ".config/vesktop/settings.json" = {
+          source = ./settings.json;
+          type = "copy";
+          permissions = "0644";
+        };
+        ".config/vesktop/settings/settings.json" = {
+          source = ./vesktop-settings.json;
+          type = "copy";
+          permissions = "0644";
+        };
+      };
+    };
   };
 }
