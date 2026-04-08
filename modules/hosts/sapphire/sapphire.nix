@@ -18,7 +18,7 @@ in {
     modules = with modules; [
       ./hardware.nix
       inputs.hjem.nixosModules.default
-      inputs.nix-flatpak.nixosModules.nix-flatpak
+      inputs.flatpaks.nixosModules.default
       inputs.spicetify-nix.nixosModules.default
       inputs.lanzaboote.nixosModules.lanzaboote
 
