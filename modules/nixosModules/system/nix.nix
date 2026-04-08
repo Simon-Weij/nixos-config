@@ -12,6 +12,7 @@
       ];
       sandbox = true;
     };
+    nix.package = pkgs.lixPackageSets.stable.lix;
     documentation.nixos.enable = false;
     system.stateVersion = flakeConfig.stateVersion;
   };
