@@ -3,7 +3,7 @@
     "settingsVersion": 59,
     "bar": {
       "barType": "simple",
-      "position": "bottom",
+      "position": "left",
       "monitors": [],
       "density": "default",
       "showOutline": false,
@@ -32,7 +32,7 @@
             "clockColor": "none",
             "customFont": "",
             "formatHorizontal": "HH:mm",
-            "formatVertical": "HH mm - dd MM",
+            "formatVertical": "HH mm",
             "id": "Clock",
             "tooltipFormat": "HH:mm ddd, MMM dd",
             "useCustomFont": false
@@ -645,7 +645,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 0
+      "lastSeenTs": 1775810882000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.5"
