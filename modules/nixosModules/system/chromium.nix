@@ -7,7 +7,7 @@
     programs.chromium = {
       enable = true;
 
-      homepageLocation = "https://www.startpage.com/";
+      homepageLocation = "https://www.duckduckgo.com/";
 
       extensions = [
         "eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx" # dark reader
@@ -25,10 +25,10 @@
 
       extraOpts = {
         DefaultSearchProviderEnabled = true;
-        DefaultSearchProviderName = "Startpage";
-        DefaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms}";
-        DefaultSearchProviderSuggestURL = "https://www.startpage.com/sp/search?query={searchTerms}";
-        DefaultSearchProviderIconURL = "https://www.startpage.com/favicon.ico";
+        DefaultSearchProviderName = "Duckduckgo";
+        DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
+        DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+        DefaultSearchProviderIconURL = "https://duckduckgo.com/favicon.ico";
       };
     };
 
