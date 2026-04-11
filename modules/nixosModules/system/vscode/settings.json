@@ -41,10 +41,23 @@
   "files.exclude": {
     "**/.jj": true,
     "**/.direnv": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/.svelte-kit": true,
+    "**/build": true
   },
   "git.autofetch": true,
 
   "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.value": 5
+  "workbench.editor.limit.value": 5,
+
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

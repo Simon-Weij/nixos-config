@@ -12,6 +12,7 @@
         alias dockerstop='docker stop $(docker ps -q)'
         alias docs='cd ~/Documents'
         alias dcu='docker compose up'
+        alias pn='pnpm'
 
         export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
 
