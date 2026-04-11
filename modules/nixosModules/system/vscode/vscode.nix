@@ -75,6 +75,7 @@
         pkief.material-icon-theme
         christian-kohler.path-intellisense
         kdl-org.kdl
+        mkhl.direnv
       ];
     };
   in {
