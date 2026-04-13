@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.nixosModules.essentials = {
+  flake.nixosModules.desktop-essentials = {
     pkgs,
     flakeConfig,
     ...

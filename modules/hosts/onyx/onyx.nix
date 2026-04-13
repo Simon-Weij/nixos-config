@@ -17,37 +17,11 @@ in {
     specialArgs = {inherit flakeConfig inputs self;};
     modules = with modules; [
       ./hardware.nix
-      inputs.hjem.nixosModules.default
-      inputs.flatpaks.nixosModules.default
-      inputs.spicetify-nix.nixosModules.default
-      inputs.lanzaboote.nixosModules.lanzaboote
-
-      bluetooth
-      bootloader
-      desktop-hardening
-      gaming
-      networking
-      nix
-      swap
-      timezone
-      unfree
-      user
-      wait-online
-      vesktop
-
-      vscodium
-      zsh
-      chromium
-      development
-      docker
-      essentials
-      fonts
-      matrix
-      niri
-      pipewire
-      spotify
-      theme
-      user-dirs
+      imports
+      apps
+      desktop
+      dev
+      system
     ];
   };
 }
