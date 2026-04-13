@@ -13,6 +13,7 @@
       fonts
       networking
       pipewire
+      theme
       user-dirs
       desktop-essentials
     ];
