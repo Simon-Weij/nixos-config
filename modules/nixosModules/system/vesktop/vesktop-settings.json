@@ -175,7 +175,7 @@
             "enabled": false
         },
         "FavoriteGifSearch": {
-            "enabled": false
+            "enabled": true
         },
         "FixCodeblockGap": {
             "enabled": false
@@ -274,7 +274,7 @@
             "enabled": false
         },
         "NoBlockedMessages": {
-            "enabled": false
+            "enabled": true
         },
         "NoDefaultHangStatus": {
             "enabled": false
