@@ -18,6 +18,7 @@
         alias cls=clear
         alias nd="nix develop"
         alias noctalia-update='noctalia-shell ipc call state all > ${flakeConfig.flakePath}/modules/nixosModules/packages/noctalia/noctalia.json'
+        alias sudo='run0'
 
         export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
         export EDITOR=codium
