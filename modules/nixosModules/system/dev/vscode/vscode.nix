@@ -9,10 +9,9 @@
     ...
   }: let
     username = flakeConfig.username;
-    unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
     extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace;
     vscodium = pkgs.vscode-with-extensions.override {
-      vscode = unstablePkgs.vscodium;
+      vscode = pkgs.vscodium;
       vscodeExtensions = with extensions; [
         # Nix
         bbenoist.nix

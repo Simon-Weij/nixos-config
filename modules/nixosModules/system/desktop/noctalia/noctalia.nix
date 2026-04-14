@@ -1,10 +1,8 @@
 {inputs, ...}: {
-  perSystem = {pkgs, ...}: let
-    unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in {
+  perSystem = {pkgs, ...}: {
     packages.noctaliaWrapped = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
       inherit pkgs;
-      package = unstablePkgs.noctalia-shell;
+      package = pkgs.noctalia-shell;
       settings =
         (builtins.fromJSON
           (builtins.readFile ./noctalia.json)).settings;
