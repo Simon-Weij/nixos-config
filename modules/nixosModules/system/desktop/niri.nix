@@ -3,9 +3,7 @@
     pkgs,
     self,
     ...
-  }: let
-    unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in {
+  }: {
     environment.systemPackages = [
       pkgs.xwayland
       pkgs.xwayland-satellite
@@ -33,9 +31,7 @@
     lib,
     self',
     ...
-  }: let
-    unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in {
+  }: {
     packages.niriWrapped =
       (inputs.wrappers.wrapperModules.niri.apply {
         inherit pkgs;
