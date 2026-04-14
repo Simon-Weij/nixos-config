@@ -10,7 +10,6 @@
         distrobox
         act
 
-        nh
         alejandra
         nixd
         (pkgs.symlinkJoin {
