@@ -41,11 +41,15 @@
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
-      imports = [((inputs.import-tree.matchNot ".*/hardware\\.nix") ./modules)];
+      imports = [((inputs.import-tree.matchNot ".*/(hardware|disko)\\.nix") ./modules)];
     };
 }
