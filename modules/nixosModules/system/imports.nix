@@ -11,6 +11,7 @@
       inputs.flatpaks.nixosModules.default
       inputs.spicetify-nix.nixosModules.default
       inputs.lanzaboote.nixosModules.lanzaboote
+      inputs.disko.nixosModules.disko
     ];
   };
 }
