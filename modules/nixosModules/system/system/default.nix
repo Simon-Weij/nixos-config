@@ -9,7 +9,6 @@
     imports = with modules; [
       bootloader
       nix
-      swap
       unfree
       timezone
       user

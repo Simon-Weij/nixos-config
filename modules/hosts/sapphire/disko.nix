@@ -67,5 +67,4 @@
     interval = "monthly";
     fileSystems = ["/"];
   };
-  virtualisation.docker.storageDriver = "btrfs";
 }
