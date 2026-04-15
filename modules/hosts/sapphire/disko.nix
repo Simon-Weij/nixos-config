@@ -33,21 +33,21 @@
                 subvolumes = {
                   "@root" = {
                     mountpoint = "/";
-                    mountOptions = ["compress=zstd=3" "noatime"];
+                    mountOptions = ["compress=zstd" "noatime"];
                   };
 
                   "@home" = {
                     mountpoint = "/home";
-                    mountOptions = ["compress=zstd=3" "noatime"];
+                    mountOptions = ["compress=zstd" "noatime"];
                   };
 
                   "@nix" = {
                     mountpoint = "/nix";
-                    mountOptions = ["compress=zstd=3" "noatime"];
+                    mountOptions = ["compress=zstd" "noatime"];
                   };
                   "@snapshots" = {
                     mountpoint = "/.snapshots";
-                    mountOptions = ["compress=zstd=3" "noatime"];
+                    mountOptions = ["compress=zstd" "noatime"];
                   };
                 };
               };
@@ -60,7 +60,7 @@
   # sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount --flake /home/nixos/Documents/nixos-config#sapphire
   # sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode mount --flake /home/nixos/Documents/nixos-config#sapphire
   # sudo nixos-install --flake /home/nixos/Documents/nixos-config#sapphire --root /mnt --no-root-passwd
-  
+
   services.fstrim.enable = true;
   services.btrfs.autoScrub = {
     enable = true;

@@ -17,7 +17,6 @@ in {
     specialArgs = {inherit flakeConfig inputs self;};
     modules = with modules; [
       ./hardware.nix
-      inputs.disko.nixosModules.disko
       ./disko.nix
 
       imports
