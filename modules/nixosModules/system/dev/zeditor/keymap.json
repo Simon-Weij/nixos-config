@@ -72,8 +72,13 @@
       "enter": "project_panel::Open",
       "a": "project_panel::NewFile",
       "p": "project_panel::NewDirectory",
-      "escape": "menu::Cancel",
       "d": "project_panel::Delete"
+    }
+  },
+  {
+    "context": "ProjectPanel && editing",
+    "bindings": {
+      "escape": "menu::Cancel"
     }
   },
   {
