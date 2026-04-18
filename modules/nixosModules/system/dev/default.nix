@@ -10,6 +10,7 @@
       vscodium
       development
       docker
+      zeditor
     ];
   };
 }

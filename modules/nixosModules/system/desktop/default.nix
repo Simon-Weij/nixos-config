@@ -16,6 +16,7 @@
       theme
       user-dirs
       desktop-essentials
+      keyd
     ];
   };
 }

@@ -21,5 +21,7 @@
     environment.systemPackages = [
       pkgs.sbctl
     ];
+
+    boot.kernelPackages = pkgs.linuxPackages_6_12;
   };
 }

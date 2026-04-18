@@ -22,6 +22,15 @@
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.niriWrapped;
     };
 
+    systemd.user.services.polkit-gnome-authentication-agent = {
+      description = "Polkit gnome Authentication Agent";
+      wantedBy = ["graphical-session.target"];
+      serviceConfig = {
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+      };
+    };
+
     services.udisks2.enable = true;
     security.polkit.enable = true;
   };

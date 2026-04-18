@@ -11,7 +11,5 @@
     environment.systemPackages = [
       pkgs.seahorse
     ];
-
-    security.sudo.enable = false;
   };
 }
