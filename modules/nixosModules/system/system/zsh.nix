@@ -7,24 +7,20 @@
     programs.zsh = {
       enable = true;
       promptInit = ''
-        alias config='codium ${flakeConfig.flakePath}'
+        alias config='zeditor ${flakeConfig.flakePath}'
         alias dockernuke='docker system prune -a -f --volumes'
         alias dockerstop='docker stop $(docker ps -q)'
         alias docs='cd ~/Documents'
         alias dcu='docker compose up'
         alias pn='pnpm'
         alias f='niri-session'
-        alias code=codium
+        alias code=zeditor
         alias cls=clear
         alias nd="nix develop"
         alias noctalia-update='noctalia-shell ipc call state all > ${flakeConfig.flakePath}/modules/nixosModules/packages/noctalia/noctalia.json'
-        alias sudo='run0'
 
         export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
-        export EDITOR=codium
         PS1="%F{153}%n%f%F{250}@%f%F{33}%m%f %F{250}%1~%f ❯ "
-
-
 
         lfcd() {
           tmp="$(mktemp)"
