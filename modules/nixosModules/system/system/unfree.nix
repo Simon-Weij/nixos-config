@@ -9,7 +9,7 @@
         "spotify"
         "steam"
         "steam-unwrapped"
-        "android-studio"
+        "android-studio-stable"
         "spicetify-Default"
         "aseprite"
       ];

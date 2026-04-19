@@ -24,15 +24,17 @@
       "y": "vim::VisualYank",
       "f": "vim::NextWordEnd",
       "a": "vim::InsertAfter",
+      "i": "vim::InsertBefore",
       "d": "vim::PreviousWordStart",
       "u": "vim::Undo",
       "r": "vim::Redo",
       "$": "vim::EndOfLine",
       "z": "vim::StartOfLine",
       "v": "vim::ToggleVisual",
+      "ctrl-f": "buffer_search::Deploy",
       "s": "vim::Matching",
       "x": "vim::DeleteLeft",
-      "w": "editor::Fold",
+      "w": "editor::ToggleFold",
       "x x": "vim::VisualDeleteLine",
       "ctrl-h": "project_panel::ToggleFocus",
       "ctrl-l": "pane::GoForward",
@@ -60,8 +62,13 @@
     "bindings": {
       "ctrl-t": "workspace::NewTerminal",
       "ctrl-b": "terminal_panel::ToggleFocus",
-      "ctrl-c": "terminal::Copy",
-      "y": "terminal::Copy"
+      "ctrl-shift-c": "terminal::Copy",
+      "ctrl-shift-v": "terminal::Paste",
+      "ctrl-c": ["terminal::SendKeystroke", "ctrl-c"],
+      "ctrl-l": "terminal::Clear",
+      "ctrl-shift-t": "workspace::NewTerminal",
+      "ctrl-shift-k": "terminal::ScrollLineUp",
+      "ctrl-shift-j": "terminal::ScrollLineDown"
     }
   },
   {
@@ -78,7 +85,8 @@
   {
     "context": "ProjectPanel && editing",
     "bindings": {
-      "escape": "menu::Cancel"
+      "escape": "menu::Cancel",
+      "enter": "menu::Confirm"
     }
   },
   {
@@ -123,7 +131,6 @@
       "ctrl-q": "pane::CloseActiveItem",
       "ctrl-s": "workspace::Save",
       "ctrl-v": "file_finder::Toggle",
-      "ctrl-f": "buffer_search::Deploy",
       "ctrl-space": "editor::ShowCompletions",
       "tab": "editor::ConfirmCompletion"
     }
