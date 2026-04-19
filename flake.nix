@@ -1,6 +1,9 @@
 {
   inputs = {
     nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-25.11";
+    };
+    nixpkgs-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     flake-parts = {
@@ -35,7 +38,6 @@
     };
     wrapper-modules = {
       url = "github:BirdeeHub/nix-wrapper-modules";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.0.0";
@@ -45,7 +47,6 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs = inputs:
