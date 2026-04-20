@@ -126,13 +126,21 @@
     }
   },
   {
+    "context": "ProjectSearchBar > Editor",
     "bindings": {
+      "enter": "menu::Confirm"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-n": "workspace::NewSearch",
       "ctrl-tab": "tab_switcher::Toggle",
       "ctrl-q": "pane::CloseActiveItem",
       "ctrl-s": "workspace::Save",
       "ctrl-v": "file_finder::Toggle",
       "ctrl-space": "editor::ShowCompletions",
-      "tab": "editor::ConfirmCompletion"
+      "tab": "editor::ConfirmCompletion",
+      "escape": "menu::Cancel"
     }
   }
 ]
