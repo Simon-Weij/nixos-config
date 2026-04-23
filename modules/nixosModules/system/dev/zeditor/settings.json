@@ -11,6 +11,13 @@
     "metrics": false
   },
   "use_multiline_find": true,
+  "lsp": {
+    "qml": {
+      "binary": {
+        "arguments": ["-E"]
+      }
+    }
+  },
 
   "vim_mode": true,
   "ui_font_size": 16,

@@ -132,6 +132,18 @@
     }
   },
   {
+    "context": "Editor && (showing_completions || edit_prediction)",
+    "bindings": {
+      "tab": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !showing_completions && !edit_prediction",
+    "bindings": {
+      "tab": "editor::Tab"
+    }
+  },
+  {
     "bindings": {
       "ctrl-n": "workspace::NewSearch",
       "ctrl-tab": "tab_switcher::Toggle",
@@ -139,7 +151,6 @@
       "ctrl-s": "workspace::Save",
       "ctrl-v": "file_finder::Toggle",
       "ctrl-space": "editor::ShowCompletions",
-      "tab": "editor::ConfirmCompletion",
       "escape": "menu::Cancel"
     }
   }
