@@ -14,6 +14,9 @@
       heroic
       prismlauncher
       bottles
+      r2modman
+      inputs.nitrolaunch.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
       (pkgs.symlinkJoin {
         name = "prismlauncher-icons";
         paths = [pkgs.prismlauncher];
@@ -38,6 +41,11 @@
       packages = [
         "flathub:app/org.vinegarhq.Sober//stable"
         "flathub:app/com.usebottles.bottles//stable"
+        ":${pkgs.fetchurl {
+          url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
+          sha256 = "sha256-4u8s8dsmwf166XWZqXZTgWOv2QOad2bgw2R9vZqeEnI=";
+          name = "com.hytale.app.flatpak";
+        }}"
       ];
     };
   };

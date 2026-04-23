@@ -38,6 +38,7 @@
     };
     wrapper-modules = {
       url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.0.0";
@@ -45,6 +46,14 @@
     };
     disko = {
       url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hytale-launcher = {
+      url = "github:JPyke3/hytale-launcher-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nitrolaunch = {
+      url = "github:Squawkykaka/nitrolaunch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -1,66 +1,10 @@
 {
   "extensions": {
-    "dockerfile": {
-      "manifest": {
-        "id": "dockerfile",
-        "name": "Dockerfile",
-        "version": "0.2.0",
-        "schema_version": 1,
-        "description": "Dockerfile support.",
-        "repository": "https://github.com/zed-extensions/dockerfile",
-        "authors": [
-          "d1y <chenhonzho@gmail.com>",
-          "joshmeads <github@joshmeads.com>"
-        ],
-        "lib": {
-          "kind": "Rust",
-          "version": "0.7.0"
-        },
-        "themes": [],
-        "icon_themes": [],
-        "languages": ["languages/dockerfile"],
-        "grammars": {
-          "dockerfile": {
-            "repository": "https://github.com/camdencheek/tree-sitter-dockerfile",
-            "rev": "868e44ce378deb68aac902a9db68ff82d2299dd0",
-            "path": null
-          }
-        },
-        "language_servers": {
-          "docker-language-server": {
-            "language": "Dockerfile",
-            "languages": ["Dockerfile", "Docker Compose"],
-            "language_ids": {
-              "Dockerfile": "dockerfile",
-              "Docker Compose": "docker-compose"
-            },
-            "code_action_kinds": null
-          },
-          "dockerfile-language-server": {
-            "language": "Dockerfile",
-            "languages": [],
-            "language_ids": {},
-            "code_action_kinds": null
-          }
-        },
-        "context_servers": {},
-        "agent_servers": {},
-        "slash_commands": {},
-        "snippets": null,
-        "capabilities": [],
-        "debug_adapters": {
-          "buildx-dockerfile": {
-            "schema_path": "./debug_adapter_schemas/buildx-dockerfile.json"
-          }
-        }
-      },
-      "dev": false
-    },
     "git-firefly": {
       "manifest": {
         "id": "git-firefly",
         "name": "Git Firefly",
-        "version": "0.1.4",
+        "version": "0.1.5",
         "schema_version": 1,
         "description": "Provides Git Syntax Highlighting",
         "repository": "https://github.com/d1y/git_firefly",
@@ -111,48 +55,6 @@
       },
       "dev": false
     },
-    "html": {
-      "manifest": {
-        "id": "html",
-        "name": "HTML",
-        "version": "0.3.1",
-        "schema_version": 1,
-        "description": "HTML support.",
-        "repository": "https://github.com/zed-industries/zed",
-        "authors": ["Isaac Clayton <slightknack@gmail.com>"],
-        "lib": {
-          "kind": "Rust",
-          "version": "0.7.0"
-        },
-        "themes": [],
-        "icon_themes": [],
-        "languages": ["languages/html"],
-        "grammars": {
-          "html": {
-            "repository": "https://github.com/tree-sitter/tree-sitter-html",
-            "rev": "bfa075d83c6b97cd48440b3829ab8d24a2319809",
-            "path": null
-          }
-        },
-        "language_servers": {
-          "vscode-html-language-server": {
-            "language": "HTML",
-            "languages": [],
-            "language_ids": {
-              "CSS": "css",
-              "HTML": "html"
-            },
-            "code_action_kinds": null
-          }
-        },
-        "context_servers": {},
-        "agent_servers": {},
-        "slash_commands": {},
-        "snippets": null,
-        "capabilities": []
-      },
-      "dev": false
-    },
     "nix": {
       "manifest": {
         "id": "nix",
@@ -161,14 +63,18 @@
         "schema_version": 1,
         "description": "Nix support.",
         "repository": "https://github.com/zed-extensions/nix",
-        "authors": ["Hasit Mistry <hasitnm@gmail.com>"],
+        "authors": [
+          "Hasit Mistry <hasitnm@gmail.com>"
+        ],
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
         },
         "themes": [],
         "icon_themes": [],
-        "languages": ["languages/nix"],
+        "languages": [
+          "languages/nix"
+        ],
         "grammars": {
           "nix": {
             "repository": "https://github.com/nix-community/tree-sitter-nix",
@@ -198,11 +104,97 @@
       },
       "dev": false
     },
+    "qml": {
+      "manifest": {
+        "id": "qml",
+        "name": "QML",
+        "version": "0.0.4",
+        "schema_version": 1,
+        "description": "QML support.",
+        "repository": "https://github.com/lkroll/zed-qml",
+        "authors": [
+          "Lennart Kroll <24440161+lkroll@users.noreply.github.com>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.1.0"
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/qml"
+        ],
+        "grammars": {
+          "qmljs": {
+            "repository": "https://github.com/yuja/tree-sitter-qmljs",
+            "rev": "febf48a5b6928600cd8fb2a01254743af550780d",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "qmljs": {
+            "language": "QML",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
+    "svelte": {
+      "manifest": {
+        "id": "svelte",
+        "name": "Svelte",
+        "version": "0.2.11",
+        "schema_version": 1,
+        "description": "Svelte support",
+        "repository": "https://github.com/zed-extensions/svelte",
+        "authors": [
+          "Zed Industries <support@zed.dev>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.7.0"
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/svelte"
+        ],
+        "grammars": {
+          "svelte": {
+            "repository": "https://github.com/tree-sitter-grammars/tree-sitter-svelte",
+            "rev": "3f06f705410683adb17d146b5eca28c62fe81ba6",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "svelte-language-server": {
+            "language": "Svelte",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
     "toml": {
       "manifest": {
         "id": "toml",
         "name": "TOML",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "schema_version": 1,
         "description": "TOML support.",
         "repository": "https://github.com/zed-extensions/toml",
@@ -216,7 +208,9 @@
         },
         "themes": [],
         "icon_themes": [],
-        "languages": ["languages/toml"],
+        "languages": [
+          "languages/toml"
+        ],
         "grammars": {
           "toml": {
             "repository": "https://github.com/tree-sitter/tree-sitter-toml",
@@ -237,24 +231,15 @@
   "themes": {},
   "icon_themes": {},
   "languages": {
-    "Dockerfile": {
-      "extension": "dockerfile",
-      "path": "languages/dockerfile",
-      "matcher": {
-        "path_suffixes": ["Dockerfile", "Containerfile", "dockerfile"],
-        "first_line_pattern": null,
-        "modeline_aliases": []
-      },
-      "hidden": false,
-      "grammar": "dockerfile"
-    },
     "Git Attributes": {
       "extension": "git-firefly",
       "path": "languages/gitattributes",
       "matcher": {
-        "path_suffixes": ["gitattributes", ".gitattributes"],
-        "first_line_pattern": null,
-        "modeline_aliases": []
+        "path_suffixes": [
+          "gitattributes",
+          ".gitattributes"
+        ],
+        "first_line_pattern": null
       },
       "hidden": false,
       "grammar": "gitattributes"
@@ -269,8 +254,7 @@
           ".gitmodules",
           ".lfsconfig"
         ],
-        "first_line_pattern": null,
-        "modeline_aliases": []
+        "first_line_pattern": null
       },
       "hidden": false,
       "grammar": "git_config"
@@ -293,8 +277,7 @@
           ".rgignore",
           ".vscodeignore"
         ],
-        "first_line_pattern": null,
-        "modeline_aliases": []
+        "first_line_pattern": null
       },
       "hidden": false,
       "grammar": "gitignore"
@@ -303,42 +286,61 @@
       "extension": "git-firefly",
       "path": "languages/gitrebase",
       "matcher": {
-        "path_suffixes": ["git-rebase-todo"],
-        "first_line_pattern": null,
-        "modeline_aliases": []
+        "path_suffixes": [
+          "git-rebase-todo"
+        ],
+        "first_line_pattern": null
       },
       "hidden": false,
       "grammar": "git_rebase"
-    },
-    "HTML": {
-      "extension": "html",
-      "path": "languages/html",
-      "matcher": {
-        "path_suffixes": ["html", "htm", "shtml"],
-        "first_line_pattern": null,
-        "modeline_aliases": []
-      },
-      "hidden": false,
-      "grammar": "html"
     },
     "Nix": {
       "extension": "nix",
       "path": "languages/nix",
       "matcher": {
-        "path_suffixes": ["nix"],
-        "first_line_pattern": null,
-        "modeline_aliases": []
+        "path_suffixes": [
+          "nix"
+        ],
+        "first_line_pattern": null
       },
       "hidden": false,
       "grammar": "nix"
+    },
+    "QML": {
+      "extension": "qml",
+      "path": "languages/qml",
+      "matcher": {
+        "path_suffixes": [
+          "qml"
+        ],
+        "first_line_pattern": null
+      },
+      "hidden": false,
+      "grammar": "qmljs"
+    },
+    "Svelte": {
+      "extension": "svelte",
+      "path": "languages/svelte",
+      "matcher": {
+        "path_suffixes": [
+          "svelte"
+        ],
+        "first_line_pattern": null
+      },
+      "hidden": false,
+      "grammar": "svelte"
     },
     "TOML": {
       "extension": "toml",
       "path": "languages/toml",
       "matcher": {
-        "path_suffixes": ["Cargo.lock", "toml", "Pipfile", "uv.lock"],
-        "first_line_pattern": null,
-        "modeline_aliases": []
+        "path_suffixes": [
+          "Cargo.lock",
+          "toml",
+          "Pipfile",
+          "uv.lock"
+        ],
+        "first_line_pattern": null
       },
       "hidden": false,
       "grammar": "toml"
