@@ -147,6 +147,24 @@
                 softtabstop = 2;
               };
 
+              autocmds = [
+                {
+                  event = ["FileType"];
+                  pattern = ["go" "make"];
+                  command = "setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4";
+                }
+                {
+                  event = ["FileType"];
+                  pattern = ["python" "rust" "php" "sql" "qml"];
+                  command = "setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4";
+                }
+                {
+                  event = ["FileType"];
+                  pattern = ["nix" "json" "yaml" "toml" "typescript" "javascript" "typescriptreact" "javascriptreact" "css" "html" "svelte" "dart" "markdown" "bash" "sh" "zsh"];
+                  command = "setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2";
+                }
+              ];
+
               globals = {
                 mapleader = " ";
               };
