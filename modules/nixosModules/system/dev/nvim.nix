@@ -39,7 +39,7 @@
                   enable = true;
                   format = {
                     enable = true;
-                    type = "alejandra";
+                    type = ["alejandra"];
                   };
                 };
                 php.enable = true;
@@ -54,7 +54,7 @@
 
               treesitter = {
                 enable = true;
-                indent.enable = false;
+                indent.enable = true;
                 grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
                   dockerfile
                 ];
@@ -101,6 +101,10 @@
                 indent-blankline.enable = true;
               };
 
+              ui.nvim-ufo = {
+                enable = true;
+              };
+
               autopairs.nvim-autopairs.enable = true;
 
               autocomplete = {
@@ -128,7 +132,6 @@
                 };
               };
 
-
               clipboard = {
                 enable = true;
                 providers.wl-copy.enable = true;
@@ -145,6 +148,12 @@
                 tabstop = 2;
                 shiftwidth = 2;
                 softtabstop = 2;
+
+                foldcolumn = "1";
+                foldlevel = 0;
+                foldlevelstart = 0;
+                foldenable = true;
+                foldminlines = 0;
               };
 
               autocmds = [
@@ -162,6 +171,11 @@
                   event = ["FileType"];
                   pattern = ["nix" "json" "yaml" "toml" "typescript" "javascript" "typescriptreact" "javascriptreact" "css" "html" "svelte" "dart" "markdown" "bash" "sh" "zsh"];
                   command = "setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2";
+                }
+                {
+                  event = ["FileType" "BufWinEnter"];
+                  pattern = ["neo-tree"];
+                  command = "setlocal nofoldenable foldlevel=99 foldcolumn=0 | silent! UfoDetach";
                 }
               ];
 
@@ -278,15 +292,29 @@
                 {
                   mode = "n";
                   key = "<leader>w";
-                  action = "<cmd>foldclose<CR>";
-                  desc = "Fold/collapse block";
+                  action = "za";
+                  desc = "Toggle fold";
                   silent = true;
                 }
                 {
                   mode = "n";
                   key = "<leader>W";
-                  action = "<cmd>foldopen<CR>";
+                  action = "zo";
                   desc = "Unfold/expand block";
+                  silent = true;
+                }
+                {
+                  mode = "n";
+                  key = "<leader>o";
+                  action = "lua require('ufo').openAllFolds()";
+                  desc = "Open all folds";
+                  silent = true;
+                }
+                {
+                  mode = "n";
+                  key = "<leader>p";
+                  action = "lua require('ufo').closeAllFolds()";
+                  desc = "Close all folds";
                   silent = true;
                 }
                 {
