@@ -54,6 +54,7 @@
 
               treesitter = {
                 enable = true;
+                indent.enable = false;
                 grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
                   dockerfile
                 ];
@@ -119,29 +120,14 @@
                 neogit.enable = true;
               };
 
-              augroups = [
-                {
-                  name = "NixIndent";
-                  clear = true;
-                  enable = true;
-                }
-              ];
+              terminal.toggleterm = {
+                enable = true;
+                setupOpts = {
+                  direction = "horizontal";
+                  size = 15;
+                };
+              };
 
-              autocmds = [
-                {
-                  event = ["FileType"];
-                  pattern = ["nix"];
-                  group = "NixIndent";
-                  desc = "2 space indent for nix files";
-                  command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2";
-                }
-                {
-                  event = ["TextChanged" "InsertLeave"];
-                  pattern = ["*"];
-                  desc = "Autosave on text change or leaving insert mode";
-                  command = "silent! write";
-                }
-              ];
 
               clipboard = {
                 enable = true;
@@ -150,13 +136,15 @@
               };
 
               options = {
-                autoindent = false;
+                autoindent = true;
+                smartindent = true;
+                expandtab = true;
                 number = true;
                 relativenumber = true;
                 cursorline = true;
-                tabstop = 4;
-                shiftwidth = 4;
-                softtabstop = 4;
+                tabstop = 2;
+                shiftwidth = 2;
+                softtabstop = 2;
               };
 
               globals = {
@@ -188,8 +176,8 @@
                 {
                   mode = "n";
                   key = "<leader>t";
-                  action = "<cmd>belowright split | terminal<CR>";
-                  desc = "Open terminal";
+                  action = "<cmd>1ToggleTerm direction=horizontal<CR>";
+                  desc = "Toggle terminal";
                   silent = true;
                 }
                 {
@@ -297,6 +285,12 @@
                   desc = "Save file";
                   silent = true;
                 }
+                {
+                  mode = "t";
+                  key = "<Esc>";
+                  action = "<C-\\><C-n>";
+                  silent = true;
+                }
               ];
 
               viAlias = true;
@@ -315,9 +309,12 @@
       }).neovim;
   };
 
-  flake.nixosModules.nvim = {pkgs, ...}: {
+  flake.nixosModules.nvim = {pkgs, ...}: let
+    unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in {
     environment.systemPackages = [
       inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvimWrapped
+      unstable.zellij
     ];
   };
 }
