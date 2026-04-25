@@ -11,6 +11,7 @@
       development
       docker
       zeditor
+      nvim
     ];
   };
 }

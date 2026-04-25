@@ -7,17 +7,19 @@
     programs.zsh = {
       enable = true;
       promptInit = ''
-        alias config='zeditor ${flakeConfig.flakePath}'
+        alias config='nvim ${flakeConfig.flakePath}'
         alias dockernuke='docker system prune -a -f --volumes'
         alias dockerstop='docker stop $(docker ps -q)'
         alias docs='cd ~/Documents'
         alias dcu='docker compose up'
         alias pn='pnpm'
         alias f='niri-session'
-        alias code=zeditor
+        alias code='nvim'
         alias cls=clear
         alias nd="nix develop"
         alias noctalia-update='noctalia-shell ipc call state all > ${flakeConfig.flakePath}/modules/nixosModules/system/desktop/noctalia/noctalia.json'
+
+        export EDITOR='nvim'
 
         export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
         PS1="%F{153}%n%f%F{250}@%f%F{33}%m%f %F{250}%1~%f ❯ "

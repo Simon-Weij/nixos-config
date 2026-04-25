@@ -52,8 +52,8 @@
       url = "github:JPyke3/hytale-launcher-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nitrolaunch = {
-      url = "github:Squawkykaka/nitrolaunch";
+    nvf = {
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
