@@ -15,7 +15,6 @@
       prismlauncher
       bottles
       r2modman
-      inputs.nitrolaunch.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
       (pkgs.symlinkJoin {
         name = "prismlauncher-icons";
