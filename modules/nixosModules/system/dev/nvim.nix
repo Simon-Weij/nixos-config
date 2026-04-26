@@ -54,7 +54,7 @@
 
               treesitter = {
                 enable = true;
-                indent.enable = true;
+                indent.enable = false;
                 grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
                   dockerfile
                 ];
@@ -166,6 +166,9 @@
               options = {
                 autoindent = true;
                 smartindent = true;
+                backspace = "indent,eol,start";
+                copyindent = true;
+                formatoptions = "jcroqlnt";
                 expandtab = true;
                 number = true;
                 relativenumber = true;
@@ -209,6 +212,11 @@
               };
 
               keymaps = [
+                {
+                  mode = "i";
+                  key = "<CR>";
+                  action = "<CR>";
+                }
                 {
                   mode = "n";
                   key = "<F13>";
