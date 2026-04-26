@@ -150,8 +150,8 @@
                 softtabstop = 2;
 
                 foldcolumn = "1";
-                foldlevel = 0;
-                foldlevelstart = 0;
+                foldlevel = 99;
+                foldlevelstart = 99;
                 foldenable = true;
                 foldminlines = 0;
               };
