@@ -105,6 +105,31 @@
                 enable = true;
               };
 
+              filetree.neo-tree = {
+                enable = true;
+                setupOpts = {
+                  close_if_last_window = true;
+                  event_handlers = [
+                    {
+                      event = "file_opened";
+                      handler = lib.generators.mkLuaInline ''
+                        function(file_path)
+                          require("neo-tree.command").execute({ action = "close" })
+                        end
+                      '';
+                    }
+                    {
+                      event = "neo_tree_buffer_enter";
+                      handler = lib.generators.mkLuaInline ''
+                        function(arg)
+                          vim.cmd("setlocal number relativenumber")
+                        end
+                      '';
+                    }
+                  ];
+                };
+              };
+
               autopairs.nvim-autopairs.enable = true;
 
               autocomplete = {
@@ -173,7 +198,7 @@
                   command = "setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2";
                 }
                 {
-                  event = ["FileType" "BufWinEnter"];
+                  event = ["FileType"];
                   pattern = ["neo-tree"];
                   command = "setlocal nofoldenable foldlevel=99 foldcolumn=0 | silent! UfoDetach";
                 }
@@ -186,7 +211,7 @@
               keymaps = [
                 {
                   mode = "n";
-                  key = "<leader><F13>";
+                  key = "<F13>";
                   action = "<cmd>Neotree toggle<CR>";
                   desc = "Toggle file tree";
                   silent = true;
@@ -348,7 +373,6 @@
               statusline.lualine.enable = true;
               telescope.enable = true;
 
-              filetree.neo-tree.enable = true;
             };
           }
         ];
