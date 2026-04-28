@@ -17,7 +17,6 @@
       user-dirs
       desktop-essentials
       keyd
-      slop
     ];
   };
 }

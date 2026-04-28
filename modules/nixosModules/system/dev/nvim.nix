@@ -6,7 +6,7 @@
   }: {
     packages.nvimWrapped =
       (inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
+        pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
         modules = [
           {
             vim = {
@@ -109,6 +109,10 @@
                 enable = true;
                 setupOpts = {
                   close_if_last_window = true;
+                  filesystem.filtered_items = {
+                    hide_dotfiles = false;
+                    hide_by_name = [".git"];
+                  };
                   event_handlers = [
                     {
                       event = "file_opened";
@@ -376,11 +380,12 @@
               vimAlias = true;
               navigation.harpoon = {
                 enable = true;
-                mappings.listMarks = "<leader>e";
+                mappings = {
+                  listMarks = "<leader>e";
+                };
               };
               statusline.lualine.enable = true;
               telescope.enable = true;
-
             };
           }
         ];
