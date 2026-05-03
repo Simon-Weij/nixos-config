@@ -8,7 +8,6 @@
   in {
     imports = with modules; [
       chromium
-      matrix
       spotify
       vesktop
     ];
