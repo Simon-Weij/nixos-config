@@ -134,6 +134,10 @@
               _attrs.repeat = false;
               close-window = null;
             };
+            "Mod+O" = {
+              _attrs.repeat = false;
+              switch-focus-between-floating-and-tiling = null;
+            };
 
             "Mod+H".focus-column-left = null;
             "Mod+L".focus-column-right = null;
