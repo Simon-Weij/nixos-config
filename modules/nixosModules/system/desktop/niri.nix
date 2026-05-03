@@ -42,8 +42,9 @@
     ...
   }: {
     packages.niriWrapped =
-      (inputs.wrappers.wrapperModules.niri.apply {
+      (inputs.wrapper-modules.wrappers.niri.apply {
         inherit pkgs;
+        v2-settings = true;
         settings = {
           prefer-no-csd = true;
 
@@ -56,8 +57,10 @@
           ];
 
           layer-rule = {
-            match = {
-              _attrs.namespace = "^noctalia-overview.*";
+            match = _: {
+              props = {
+                namespace = "^noctalia-overview.*";
+              };
             };
             place-within-backdrop = true;
           };
@@ -88,7 +91,7 @@
 
           input = {
             mouse.accel-profile = "flat";
-            touchpad.natural-scroll = null;
+            touchpad.natural-scroll = _: {};
           };
 
           outputs = {
@@ -96,8 +99,8 @@
               mode = "1920x1080@165.003";
               scale = 1;
               transform = "normal";
-              position = {
-                _attrs = {
+              position = _: {
+                props = {
                   x = 0;
                   y = 0;
                 };
@@ -111,86 +114,122 @@
           };
 
           binds = {
-            "Mod+Shift+Slash".show-hotkey-overlay = null;
-            "Mod+T" = {
-              _attrs.hotkey-overlay-title = "Open a Terminal: ghostty";
-              spawn = "ghostty";
+            "Mod+Shift+Slash" = _: {
+              content.show-hotkey-overlay = _: {};
             };
-            "Shift+Escape".screenshot = null;
-            "Super+Space" = {
-              _attrs.hotkey-overlay-title = "Run an Application: rofi";
-              spawn = [(lib.getExe self'.packages.noctaliaWrapped) "ipc" "call" "launcher" "toggle"];
+            "Mod+T" = _: {
+              props = {
+                hotkey-overlay-title = "Open a Terminal: ghostty";
+              };
+              content.spawn = "ghostty";
             };
-            "Mod+V" = {
-              _attrs.hotkey-overlay-title = "Open control panel";
-              spawn = [(lib.getExe self'.packages.noctaliaWrapped) "ipc" "call" "controlCenter" "toggle"];
+            "Shift+Escape" = _: {
+              content.screenshot = _: {};
             };
-
-            "Mod+D" = {
-              _attrs.repeat = false;
-              toggle-overview = null;
+            "Super+Space" = _: {
+              props = {
+                hotkey-overlay-title = "Run an Application: rofi";
+              };
+              content.spawn = [(lib.getExe self'.packages.noctaliaWrapped) "ipc" "call" "launcher" "toggle"];
             };
-            "Mod+Q" = {
-              _attrs.repeat = false;
-              close-window = null;
-            };
-            "Mod+O" = {
-              _attrs.repeat = false;
-              switch-focus-between-floating-and-tiling = null;
+            "Mod+V" = _: {
+              props = {
+                hotkey-overlay-title = "Open control panel";
+              };
+              content.spawn = [(lib.getExe self'.packages.noctaliaWrapped) "ipc" "call" "controlCenter" "toggle"];
             };
 
-            "Mod+H".focus-column-left = null;
-            "Mod+L".focus-column-right = null;
-            "Mod+J".focus-workspace-down = null;
-            "Mod+K".focus-workspace-up = null;
+            "Mod+D" = _: {
+              props = {
+                repeat = false;
+              };
+              content.toggle-overview = _: {};
+            };
+            "Mod+Q" = _: {
+              props = {
+                repeat = false;
+              };
+              content.close-window = _: {};
+            };
+            "Mod+O" = _: {
+              props = {
+                repeat = false;
+              };
+              content.switch-focus-between-floating-and-tiling = _: {};
+            };
 
-            "Mod+Alt+H".move-column-left = null;
-            "Mod+Alt+J".move-window-to-workspace-down = null;
-            "Mod+Alt+K".move-window-to-workspace-up = null;
-            "Mod+Alt+L".move-column-right = null;
+            "Mod+H" = _: { content.focus-column-left = _: {}; };
+            "Mod+L" = _: { content.focus-column-right = _: {}; };
+            "Mod+J" = _: { content.focus-workspace-down = _: {}; };
+            "Mod+K" = _: { content.focus-workspace-up = _: {}; };
 
-            "Mod+R".switch-preset-column-width = null;
-            "Mod+F".maximize-column = null;
+            "Mod+Alt+H" = _: { content.move-column-left = _: {}; };
+            "Mod+Alt+J" = _: { content.move-window-to-workspace-down = _: {}; };
+            "Mod+Alt+K" = _: { content.move-window-to-workspace-up = _: {}; };
+            "Mod+Alt+L" = _: { content.move-column-right = _: {}; };
 
-            "XF86AudioRaiseVolume" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
+            "Mod+R" = _: { content.switch-preset-column-width = _: {}; };
+            "Mod+F" = _: { content.maximize-column = _: {}; };
+
+            "XF86AudioRaiseVolume" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
             };
-            "XF86AudioLowerVolume" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+            "XF86AudioLowerVolume" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
             };
-            "XF86AudioMute" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            "XF86AudioMute" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             };
-            "XF86AudioMicMute" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+            "XF86AudioMicMute" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
             };
-            "XF86MonBrightnessUp" = {
-              _attrs.allow-when-locked = true;
-              spawn = ["brightnessctl" "--class=backlight" "set" "+10%"];
+            "XF86MonBrightnessUp" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn = ["brightnessctl" "--class=backlight" "set" "+10%"];
             };
-            "XF86MonBrightnessDown" = {
-              _attrs.allow-when-locked = true;
-              spawn = ["brightnessctl" "--class=backlight" "set" "10%-"];
+            "XF86MonBrightnessDown" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn = ["brightnessctl" "--class=backlight" "set" "10%-"];
             };
-            "XF86AudioPlay" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "playerctl play-pause";
+            "XF86AudioPlay" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "playerctl play-pause";
             };
-            "XF86AudioPause" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "playerctl play-pause";
+            "XF86AudioPause" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "playerctl play-pause";
             };
-            "XF86AudioNext" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "playerctl next";
+            "XF86AudioNext" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "playerctl next";
             };
-            "XF86AudioPrev" = {
-              _attrs.allow-when-locked = true;
-              spawn-sh = "playerctl previous";
+            "XF86AudioPrev" = _: {
+              props = {
+                allow-when-locked = true;
+              };
+              content.spawn-sh = "playerctl previous";
             };
           };
         };

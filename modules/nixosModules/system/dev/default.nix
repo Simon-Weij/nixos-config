@@ -7,10 +7,8 @@
     modules = self.nixosModules;
   in {
     imports = with modules; [
-      vscodium
       development
       docker
-      zeditor
       nvim
     ];
   };
