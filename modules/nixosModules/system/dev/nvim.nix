@@ -105,6 +105,8 @@
                 enable = true;
               };
 
+              utility.motion.leap.enable = true;
+
               filetree.neo-tree = {
                 enable = true;
                 setupOpts = {
@@ -148,6 +150,15 @@
                 };
               };
 
+              extraPlugins."leap.nvim" = {
+                package = pkgs.vimPlugins.leap-nvim;
+                setup = ''
+                  vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap-forward)')
+                  vim.keymap.set({'n', 'x', 'o'}, 'S', '<Plug>(leap-backward)')
+                  vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
+                '';
+              };
+
               git = {
                 enable = true;
                 neogit.enable = true;
@@ -180,6 +191,7 @@
                 tabstop = 2;
                 shiftwidth = 2;
                 softtabstop = 2;
+                mouse = "";
 
                 foldcolumn = "1";
                 foldlevel = 99;

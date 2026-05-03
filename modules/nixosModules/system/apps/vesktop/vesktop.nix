@@ -19,7 +19,7 @@
       cp ${./Discord.png} $out/share/icons/hicolor/48x48/apps/vesktop.png
     '';
 
-    wrappedVesktop = inputs.wrappers.lib.wrapPackage {
+    wrappedVesktop = inputs.wrapper-modules.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.vesktop;
       filesToExclude = ["share/applications/*.desktop"];

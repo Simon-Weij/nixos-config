@@ -442,8 +442,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvf": "nvf",
         "spicetify-nix": "spicetify-nix",
-        "wrapper-modules": "wrapper-modules",
-        "wrappers": "wrappers"
+        "wrapper-modules": "wrapper-modules"
       }
     },
     "rust-overlay": {
@@ -535,26 +534,6 @@
       "original": {
         "owner": "BirdeeHub",
         "repo": "nix-wrapper-modules",
-        "type": "github"
-      }
-    },
-    "wrappers": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1777405024,
-        "narHash": "sha256-aFlRAeukwsJXd4b/0uLUTQaKo5wroOfVnoxTxi9sPVA=",
-        "owner": "Lassulus",
-        "repo": "wrappers",
-        "rev": "cac6a55af3e4ebcabec478348ddd0fe032650834",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Lassulus",
-        "repo": "wrappers",
         "type": "github"
       }
     }
