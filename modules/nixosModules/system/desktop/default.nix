@@ -17,6 +17,7 @@
       user-dirs
       desktop-essentials
       keyd
+      wallpaper
     ];
   };
 }
