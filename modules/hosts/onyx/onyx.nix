@@ -17,6 +17,7 @@ in {
     specialArgs = {inherit flakeConfig inputs self;};
     modules = with modules; [
       ./hardware.nix
+      ./disko.nix
       imports
       apps
       desktop
