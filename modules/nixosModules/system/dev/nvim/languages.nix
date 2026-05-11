@@ -3,7 +3,7 @@
     vim.languages = {
       enableFormat = true;
       enableTreesitter = true;
-      enableExtraDiagnostics = true;
+      enableExtraDiagnostics = false;
 
       bash.enable = true;
       css.enable = true;
