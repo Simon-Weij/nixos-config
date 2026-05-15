@@ -44,6 +44,9 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pandora = {
+      url = "github:dtomvan/nixpkgs/dtomvan/push-rlsrwrnvmnsp";
+    };
   };
 
   outputs = inputs:

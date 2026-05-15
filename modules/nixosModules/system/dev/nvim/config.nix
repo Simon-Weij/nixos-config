@@ -61,6 +61,11 @@
           pattern = ["neo-tree"];
           command = "setlocal nofoldenable foldlevel=99 foldcolumn=0 | silent! UfoDetach";
         }
+        {
+          event = ["FileType"];
+          pattern = ["TelescopeResults"];
+          command = "setlocal number relativenumber";
+        }
       ];
 
       globals = {

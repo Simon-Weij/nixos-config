@@ -19,6 +19,8 @@
         alias nd="nix develop"
         alias noctalia-update='noctalia-shell ipc call state all > ${flakeConfig.flakePath}/modules/nixosModules/system/desktop/noctalia/noctalia.json'
         alias grun='go run ./...'
+        alias jrun='just run'
+        alias lock='noctalia-shell ipc call lockScreen lock'
 
         alias ze='zellij'
         alias rb='nh os switch'

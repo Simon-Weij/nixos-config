@@ -4,7 +4,9 @@
     lib,
     flakeConfig,
     ...
-  }: {
+  }: let
+    pandoraPkgs = inputs.pandora.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in {
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -12,7 +14,7 @@
     };
     users.users."${flakeConfig.username}".packages = with pkgs; [
       heroic
-      prismlauncher
+      pandoraPkgs.pandora-launcher
       bottles
       r2modman
       inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
