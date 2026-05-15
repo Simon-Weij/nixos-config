@@ -148,6 +148,13 @@
       }
       {
         mode = "n";
+        key = "<leader>r";
+        action = "<cmd>Telescope find_files<CR>";
+        desc = "Search files";
+        silent = true;
+      }
+      {
+        mode = "n";
         key = "<leader>s";
         action = "<cmd>write<CR>";
         desc = "Save file";

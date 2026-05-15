@@ -7,6 +7,7 @@
         filesystem.filtered_items = {
           hide_dotfiles = false;
           hide_by_name = [".git"];
+          hide_gitignored = false;
         };
         event_handlers = [
           {
