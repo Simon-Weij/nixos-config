@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   flake.nixosModules.nix = {
     pkgs,
     flakeConfig,
@@ -14,10 +18,13 @@
     };
     programs.nh = {
       enable = true;
-      clean.extraArgs = "--keep-since 3d";
     };
     nix.package = pkgs.lixPackageSets.stable.lix;
     documentation.nixos.enable = false;
     system.stateVersion = flakeConfig.stateVersion;
+
+    nix.registry.nixpkgs = lib.mkForce {
+      flake = inputs.nixpkgs-unstable;
+    };
   };
 }

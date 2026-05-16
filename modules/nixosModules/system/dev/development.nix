@@ -9,7 +9,7 @@
         git
         distrobox
         act
-
+        inputs.crush.packages.${pkgs.stdenv.hostPlatform.system}.crush
         alejandra
         nixd
         (pkgs.symlinkJoin {
@@ -38,7 +38,7 @@
       };
     };
 
-    nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    nix.nixPath = ["nixpkgs=${inputs.nixpkgs-unstable}"];
 
     programs.direnv = {
       enable = true;

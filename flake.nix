@@ -47,6 +47,10 @@
     pandora = {
       url = "github:dtomvan/nixpkgs/dtomvan/push-rlsrwrnvmnsp";
     };
+    crush = {
+      url = "github:numtide/nix-ai-tools";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = inputs:
