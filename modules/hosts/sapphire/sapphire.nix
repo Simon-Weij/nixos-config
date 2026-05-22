@@ -25,6 +25,7 @@ in {
       dev
       system
       gaming
+      gamedev
     ];
   };
 }
