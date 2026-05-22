@@ -12,6 +12,8 @@
         "android-studio-stable"
         "spicetify-Default"
         "aseprite"
+        "unityhub"
+        "corefonts"
       ];
   };
 }
