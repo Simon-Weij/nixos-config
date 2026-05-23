@@ -12,26 +12,9 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
-    users.users."${flakeConfig.username}".packages = with pkgs; [
-      heroic
+    users.users."${flakeConfig.username}".packages = [
       pandoraPkgs.pandora-launcher
-      bottles
-      r2modman
-      inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
-      (pkgs.symlinkJoin {
-        name = "prismlauncher-icons";
-        paths = [pkgs.prismlauncher];
-        pathsToLink = ["/share/icons"];
-      })
     ];
-
-    programs.firejail.wrappedBinaries = {
-      prismlauncher = {
-        executable = "${pkgs.prismlauncher}/bin/prismlauncher";
-        profile = "${pkgs.firejail}/etc/firejail/prismlauncher.profile";
-        desktop = "${pkgs.prismlauncher}/share/applications/org.prismlauncher.PrismLauncher.desktop";
-      };
-    };
 
     services.flatpak = {
       enable = true;
@@ -41,12 +24,6 @@
       };
       packages = [
         "flathub:app/org.vinegarhq.Sober//stable"
-        "flathub:app/com.usebottles.bottles//stable"
-        ":${pkgs.fetchurl {
-          url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-          sha256 = "sha256-4u8s8dsmwf166XWZqXZTgWOv2QOad2bgw2R9vZqeEnI=";
-          name = "com.hytale.app.flatpak";
-        }}"
       ];
     };
   };

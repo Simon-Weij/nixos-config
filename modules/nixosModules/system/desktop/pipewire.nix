@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.pipewire = {pkgs, ...}: {
     services.pipewire = {
       enable = true;

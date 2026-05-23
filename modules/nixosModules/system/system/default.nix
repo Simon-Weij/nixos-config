@@ -1,8 +1,4 @@
-{
-  inputs,
-  self,
-  ...
-}: {
+{self, ...}: {
   flake.nixosModules.system = {pkgs, ...}: let
     modules = self.nixosModules;
   in {

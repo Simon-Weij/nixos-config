@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.theme = {pkgs, ...}: {
     programs.dconf = {
       enable = true;

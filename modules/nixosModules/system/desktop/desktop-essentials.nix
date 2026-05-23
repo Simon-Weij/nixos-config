@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.desktop-essentials = {
     pkgs,
     flakeConfig,
@@ -6,7 +6,6 @@
   }: {
     users.users."${flakeConfig.username}".packages = with pkgs; [
       ghostty
-      lf
       (pkgs.symlinkJoin {
         name = "essential-icons";
         paths = [pkgs.vlc pkgs.nautilus pkgs.teams-for-linux];

@@ -19,12 +19,18 @@
     programs.nh = {
       enable = true;
     };
-    nix.package = pkgs.lixPackageSets.stable.lix;
+
+    boot.loader.systemd-boot.configurationLimit = 5;
+
+    nix = {
+      nixPath = [];
+      channel.enable = false;
+      package = pkgs.lixPackageSets.stable.lix;
+      registry.nixpkgs = lib.mkForce {
+        flake = inputs.nixpkgs-unstable;
+      };
+    };
     documentation.nixos.enable = false;
     system.stateVersion = flakeConfig.stateVersion;
-
-    nix.registry.nixpkgs = lib.mkForce {
-      flake = inputs.nixpkgs-unstable;
-    };
   };
 }

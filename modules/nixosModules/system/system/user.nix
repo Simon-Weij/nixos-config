@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.user = {
     pkgs,
     flakeConfig,

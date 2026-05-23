@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.chromium = {
     pkgs,
     flakeConfig,

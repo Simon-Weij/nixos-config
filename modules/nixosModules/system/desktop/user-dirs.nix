@@ -1,12 +1,10 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.user-dirs = {
     pkgs,
     flakeConfig,
     ...
   }: {
     hjem = {
-      clobberByDefault = true;
-      linker = inputs.hjem.packages.${pkgs.stdenv.hostPlatform.system}.smfh;
       users."${flakeConfig.username}" = {
         user = "${flakeConfig.username}";
         directory = "/home/${flakeConfig.username}";

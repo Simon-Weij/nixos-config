@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.keyd = {pkgs, ...}: {
     services.keyd = {
       enable = true;
