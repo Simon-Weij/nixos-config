@@ -1,8 +1,7 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.gamedev = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       unityhub
-      blender
     ];
   };
 }

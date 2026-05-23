@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.bootloader = {
     pkgs,
     lib,

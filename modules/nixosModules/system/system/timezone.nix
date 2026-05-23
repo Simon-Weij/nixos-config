@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.nixosModules.timezone = {pkgs, ...}: {
     time.timeZone = "Europe/Amsterdam";
 

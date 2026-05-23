@@ -7,15 +7,9 @@
     environment.systemPackages = [
       pkgs.xwayland
       pkgs.xwayland-satellite
-      pkgs.pavucontrol
-      pkgs.libnotify
-      pkgs.playerctl
-      pkgs.overskride
       pkgs.polkit_gnome
       self.packages.${pkgs.stdenv.hostPlatform.system}.noctaliaWrapped
     ];
-    services.upower.enable = true;
-    services.power-profiles-daemon.enable = true;
 
     programs.niri = {
       enable = true;
@@ -31,7 +25,6 @@
       };
     };
 
-    services.udisks2.enable = true;
     security.polkit.enable = true;
   };
 
@@ -158,18 +151,18 @@
               content.switch-focus-between-floating-and-tiling = _: {};
             };
 
-            "Mod+H" = _: { content.focus-column-left = _: {}; };
-            "Mod+L" = _: { content.focus-column-right = _: {}; };
-            "Mod+J" = _: { content.focus-workspace-down = _: {}; };
-            "Mod+K" = _: { content.focus-workspace-up = _: {}; };
+            "Mod+H" = _: {content.focus-column-left = _: {};};
+            "Mod+L" = _: {content.focus-column-right = _: {};};
+            "Mod+J" = _: {content.focus-workspace-down = _: {};};
+            "Mod+K" = _: {content.focus-workspace-up = _: {};};
 
-            "Mod+Alt+H" = _: { content.move-column-left = _: {}; };
-            "Mod+Alt+J" = _: { content.move-window-to-workspace-down = _: {}; };
-            "Mod+Alt+K" = _: { content.move-window-to-workspace-up = _: {}; };
-            "Mod+Alt+L" = _: { content.move-column-right = _: {}; };
+            "Mod+Alt+H" = _: {content.move-column-left = _: {};};
+            "Mod+Alt+J" = _: {content.move-window-to-workspace-down = _: {};};
+            "Mod+Alt+K" = _: {content.move-window-to-workspace-up = _: {};};
+            "Mod+Alt+L" = _: {content.move-column-right = _: {};};
 
-            "Mod+R" = _: { content.switch-preset-column-width = _: {}; };
-            "Mod+F" = _: { content.maximize-column = _: {}; };
+            "Mod+R" = _: {content.switch-preset-column-width = _: {};};
+            "Mod+F" = _: {content.maximize-column = _: {};};
 
             "XF86AudioRaiseVolume" = _: {
               props = {

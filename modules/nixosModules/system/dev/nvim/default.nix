@@ -5,10 +5,7 @@
 }: let
   modules = self.nixosModules;
 in {
-  perSystem = {
-    pkgs,
-    ...
-  }: {
+  perSystem = {pkgs, ...}: {
     packages.nvimWrapped =
       (inputs.nvf.lib.neovimConfiguration {
         pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -34,8 +31,7 @@ in {
     unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   in {
     environment.systemPackages = [
-      self.packages.${pkgs.stdenv.hostPlatform.system}.nvimWrapped
-      unstable.zellij
+      self.packages.${unstable.stdenv.hostPlatform.system}.nvimWrapped
     ];
   };
 }

@@ -1,8 +1,4 @@
-{
-  inputs,
-  self,
-  ...
-}: {
+{self, ...}: {
   flake.nixosModules.desktop = {pkgs, ...}: let
     modules = self.nixosModules;
   in {
@@ -18,6 +14,7 @@
       desktop-essentials
       keyd
       wallpaper
+      hjem
     ];
   };
 }
