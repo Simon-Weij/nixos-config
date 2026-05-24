@@ -1,9 +1,7 @@
 {...}: {
-  flake.nixosModules.nvim-theme = { ... }: {
-    vim.theme = {
-      enable = true;
-      name = "nord";
-      style = "dark";
-    };
+  vim.theme = {
+    enable = true;
+    name = "nord";
+    style = "dark";
   };
 }
