@@ -1,15 +1,15 @@
-{
-  inputs,
-  self,
-  ...
-}: {
+{self, ...}: {
   flake.nixosModules.dev = {pkgs, ...}: let
     modules = self.nixosModules;
   in {
     imports = with modules; [
       development
       docker
-      nvim
+      {
+        environment.systemPackages = [
+          self.packages.${pkgs.stdenv.hostPlatform.system}.nvimWrapped
+        ];
+      }
     ];
   };
 }
