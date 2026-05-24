@@ -7,7 +7,7 @@
     programs.zsh = {
       enable = true;
       promptInit = ''
-        alias config='nvim ${flakeConfig.flakePath}'
+        alias config='cd ${flakeConfig.flakePath}'
         alias dockernuke='docker system prune -a -f --volumes'
         alias dockerstop='docker stop $(docker ps -q)'
         alias docs='cd ~/Documents'

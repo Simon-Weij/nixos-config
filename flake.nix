@@ -45,11 +45,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pandora = {
-      url = "github:dtomvan/nixpkgs/dtomvan/push-rlsrwrnvmnsp";
-    };
-    crush = {
-      url = "github:numtide/nix-ai-tools";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:NixOS/nixpkgs/master";
     };
   };
 
