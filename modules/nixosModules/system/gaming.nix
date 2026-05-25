@@ -5,7 +5,7 @@
     flakeConfig,
     ...
   }: let
-    pandoraPkgs = inputs.pandora.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   in {
     programs.steam = {
       enable = true;
@@ -13,7 +13,7 @@
       dedicatedServer.openFirewall = true;
     };
     users.users."${flakeConfig.username}".packages = [
-      pandoraPkgs.pandora-launcher
+      unstable.pandora-launcher
     ];
 
     services.flatpak = {
