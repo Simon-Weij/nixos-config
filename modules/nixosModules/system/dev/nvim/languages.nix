@@ -12,6 +12,8 @@
           type = ["alejandra"];
         };
       };
+
+      php.enable = true;
     };
     treesitter = {
       enable = true;
