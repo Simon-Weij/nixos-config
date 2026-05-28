@@ -8,7 +8,6 @@
     stateVersion = "25.11";
     username = "simon";
     networking.hostName = "sapphire";
-    hashedPassword = "password";
     isLaptop = false;
   };
   modules = self.nixosModules;

@@ -6,14 +6,23 @@
         setupOpts = {};
       };
     };
-    extraPlugins."leap.nvim" = {
-      package = pkgs.vimPlugins.leap-nvim;
-      setup = ''
-        vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap-forward)')
-        vim.keymap.set({'n', 'x', 'o'}, 'S', '<Plug>(leap-backward)')
-        vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
-      '';
+    extraPlugins = {
+      "leap.nvim" = {
+        package = pkgs.vimPlugins.leap-nvim;
+        setup = ''
+          vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap-forward)')
+          vim.keymap.set({'n', 'x', 'o'}, 'S', '<Plug>(leap-backward)')
+          vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
+        '';
+      };
+      "go.nvim" = {
+        package = pkgs.vimPlugins.go-nvim;
+        setup = ''
+          require("go").setup({})
+        '';
+      };
     };
+
     autopairs.nvim-autopairs.enable = true;
     visuals.indent-blankline.enable = true;
     telescope.enable = true;
@@ -26,7 +35,6 @@
     ];
   };
   vim.autocomplete = {
-    nvim-cmp.enable = false;
     blink-cmp = {
       enable = true;
       mappings = {
@@ -34,6 +42,7 @@
         next = "<C-n>";
         previous = "<C-p>";
       };
+      setupOpts.cmdline.completion.menu.auto_show = true;
     };
   };
 }

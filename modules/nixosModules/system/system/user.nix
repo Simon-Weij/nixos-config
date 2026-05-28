@@ -4,14 +4,16 @@
     flakeConfig,
     ...
   }: {
-    users.users."${flakeConfig.username}" = {
-      isNormalUser = true;
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      hashedPassword = flakeConfig.hashedPassword;
-      shell = pkgs.zsh;
+    users = {
+      mutableUsers = true;
+      users."${flakeConfig.username}" = {
+        isNormalUser = true;
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+        ];
+        shell = pkgs.zsh;
+      };
     };
   };
 }

@@ -9,6 +9,7 @@
       pkgs.xwayland-satellite
       pkgs.polkit_gnome
       self.packages.${pkgs.stdenv.hostPlatform.system}.noctaliaWrapped
+      pkgs.playerctl
     ];
 
     programs.niri = {
