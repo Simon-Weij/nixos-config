@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   vim = {
-    lsp.servers.omnisharp.enable = true;
     languages = {
       enableFormat = true;
       enableTreesitter = true;
@@ -13,16 +12,14 @@
           type = ["alejandra"];
         };
       };
-      csharp = {
-        enable = true;
-      };
+
+      php.enable = true;
     };
     treesitter = {
       enable = true;
       indent.enable = true;
       grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
         dockerfile
-        c_sharp
       ];
     };
     autocmds = [

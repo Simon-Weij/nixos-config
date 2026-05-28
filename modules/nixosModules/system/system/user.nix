@@ -12,6 +12,7 @@
           "networkmanager"
           "wheel"
         ];
+        initialPassword = "password";
         shell = pkgs.zsh;
       };
     };

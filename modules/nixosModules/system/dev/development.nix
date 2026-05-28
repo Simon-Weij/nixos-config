@@ -7,7 +7,7 @@
     users.users."${flakeConfig.username}" = {
       packages = with pkgs; [
         git
-        gotests
+        bruno
       ];
     };
 
