@@ -8,7 +8,6 @@
     stateVersion = "25.11";
     username = "simon";
     networking.hostName = "onyx";
-    hashedPassword = "password";
     isLaptop = true;
   };
   modules = self.nixosModules;
