@@ -3,7 +3,11 @@
     utility = {
       oil-nvim = {
         enable = true;
-        setupOpts = {};
+        setupOpts = {
+          view_options = {
+            show_hidden = true;
+          };
+        };
       };
     };
     extraPlugins."leap.nvim" = {
