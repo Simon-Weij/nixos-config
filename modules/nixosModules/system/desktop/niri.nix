@@ -165,6 +165,8 @@
             "Mod+R" = _: {content.switch-preset-column-width = _: {};};
             "Mod+F" = _: {content.maximize-column = _: {};};
 
+            "Mod+Shift+F" = _: {content.fullscreen-window = _: {};};
+
             "XF86AudioRaiseVolume" = _: {
               props = {
                 allow-when-locked = true;

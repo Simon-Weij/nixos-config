@@ -22,6 +22,7 @@
         alias grun='go run ./...'
         alias jrun='just run'
         alias lock='noctalia-shell ipc call lockScreen lock'
+        alias dc='concord'
 
         alias ze='zellij'
         alias rb='nh os switch'

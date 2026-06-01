@@ -25,7 +25,27 @@
           require("go").setup({})
         '';
       };
+      "ufo.nvim" = {
+        package = pkgs.vimPlugins.nvim-ufo;
+        setup = ''
+          require("ufo").setup({})
+        '';
+      };
     };
+    opts = {
+      foldcolumn = "1";
+      foldlevel = 99;
+      foldlevelstart = 99;
+      foldenable = true;
+    };
+    keymaps = [
+      {
+        key = "<leader>w";
+        mode = ["n"];
+        action = "za";
+        desc = "Toggle fold";
+      }
+    ];
 
     autopairs.nvim-autopairs.enable = true;
     visuals.indent-blankline.enable = true;
