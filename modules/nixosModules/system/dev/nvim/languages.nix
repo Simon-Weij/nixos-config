@@ -12,6 +12,11 @@
           type = ["alejandra"];
         };
       };
+      html.enable = true;
+      svelte.enable = true;
+      typescript.enable = true;
+      css.enable = true;
+      tailwind.enable = true;
 
       php.enable = true;
     };
@@ -27,6 +32,12 @@
         event = ["FileType"];
         pattern = [
           "nix"
+          "html"
+          "css"
+          "scss"
+          "sass"
+          "less"
+          "svelte"
         ];
         command = "setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2";
       }
