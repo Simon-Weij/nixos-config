@@ -31,6 +31,14 @@
         DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
         DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
         DefaultSearchProviderIconURL = "https://duckduckgo.com/favicon.ico";
+        WebAppInstallForceList = [
+          {
+            "custom_name" = "Discord";
+            "create_desktop_shortcut" = true;
+            "default_launch_container" = "window";
+            "url" = "https://discord.com/login";
+          }
+        ];
       };
     };
 

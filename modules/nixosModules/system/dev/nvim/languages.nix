@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   vim = {
     languages = {
       enableFormat = true;
@@ -14,7 +18,16 @@
       };
 
       php.enable = true;
+
+      json.enable = true;
+
+      svelte.enable = true;
+      css.enable = true;
+      html.enable = true;
+      ts.enable = true;
     };
+
+    lsp.servers.qmlls.cmd = lib.mkForce ["qmlls" "-E"];
     treesitter = {
       enable = true;
       indent.enable = true;
