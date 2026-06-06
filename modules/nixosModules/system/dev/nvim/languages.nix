@@ -22,6 +22,7 @@
       json.enable = true;
 
       svelte.enable = true;
+      tailwind.enable = true;
       css.enable = true;
       html.enable = true;
       typescript.enable = true;
