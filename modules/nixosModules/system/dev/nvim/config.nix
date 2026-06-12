@@ -11,6 +11,25 @@
     };
     diagnostics = {
       enable = true;
+
+      nvim-lint = {
+        enable = true;
+        linters = {
+          eslint_d = {
+            required_files = [
+              "eslint.config.js"
+              "eslint.config.mjs"
+              "eslint.config.cjs"
+              ".eslintrc.js"
+              ".eslintrc.cjs"
+              ".eslintrc.json"
+              ".eslintrc.yml"
+              ".eslintrc"
+            ];
+          };
+        };
+      };
+
       config = {
         virtual_text = {
           prefix = "●";

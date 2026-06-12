@@ -1,6 +1,5 @@
 {...}: {
   vim.keymaps = [
-    # General purpose
     {
       mode = "n";
       key = "<leader>o";
@@ -11,7 +10,6 @@
       key = "<leader>s";
       action = "<cmd>write<CR>";
     }
-    # Allow ctrl + common actions for navigation in insert mode
     {
       mode = "i";
       key = "<C-h>";
@@ -32,7 +30,6 @@
       key = "<C-l>";
       action = "<Right>";
     }
-    # Telescope
     {
       mode = "n";
       key = "<leader>f";

@@ -1,0 +1,63 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "alejandra",
+  "nix.formatterPath": "alejandra",
+  "nix.serverSettings": {
+    "alejandra": {
+      "formatting": {
+        "command": ["alejandra"]
+      }
+    }
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "kamadorueda.alejandra"
+  },
+
+  "editor.formatOnSave": true,
+
+  "emmet.includeLanguages": {
+    "vue": "html",
+    "javascript": "javascriptreact",
+    "html": "html",
+    "svelte": "html"
+  },
+
+  "docker.lsp.telemetry": "off",
+
+  "telemetry.editStats.enabled": false,
+  "telemetry.feedback.enabled": false,
+
+  "svelte.enable-ts-plugin": true,
+
+  "basedpyright.analysis.typeCheckingMode": "strict",
+
+  "prettier.ignorePath": ".prettierignore",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+
+  "files.exclude": {
+    "**/.jj": true,
+    "**/.direnv": true,
+    "**/node_modules": true,
+    "**/.svelte-kit": true,
+    "**/build": true
+  },
+  "git.autofetch": true,
+
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 5,
+
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
