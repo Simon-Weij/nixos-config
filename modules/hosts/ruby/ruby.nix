@@ -22,6 +22,7 @@ in {
         networking.networkmanager.enable = true;
       }
       system
+      server
     ];
   };
 }
