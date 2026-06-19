@@ -12,6 +12,10 @@
     diagnostics = {
       enable = true;
 
+      presets = {
+        golangci-lint.enable = true;
+      };
+
       nvim-lint = {
         enable = true;
         linters = {
@@ -25,6 +29,15 @@
               ".eslintrc.json"
               ".eslintrc.yml"
               ".eslintrc"
+            ];
+          };
+          golangci-lint = {
+            required_files = [
+              "golangci-lint.yml"
+              ".golangci.yml"
+              ".golangci.yaml"
+              ".golangci.toml"
+              ".golangci.json"
             ];
           };
         };

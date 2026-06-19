@@ -1,4 +1,4 @@
-{...}: {
+{flakeConfig, ...}: {
   flake.nixosModules.server = {
     pkgs,
     flakeConfig,
@@ -57,6 +57,23 @@
         "-w /etc/shadow -p wa"
         "-w /etc/sudoers -p wa"
       ];
+    };
+    services = {
+      logind.settings.Login = {
+        HandleLidSwitchExternalPower = "ignore";
+        HandleLidSwitchDocked = "ignore";
+        HandleLidSwitch = "ignore";
+      };
+      cloudflared = {
+        enable = true;
+        tunnels."4a2e3c16-1f7a-49ec-82aa-a1b2567b96d0" = {
+          credentialsFile = "/home/${flakeConfig.username}/.cloudflared/credentials.txt";
+          ingress = {
+            "ssh.yourdomain.com" = "ssh://localhost:22";
+          };
+          default = "http_status:404";
+        };
+      };
     };
   };
 }

@@ -37,7 +37,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "github:notashelf/nvf/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     concord = {

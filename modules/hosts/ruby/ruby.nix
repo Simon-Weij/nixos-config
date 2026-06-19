@@ -23,6 +23,7 @@ in {
       }
       system
       server
+      docker
     ];
   };
 }
