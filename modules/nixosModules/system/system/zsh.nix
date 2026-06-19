@@ -15,7 +15,6 @@
         alias dcu='docker compose up'
         alias pn='pnpm'
         alias f='niri-session'
-        alias code='nvim'
         alias cls=clear
         alias nd="nix develop"
         alias noctalia-update='noctalia-shell ipc call state all > ${flakeConfig.flakePath}/modules/nixosModules/system/desktop/noctalia/noctalia.json'
@@ -26,8 +25,9 @@
 
         alias ze='zellij'
         alias rb='nh os switch'
+        alias yz='yazi'
 
-        export EDITOR='nvim'
+        export EDITOR='hx'
 
         export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
         PS1="%F{153}%n%f%F{250}@%f%F{33}%m%f %F{250}%1~%f ❯ "

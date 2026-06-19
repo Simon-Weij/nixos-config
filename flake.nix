@@ -47,6 +47,10 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -54,7 +58,6 @@
       systems = ["x86_64-linux"];
       imports = [
         ((inputs.import-tree.matchNot ".*/(hardware|disko)\.nix|.*/nvim/.*") ./modules)
-        ./modules/nixosModules/system/dev/nvim/nvim.nix
       ];
     };
 }
