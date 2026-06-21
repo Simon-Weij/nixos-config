@@ -6,7 +6,7 @@
         ids = ["*"];
         settings = {
           main = {
-            capslock = "f13";
+            capslock = "f12";
           };
         };
       };

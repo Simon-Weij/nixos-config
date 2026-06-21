@@ -21,6 +21,7 @@ in {
       imports
       apps
       desktop
+      sway
       dev
       system
       gaming

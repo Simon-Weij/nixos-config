@@ -12,8 +12,8 @@
               keybinds clear-defaults=true {
               normal {
                   unbind "Ctrl h" "Ctrl l"
-                  bind "Tab" { GoToNextTab; }
-                  bind "Shift Tab" { GoToPreviousTab; }
+                  bind "F12" { GoToNextTab; }
+                  bind "Shift F12" { GoToPreviousTab; }
               }
 
               pane {
