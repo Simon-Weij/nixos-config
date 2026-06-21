@@ -4,8 +4,7 @@
     flakeConfig,
     ...
   }: {
-    users.users."${flakeConfig.username}".packages = with pkgs; [
-      ghostty
+    users.users."${flakeConfig.username}".packages = [
       (pkgs.symlinkJoin {
         name = "essential-icons";
         paths = [pkgs.vlc pkgs.nautilus pkgs.teams-for-linux];

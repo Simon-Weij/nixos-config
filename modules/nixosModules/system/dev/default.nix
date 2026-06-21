@@ -6,6 +6,8 @@
       development
       docker
       helix
+      zellij
+      ghostty
     ];
   };
 }

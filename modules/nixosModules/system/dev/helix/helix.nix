@@ -8,7 +8,10 @@
 
     hx = inputs.wrapper-modules.wrappers.helix.wrap {
       pkgs = unstable;
-      package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix;
+      package = unstable.helix.overrideAttrs (prev: {
+        version = "master";
+        src = inputs.helix;
+      });
 
       settings = {
         theme = "nord";
@@ -19,6 +22,17 @@
           C-j = "move_visual_line_down";
           C-w = "move_next_word_start";
           C-b = "move_prev_word_start";
+        };
+        keys.normal = {
+          space.o = [
+            ":sh rm -f /tmp/unique-ca1ea106"
+            ":insert-output yazi \"%{buffer_name}\" --chooser-file=/tmp/unique-ca1ea106"
+            ":sh printf \"\\x1b[?1049h\\x1b[?2004h\" > /dev/tty"
+            ":open %sh{cat /tmp/unique-ca1ea106}"
+            ":redraw"
+            ":set mouse false"
+            ":set mouse true"
+          ];
         };
         editor = {
           line-number = "relative";
@@ -93,6 +107,7 @@
     environment.systemPackages = with unstable; [
       hx
       yazi
+      zellij
 
       # Nix
       nixd

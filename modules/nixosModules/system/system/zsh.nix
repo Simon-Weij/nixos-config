@@ -1,9 +1,5 @@
 {...}: {
-  flake.nixosModules.zsh = {
-    pkgs,
-    flakeConfig,
-    ...
-  }: {
+  flake.nixosModules.zsh = {flakeConfig, ...}: {
     programs.zsh = {
       enable = true;
       promptInit = ''
@@ -54,6 +50,10 @@
 
         autoload -Uz compinit
         compinit
+
+        if [[ -z "$ZELLIJ" ]] && [[ $- == *i* ]]; then
+          zellij
+        fi
       '';
     };
   };
