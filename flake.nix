@@ -36,10 +36,6 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf = {
-      url = "github:notashelf/nvf/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     concord = {
       url = "github:Simon-Weij/nixpkgs/concord";
     };
@@ -53,7 +49,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       imports = [
-        ((inputs.import-tree.matchNot ".*/(hardware|disko)\.nix|.*/nvim/.*") ./modules)
+        ((inputs.import-tree.matchNot ".*/(hardware|disko)\.nix") ./modules)
       ];
     };
 }

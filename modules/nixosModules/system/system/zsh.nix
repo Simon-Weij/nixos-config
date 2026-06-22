@@ -50,8 +50,7 @@
 
         autoload -Uz compinit
         compinit
-
-        if [[ -z "$ZELLIJ" ]] && [[ $- == *i* ]]; then
+        if [[ -z "$ZELLIJ" ]] && [[ $- == *i* ]] && [[ "$(tty)" != /dev/tty* ]]; then
           zellij
         fi
       '';
