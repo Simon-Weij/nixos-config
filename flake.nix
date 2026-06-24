@@ -1,24 +1,11 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-26.05";
-    };
-    nixpkgs-unstable = {
-      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    };
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-    import-tree = {
-      url = "github:vic/import-tree";
+      url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    flatpaks = {
-      url = "github:in-a-dil-emma/declarative-flatpak/latest";
     };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -28,16 +15,9 @@
       url = "github:BirdeeHub/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    concord = {
-      url = "github:Simon-Weij/nixpkgs/concord";
     };
     helix = {
       url = "github:helix-editor/helix/master";
@@ -45,11 +25,27 @@
     };
   };
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-      imports = [
-        ((inputs.import-tree.matchNot ".*/(hardware|disko)\.nix") ./modules)
-      ];
-    };
+  outputs = inputs @ {self, ...}: let
+    defaultModules = with inputs; [
+      disko.nixosModules.disko
+      hjem.nixosModules.default
+      spicetify-nix.nixosModules.default
+    ];
+    mkHost = path: let
+      hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;
+    in
+      builtins.mapAttrs (
+        name: cfg:
+          inputs.nixpkgs.lib.nixosSystem {
+            inherit (cfg) system specialArgs;
+            modules = defaultModules ++ cfg.modules;
+          }
+      )
+      hostConfigs;
+  in {
+    nixosConfigurations =
+      mkHost ./hosts/onyx/onyx.nix
+      // mkHost ./hosts/ruby/ruby.nix
+      // mkHost ./hosts/sapphire/sapphire.nix;
+  };
 }

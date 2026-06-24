@@ -1,4 +1,0 @@
-{...}: {
-  flake.nixosModules.template = {pkgs, ...}: {
-  };
-}
