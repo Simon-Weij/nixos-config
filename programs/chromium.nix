@@ -26,10 +26,10 @@
 
     extraOpts = {
       DefaultSearchProviderEnabled = true;
-      DefaultSearchProviderName = "Duckduckgo";
-      DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
-      DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
-      DefaultSearchProviderIconURL = "https://duckduckgo.com/favicon.ico";
+      DefaultSearchProviderName = "priv.au (SearXNG)";
+      DefaultSearchProviderSearchURL = "https://priv.au/search?q={searchTerms}";
+      DefaultSearchProviderSuggestURL = "https://priv.au/autocomplete?q={searchTerms}";
+      DefaultSearchProviderIconURL = "https://priv.au/favicon.ico";
       WebAppInstallForceList = [
         {
           "custom_name" = "Discord";
@@ -48,15 +48,6 @@
   };
 
   users.users."${flakeConfig.username}".packages = [
-    (pkgs.symlinkJoin {
-      name = "chromium-icons";
-      paths = [pkgs.chromium];
-      pathsToLink = ["/share/icons"];
-    })
+    pkgs.chromium
   ];
-  programs.firejail.wrappedBinaries.chromium = {
-    executable = "${pkgs.chromium}/bin/chromium";
-    profile = "${pkgs.firejail}/etc/firejail/chromium.profile";
-    desktop = "${pkgs.chromium}/share/applications/chromium-browser.desktop";
-  };
 }
