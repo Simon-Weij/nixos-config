@@ -26,10 +26,10 @@
 
     extraOpts = {
       DefaultSearchProviderEnabled = true;
-      DefaultSearchProviderName = "priv.au (SearXNG)";
-      DefaultSearchProviderSearchURL = "https://priv.au/search?q={searchTerms}";
-      DefaultSearchProviderSuggestURL = "https://priv.au/autocomplete?q={searchTerms}";
-      DefaultSearchProviderIconURL = "https://priv.au/favicon.ico";
+      DefaultSearchProviderName = "DuckDuckGo";
+      DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
+      DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+      DefaultSearchProviderIconURL = "https://duckduckgo.com/favicon.ico";
       WebAppInstallForceList = [
         {
           "custom_name" = "Discord";
