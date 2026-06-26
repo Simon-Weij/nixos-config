@@ -85,9 +85,9 @@
           };
           "Mod+T" = _: {
             props = {
-              hotkey-overlay-title = "Open a Terminal: ghostty";
+              hotkey-overlay-title = "Open a Terminal: kitty";
             };
-            content.spawn = "ghostty";
+            content.spawn = "kitty";
           };
           "Shift+Escape" = _: {
             content.screenshot = _: {};
@@ -188,6 +188,7 @@ in {
     pkgs.xwayland-satellite
     pkgs.polkit_gnome
     pkgs.playerctl
+    pkgs.adwaita-icon-theme
   ];
   programs.dconf = {
     enable = true;

@@ -104,8 +104,6 @@
 in {
   environment.systemPackages = with pkgs; [
     hx
-    yazi
-    zellij
 
     # Nix
     nixd
@@ -116,5 +114,8 @@ in {
     typescript-language-server
     eslint
     vscode-langservers-extracted
+
+    # Php
+    intelephense
   ];
 }

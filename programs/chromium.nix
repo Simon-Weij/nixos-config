@@ -37,6 +37,12 @@
           "default_launch_container" = "window";
           "url" = "https://discord.com/login";
         }
+        {
+          "custom_name" = "Teams";
+          "create_desktop_shortcut" = true;
+          "default_launch_container" = "window";
+          "url" = "https://teams.microsoft.com/v2/";
+        }
       ];
     };
   };

@@ -20,17 +20,19 @@ in {
 
       ../../nixosModules/desktop/default.nix
       ../../nixosModules/system/default.nix
+      ../../nixosModules/docker.nix
+      ../../nixosModules/development.nix
 
       ../../programs/spotify.nix
       ../../programs/zsh.nix
       ../../programs/helix.nix
       ../../programs/chromium.nix
       ../../programs/steam.nix
-      ../../programs/zellij.nix
-      ../../programs/ghostty.nix
+      ../../programs/kitty.nix
       ../../programs/vlc.nix
       ../../programs/minecraft.nix
       ../../programs/git.nix
+      ../../programs/yazi.nix
     ];
   };
 }

@@ -23,6 +23,10 @@
       url = "github:helix-editor/helix/master";
       flake = false;
     };
+    kitty-nord = {
+      url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {self, ...}: let

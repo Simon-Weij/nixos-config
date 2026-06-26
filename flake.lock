@@ -24,11 +24,11 @@
     "helix": {
       "flake": false,
       "locked": {
-        "lastModified": 1782203122,
-        "narHash": "sha256-H7+UJPo2r+dcc9Y+vTlcx6Gt8oiyTTki7IZyAk3VTlg=",
+        "lastModified": 1782281189,
+        "narHash": "sha256-pr0uoMp72SkUkh6VQtQd+OVTqxAaat+3FN+o5yMJvQE=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "3b59085a664b628dfea34c965d7dec8a3eb22b75",
+        "rev": "6b7c7c6e0784d7c34295c24064deb36418c0b4b5",
         "type": "github"
       },
       "original": {
@@ -45,11 +45,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782071069,
-        "narHash": "sha256-1cMArpPnPvjKYNMsMRwtAxQ6ngPnIg/Wt3ohS95fbwY=",
+        "lastModified": 1782267080,
+        "narHash": "sha256-so1hIImuLtTKTVUokJ/6C2D2b2D4znCx+/PAjMSAnpw=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "3b110d0e7c07a5652019223bd7f7b872b86f06a4",
+        "rev": "dd0ba9e22fb46581f843e6121de33ca7a4a80224",
         "type": "github"
       },
       "original": {
@@ -58,13 +58,25 @@
         "type": "github"
       }
     },
+    "kitty-nord": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-rF3k2Dpd5jZ4tGyV59i2VjGhF96DXB8vmUL48nn8UXs=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1781577229,
-        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "lastModified": 1782467914,
+        "narHash": "sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
         "type": "github"
       },
       "original": {
@@ -79,6 +91,7 @@
         "disko": "disko",
         "helix": "helix",
         "hjem": "hjem",
+        "kitty-nord": "kitty-nord",
         "nixpkgs": "nixpkgs",
         "spicetify-nix": "spicetify-nix",
         "wrapper-modules": "wrapper-modules"
