@@ -4,6 +4,17 @@
   lib,
   ...
 }: let
+  script = pkgs.writeShellScript "tests.sh" ''
+    FILE=$1
+    LINE=$2
+    FUNC=$(awk -v line="$LINE" '
+      NR <= line && /^func/ {
+        for (i=1; i<=NF; i++) if ($i ~ /\(/ && $i !~ /^\(/) { current = $i; break }
+      }
+      END { print current }
+    ' "$FILE" | cut -d'(' -f1)
+    ${lib.getExe pkgs.gotests} -w -only "^''${FUNC}$" "''${FILE}"
+  '';
   hx = inputs.wrapper-modules.wrappers.helix.wrap {
     inherit pkgs;
     package = pkgs.helix.overrideAttrs (prev: {
@@ -31,6 +42,7 @@
           ":set mouse false"
           ":set mouse true"
         ];
+        space.t = ":sh ${script} %{buffer_name} %{cursor_line}";
       };
       editor = {
         line-number = "relative";
@@ -114,8 +126,5 @@ in {
     typescript-language-server
     eslint
     vscode-langservers-extracted
-
-    # Php
-    intelephense
   ];
 }
