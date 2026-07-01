@@ -29,10 +29,10 @@ in {
       ../../programs/chromium.nix
       ../../programs/steam.nix
       ../../programs/kitty.nix
-      ../../programs/vlc.nix
       ../../programs/minecraft.nix
       ../../programs/git.nix
       ../../programs/yazi.nix
+      ../../programs/concord.nix
     ];
   };
 }

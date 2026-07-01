@@ -27,7 +27,6 @@ in {
       ../../programs/chromium.nix
       ../../programs/zellij.nix
       ../../programs/ghostty.nix
-      ../../programs/vlc.nix
       ../../programs/minecraft.nix
       ../../programs/git.nix
     ];

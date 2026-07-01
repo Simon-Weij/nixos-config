@@ -74,7 +74,7 @@
             command = lib.getExe pkgs.prettier;
             args = ["--parser" "svelte"];
           };
-          language-servers = ["svelteserver" "eslint-lsp"];
+          language-servers = ["svelteserver" "typescript-language-server" "eslint-lsp" "tailwindcss-ls"];
         }
         {
           name = "typescript";
@@ -82,7 +82,7 @@
           formatter = {
             command = lib.getExe pkgs.prettier;
           };
-          language-servers = ["typescript-language-server" "eslint-lsp"];
+          language-servers = ["typescript-language-server" "eslint-lsp" "tailwindcss-ls"];
         }
       ];
       language-server = {
@@ -110,6 +110,10 @@
             rulesCustomizations = [];
           };
         };
+        tailwindcss-ls = {
+          command = "tailwindcss-language-server";
+          args = ["--stdio"];
+        };
       };
     };
   };
@@ -126,5 +130,7 @@ in {
     typescript-language-server
     eslint
     vscode-langservers-extracted
+    tailwindcss-language-server
   ];
+  programs.nano.enable = false;
 }

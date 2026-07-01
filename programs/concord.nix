@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    vlc
+    concord-tui
+    mpv
   ];
 }
