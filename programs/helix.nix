@@ -74,7 +74,7 @@
             command = lib.getExe pkgs.prettier;
             args = ["--parser" "svelte"];
           };
-          language-servers = ["svelteserver" "typescript-language-server" "eslint-lsp" "tailwindcss-ls"];
+          language-servers = ["svelteserver" "eslint-lsp" "tailwindcss-ls"];
         }
         {
           name = "typescript";
@@ -82,7 +82,7 @@
           formatter = {
             command = lib.getExe pkgs.prettier;
           };
-          language-servers = ["typescript-language-server" "eslint-lsp" "tailwindcss-ls"];
+          language-servers = ["typescript-language-server" "eslint-lsp"];
         }
       ];
       language-server = {

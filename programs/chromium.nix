@@ -22,6 +22,8 @@
       "bihgaolammfihpmkpphbngkhdelcnkfa;https://clients2.google.com/service/update2/crx" # Middle click scroll
 
       "hjfkenebldkfgibelglepinlabpjfbll;https://clients2.google.com/service/update2/crx" # No shorts
+
+      "hlepfoohegkhhmjieoechaddaejaokhf;https://clients2.google.com/service/update2/crx" # Refined github
     ];
 
     extraOpts = {
