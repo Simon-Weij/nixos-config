@@ -1,3 +1,6 @@
-{...}: {
-  programs.git.enable = true;
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    git
+    gh
+  ];
 }

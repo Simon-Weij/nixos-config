@@ -77,6 +77,9 @@
         cursor = {
           xcursor-theme = "Adwaita";
           xcursor-size = 16;
+
+          hide-when-typing = _: {};
+          hide-after-inactive-ms = 1000;
         };
 
         binds = {
