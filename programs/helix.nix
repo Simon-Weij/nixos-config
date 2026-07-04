@@ -84,6 +84,14 @@
           };
           language-servers = ["typescript-language-server" "eslint-lsp"];
         }
+        {
+          name = "rust";
+          auto-format = true;
+          formatter = {
+            command = lib.getExe pkgs.rustfmt;
+          };
+          language-servers = ["rust-analyzer"];
+        }
       ];
       language-server = {
         gopls.command = lib.getExe pkgs.gopls;
@@ -114,6 +122,20 @@
           command = "tailwindcss-language-server";
           args = ["--stdio"];
         };
+        rust-analyzer = {
+          command = lib.getExe pkgs.rust-analyzer;
+          config = {
+            check = {
+              command = "clippy";
+            };
+            cargo = {
+              allFeatures = true;
+            };
+            procMacro = {
+              enable = true;
+            };
+          };
+        };
       };
     };
   };
@@ -131,6 +153,9 @@ in {
     eslint
     vscode-langservers-extracted
     tailwindcss-language-server
+
+    # Rust
+    clippy
   ];
   programs.nano.enable = false;
 }

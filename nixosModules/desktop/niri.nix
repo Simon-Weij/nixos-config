@@ -22,6 +22,10 @@
           [noctaliaWrapped]
         ];
 
+        /*
+        overview.zoom = 0.25;
+        */
+
         layer-rule = {
           match = _: {
             props = {
