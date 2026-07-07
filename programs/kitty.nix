@@ -21,10 +21,18 @@
       active_tab_background = "#88c0d0";
       inactive_tab_foreground = "#4c566a";
       inactive_tab_background = "#3b4252";
+      active_border_color = "#3b4252";
+      inactive_border_color = "#2e3440";
+      enabled_layouts = "splits";
     };
 
     keybindings = {
       "ctrl+shift+t" = "launch --cwd=current --type=tab";
+      "ctrl+shift+enter" = "launch --cwd=current --location=vsplit";
+
+      "ctrl+shift+h" = "neighboring_window left";
+      "ctrl+shift+l" = "neighboring_window right";
+
       "f12" = "next_tab";
       "shift+f12" = "previous_tab";
     };
