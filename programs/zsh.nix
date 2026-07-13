@@ -14,9 +14,11 @@
       alias nd="nix develop"
       alias noctalia-update='noctalia-shell ipc call state all > ${flakeConfig.flakePath}/modules/nixosModules/system/desktop/noctalia/noctalia.json'
       alias grun='go run ./...'
-      alias jrun='just run'
+      alias gtest='go test ./...'
+      alias crun='cargo run --'
       alias lock='noctalia-shell ipc call lockScreen lock'
       alias dc='concord'
+      alias spotifyrun='nix run github:Gerg-L/spicetify-nix/3fdc209a45ff9b4e95596feb3be1684d9da51735#test'
 
       alias ze='zellij'
       alias rb='nh os switch'

@@ -18,11 +18,18 @@ in {
       ./hardware.nix
       ./disko.nix
       {
-        networking.networkmanager.enable = true;
+        networking = {
+          hostName = "${flakeConfig.networking.hostName}";
+          networkmanager.enable = true;
+        };
       }
       ../../nixosModules/system/default.nix
       ../../nixosModules/docker.nix
       ../../nixosModules/server.nix
+
+      ../../programs/tailscale.nix
+      ../../programs/kitty.nix
+      ../../programs/zsh.nix
     ];
   };
 }

@@ -33,6 +33,7 @@ in {
       ../../programs/git.nix
       ../../programs/yazi.nix
       ../../programs/concord.nix
+      ../../programs/tailscale.nix
     ];
   };
 }

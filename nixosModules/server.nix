@@ -3,10 +3,6 @@
   lib,
   ...
 }: {
-  users.users."${flakeConfig.username}".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+bILDKycpbpINh/2HXYTtzOag/JkdTIHxqUhOI/y/t"
-  ];
-
   systemd.services."NetworkManager-wait-online".enable = lib.mkForce false;
 
   services.openssh = {
@@ -65,15 +61,11 @@
       HandleLidSwitchDocked = "ignore";
       HandleLidSwitch = "ignore";
     };
-    cloudflared = {
-      enable = true;
-      tunnels."4a2e3c16-1f7a-49ec-82aa-a1b2567b96d0" = {
-        credentialsFile = "/home/${flakeConfig.username}/.cloudflared/credentials.txt";
-        ingress = {
-          "ssh.yourdomain.com" = "ssh://localhost:22";
-        };
-        default = "http_status:404";
-      };
-    };
+  };
+
+  users.users."${flakeConfig.username}" = {
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+bILDKycpbpINh/2HXYTtzOag/JkdTIHxqUhOI/y/t"
+    ];
   };
 }

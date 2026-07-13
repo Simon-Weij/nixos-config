@@ -29,6 +29,7 @@ in {
       ../../programs/ghostty.nix
       ../../programs/minecraft.nix
       ../../programs/git.nix
+      ../../programs/tailscale.nix
     ];
   };
 }

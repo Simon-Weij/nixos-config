@@ -4,6 +4,15 @@
   lib,
   ...
 }: let
+  qmlformatStdin = pkgs.writeShellScriptBin "qmlformat-stdin" ''
+    set -euo pipefail
+    tmp="$(mktemp --suffix=.qml)"
+    trap 'rm -f "$tmp"' EXIT
+    cat > "$tmp"
+    ${pkgs.kdePackages.qtdeclarative}/bin/qmlformat -i "$@" "$tmp"
+    cat "$tmp"
+  '';
+
   script = pkgs.writeShellScript "tests.sh" ''
     FILE=$1
     LINE=$2
@@ -92,6 +101,15 @@
           };
           language-servers = ["rust-analyzer"];
         }
+        {
+          name = "qml";
+          language-servers = ["qmlls"];
+          auto-format = true;
+          formatter = {
+            command = "${qmlformatStdin}/bin/qmlformat-stdin";
+            args = ["--tabs" "--indent-width" "4"];
+          };
+        }
       ];
       language-server = {
         gopls.command = lib.getExe pkgs.gopls;
@@ -123,7 +141,7 @@
           args = ["--stdio"];
         };
         rust-analyzer = {
-          command = lib.getExe pkgs.rust-analyzer;
+          command = "rust-analyzer";
           config = {
             check = {
               command = "clippy";
@@ -135,6 +153,10 @@
               enable = true;
             };
           };
+        };
+        qmlls = {
+          command = "${pkgs.qt6.qtdeclarative}/bin/qmlls";
+          args = ["-E"];
         };
       };
     };
@@ -156,6 +178,8 @@ in {
 
     # Rust
     clippy
+    rust-analyzer
+    rustc
   ];
   programs.nano.enable = false;
 }
