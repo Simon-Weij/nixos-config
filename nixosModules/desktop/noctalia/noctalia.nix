@@ -1,11 +1,37 @@
 {
-  wrapper-modules,
+  inputs,
   pkgs,
+  flakeConfig,
   ...
-}: wrapper-modules.wrappers.noctalia-shell.wrap {
-  inherit pkgs;
-  package = pkgs.noctalia-shell;
-  settings =
-    (builtins.fromJSON
-      (builtins.readFile ./noctalia.json)).settings;
+}: {
+  programs.noctalia = {
+    enable = true;
+    recommendedServices.enable = true;
+    systemd.enable = true;
+    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+      doCheck = false;
+      mesonFlags =
+        (old.mesonFlags or [])
+        ++ [
+          "-Dtests=disabled"
+        ];
+    });
+  };
+  hjem = {
+    clobberByDefault = true;
+    users."${flakeConfig.username}" = {
+      user = "${flakeConfig.username}";
+      directory = "/home/${flakeConfig.username}";
+      files = {
+        ".local/state/noctalia/settings.toml" = {
+          source = ./settings.toml;
+          type = "copy";
+          permissions = "0644";
+        };
+      };
+    };
+  };
+  environment.etc."wallpaper.png" = {
+    source = ./astronaut.png;
+  };
 }

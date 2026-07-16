@@ -13,7 +13,7 @@
     };
 
     kernelPackages =
-      if flakeConfig.isLaptop
+      if flakeConfig.networking.hostName == "onyx"
       then pkgs.linuxPackages_6_12
       else pkgs.linuxPackages_latest;
   };

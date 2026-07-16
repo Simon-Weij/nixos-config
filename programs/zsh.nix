@@ -12,7 +12,7 @@
       alias f='niri-session'
       alias cls=clear
       alias nd="nix develop"
-      alias noctalia-update='noctalia-shell ipc call state all > ${flakeConfig.flakePath}/modules/nixosModules/system/desktop/noctalia/noctalia.json'
+      alias noctalia-update='cp ~/.local/state/noctalia/settings.toml ~/Documents/nixos-config/nixosModules/desktop/noctalia/settings.toml'
       alias grun='go run ./...'
       alias gtest='go test ./...'
       alias crun='cargo run --'

@@ -1,7 +1,7 @@
 {flakeConfig, ...}: {
   imports = [
     ./niri.nix
-    ./wallpaper/wallpaper.nix
+    ./noctalia/noctalia.nix
     {
       services.pipewire = {
         enable = true;

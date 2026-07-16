@@ -4,9 +4,6 @@
   lib,
   ...
 }: let
-  noctaliaWrapped =
-    lib.getExe (pkgs.callPackage ./noctalia/noctalia.nix {inherit (inputs) wrapper-modules;});
-
   niriWrapped =
     (inputs.wrapper-modules.wrappers.niri.apply {
       inherit pkgs;
@@ -18,10 +15,6 @@
 
         screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
-        spawn-at-startup = [
-          [noctaliaWrapped]
-        ];
-
         /*
         overview.zoom = 0.25;
         */
@@ -29,7 +22,7 @@
         layer-rule = {
           match = _: {
             props = {
-              namespace = "^noctalia-overview.*";
+              namespace = "^noctalia-backdrop";
             };
           };
           place-within-backdrop = true;
@@ -103,13 +96,13 @@
             props = {
               hotkey-overlay-title = "Run an Application: rofi";
             };
-            content.spawn = [noctaliaWrapped "ipc" "call" "launcher" "toggle"];
+            content.spawn = ["noctalia" "ipc" "call" "launcher" "toggle"];
           };
           "Mod+V" = _: {
             props = {
               hotkey-overlay-title = "Open control panel";
             };
-            content.spawn = [noctaliaWrapped "ipc" "call" "controlCenter" "toggle"];
+            content.spawn = ["noctalia" "ipc" "call" "controlCenter" "toggle"];
           };
 
           "Mod+D" = _: {
@@ -190,12 +183,12 @@
       };
     }).wrapper;
 in {
-  environment.systemPackages = [
-    pkgs.xwayland
-    pkgs.xwayland-satellite
-    pkgs.polkit_gnome
-    pkgs.playerctl
-    pkgs.adwaita-icon-theme
+  environment.systemPackages = with pkgs; [
+    xwayland
+    xwayland-satellite
+    polkit_gnome
+    playerctl
+    adwaita-icon-theme
   ];
   programs.dconf = {
     enable = true;

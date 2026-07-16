@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     };
     hjem = {
       url = "github:feel-co/hjem";
@@ -27,6 +27,10 @@
       url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
       flake = false;
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let
@@ -34,6 +38,7 @@
       disko.nixosModules.disko
       hjem.nixosModules.default
       spicetify-nix.nixosModules.default
+      inputs.noctalia.nixosModules.default
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;

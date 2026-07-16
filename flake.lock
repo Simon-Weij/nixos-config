@@ -45,11 +45,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782267080,
-        "narHash": "sha256-so1hIImuLtTKTVUokJ/6C2D2b2D4znCx+/PAjMSAnpw=",
+        "lastModified": 1784171173,
+        "narHash": "sha256-EyBAHpQYuXAdQlIx/sja+Auw9IpHJGjE4PZ9g39I7sQ=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "dd0ba9e22fb46581f843e6121de33ca7a4a80224",
+        "rev": "57f1dacffe7a2d7ad803ad224a0efa1817aa4d07",
         "type": "github"
       },
       "original": {
@@ -72,17 +72,34 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1783776592,
-        "narHash": "sha256-UgCQzxeWI75XM8G+hPrPh+MKzEPjG3SpAj7dtqSbksA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3",
+        "lastModified": 1784120854,
+        "narHash": "sha256-Pjytpyqs/h6Kfs46Pcj+upOCqq0/Wwq81YSSeko7ChM=",
+        "rev": "753cc8a3a87467296ddd1fa93f0cc3e81120ee46",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1035164.753cc8a3a874/nixexprs.tar.xz?lastModified=1784120854&rev=753cc8a3a87467296ddd1fa93f0cc3e81120ee46"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784204519,
+        "narHash": "sha256-2TBI3Q3uuTyQ9LE+wtVjFHrKrtB+JYick3mXM2HdMLg=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "a1805be6100f1830d77b0e66879814651c458527",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
         "type": "github"
       }
     },
@@ -93,6 +110,7 @@
         "hjem": "hjem",
         "kitty-nord": "kitty-nord",
         "nixpkgs": "nixpkgs",
+        "noctalia": "noctalia",
         "spicetify-nix": "spicetify-nix",
         "wrapper-modules": "wrapper-modules"
       }
