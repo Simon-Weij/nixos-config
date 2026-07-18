@@ -32,6 +32,6 @@
     };
   };
   environment.etc."wallpaper.png" = {
-    source = ./astronaut.png;
+    source = ./stones.jpg;
   };
 }

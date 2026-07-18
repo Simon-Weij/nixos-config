@@ -110,7 +110,18 @@
             args = ["--tabs" "--indent-width" "4"];
           };
         }
+        {
+          name = "python";
+          language-servers = ["ruff"];
+          auto-format = true;
+
+          formatter = {
+            command = "ruff";
+            args = ["format" "-"];
+          };
+        }
       ];
+
       language-server = {
         gopls.command = lib.getExe pkgs.gopls;
         golangci-lint-lsp = {
@@ -154,6 +165,12 @@
             };
           };
         };
+
+        ruff = {
+          command = "ruff";
+          args = ["server"];
+        };
+
         qmlls = {
           command = "${pkgs.qt6.qtdeclarative}/bin/qmlls";
           args = ["-E"];
@@ -180,6 +197,9 @@ in {
     clippy
     rust-analyzer
     rustc
+
+    # Python
+    ruff
   ];
   programs.nano.enable = false;
 }

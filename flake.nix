@@ -7,10 +7,6 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     wrapper-modules = {
       url = "github:BirdeeHub/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,13 +27,16 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    yamp = {
+      url = "github:Simon-Weij/yamp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let
     defaultModules = with inputs; [
       disko.nixosModules.disko
       hjem.nixosModules.default
-      spicetify-nix.nixosModules.default
       inputs.noctalia.nixosModules.default
     ];
     mkHost = path: let

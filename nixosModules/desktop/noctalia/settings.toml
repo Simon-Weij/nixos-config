@@ -4,6 +4,30 @@ config_version = 2
 blur_intensity = 0.0
 enabled = true
 
+[bar.default]
+enabled = false
+
+[control_center]
+hidden_tabs = [ "monitor", "weather", "calendar", "screen-time" ]
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+[dock]
+position = "left"
+
+[location]
+auto_locate = true
+
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
@@ -35,8 +59,11 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1" ]
         show_login_button = true
         show_password_hint = true
 
-[shell.launcher.providers.wallpaper]
-prefix = ""
+[shell.launcher]
+categories = false
+
+    [shell.launcher.providers.wallpaper]
+    prefix = ""
 
 [theme]
 builtin = "Noctalia"

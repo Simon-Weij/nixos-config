@@ -13,12 +13,6 @@
 
         hotkey-overlay.skip-at-startup = true;
 
-        screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
-
-        /*
-        overview.zoom = 0.25;
-        */
-
         layer-rule = {
           match = _: {
             props = {
@@ -32,10 +26,8 @@
           gaps = 3;
           center-focused-column = "never";
           preset-column-widths = [
-            {proportion = 0.33;}
             {proportion = 0.5;}
-            {proportion = 0.7;}
-            {proportion = 0.95;}
+            {proportion = 1.0;}
           ];
           default-column-width = {proportion = 0.5;};
           focus-ring = {
@@ -44,6 +36,8 @@
             inactive-color = "#505050";
           };
         };
+
+        recent-windows.off = _: {};
 
         window-rules = [
           {
@@ -90,19 +84,22 @@
             content.spawn = "kitty";
           };
           "Shift+Escape" = _: {
-            content.screenshot = _: {};
+            content.spawn = ["noctalia" "msg" "screenshot-region"];
           };
           "Super+Space" = _: {
             props = {
               hotkey-overlay-title = "Run an Application: rofi";
             };
-            content.spawn = ["noctalia" "ipc" "call" "launcher" "toggle"];
+            content.spawn = ["noctalia" "msg" "panel-toggle" "launcher"];
           };
           "Mod+V" = _: {
             props = {
               hotkey-overlay-title = "Open control panel";
             };
-            content.spawn = ["noctalia" "ipc" "call" "controlCenter" "toggle"];
+            content.spawn = ["noctalia" "msg" "panel-toggle" "control-center" "1"];
+          };
+          "Alt+Tab" = _: {
+            content.spawn = ["noctalia" "msg" "window-switcher"];
           };
 
           "Mod+D" = _: {
@@ -237,4 +234,5 @@ in {
   };
 
   security.polkit.enable = true;
+  security.polkit.enablePkexecWrapper = true;
 }
