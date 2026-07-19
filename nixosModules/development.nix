@@ -14,6 +14,4 @@
     enable = true;
     silent = true;
   };
-
-  programs.nix-ld.enable = true;
 }
