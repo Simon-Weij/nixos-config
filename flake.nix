@@ -15,10 +15,6 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix = {
-      url = "github:helix-editor/helix/master";
-      flake = false;
-    };
     kitty-nord = {
       url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
       flake = false;
@@ -31,13 +27,21 @@
       url = "github:Simon-Weij/yamp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    oil = {
+      url = "github:Ra77a3l3-jar/oil.hx";
+      flake = false;
+    };
+    notify = {
+      url = "github:chuwy/notify.hx";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {self, ...}: let
     defaultModules = with inputs; [
       disko.nixosModules.disko
       hjem.nixosModules.default
-      inputs.noctalia.nixosModules.default
+      noctalia.nixosModules.default
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;

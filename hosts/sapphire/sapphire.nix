@@ -24,7 +24,7 @@ in {
       ../../nixosModules/development.nix
 
       ../../programs/zsh.nix
-      ../../programs/helix.nix
+      ../../helix/default.nix
       ../../programs/chromium.nix
       ../../programs/steam.nix
       ../../programs/kitty.nix

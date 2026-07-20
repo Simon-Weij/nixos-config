@@ -1,0 +1,26 @@
+theme = "nord"
+
+[editor]
+line-number = "relative"
+mouse = true
+auto-format = true
+default-yank-register = "+"
+cursor-shape.insert = "bar"
+
+[editor.inline-diagnostics]
+other-lines = "info"
+
+[editor.indent-guides]
+render = true
+
+[keys.insert]
+"C-l" = "move_char_right"
+"C-h" = "move_char_left"
+"C-k" = "move_visual_line_up"
+"C-j" = "move_visual_line_down"
+"C-w" = "move_next_word_start"
+"C-b" = "move_prev_word_start"
+
+[keys.normal]
+space.t = ":sh script %{buffer_name} %{cursor_line}"
+

@@ -29,6 +29,7 @@
       export EDITOR='hx'
 
       export NH_FLAKE="${flakeConfig.flakePath}#nixosConfigurations.${flakeConfig.networking.hostName}"
+      export STEEL_HOME="/home/${flakeConfig.username}/.config/helix"
       PS1="%F{153}%n%f%F{250}@%f%F{33}%m%f %F{250}%1~%f ❯ "
 
       setopt AUTO_CD

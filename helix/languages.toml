@@ -1,0 +1,95 @@
+# Go
+[[language]]
+name = "go"
+auto-format = true
+formatter.command = "gofumpt"
+language-servers = ["gopls", "golangci-lint-lsp"]
+
+[language-server.gopls]
+command = "gopls"
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint-lsp.config]
+command = [
+  "golangci-lint",
+  "run",
+  "--output.json.path",
+  "stdout",
+  "--show-stats=false",
+  "--issues-exit-code=1",
+]
+
+
+# Nix
+[[language]]
+name = "nix"
+auto-format = true
+formatter.command = "alejandra"
+
+
+# Svelte
+[[language]]
+name = "svelte"
+auto-format = true
+formatter.command = "prettier"
+formatter.args = ["--parser", "svelte"]
+language-servers = ["svelteserver", "eslint-lsp", "tailwindcss-ls"]
+
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+
+# TypeScript
+[[language]]
+name = "typescript"
+auto-format = true
+formatter.command = "prettier"
+language-servers = ["typescript-language-server", "eslint-lsp"]
+
+[language-server.eslint-lsp]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint-lsp.config]
+experimental.useFlatConfig = true
+validate = "on"
+run = "onType"
+nodePath = ""
+problems.shortenToSingleLine = false
+rulesCustomizations = []
+
+
+# Rust
+[[language]]
+name = "rust"
+auto-format = true
+formatter.command = "rustfmt"
+language-servers = ["rust-analyzer"]
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+allFeatures = true
+
+[language-server.rust-analyzer.config.procMacro]
+enable = true
+
+
+# Python
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["ruff"]
+formatter.command = "ruff"
+formatter.args = ["format", "-"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
