@@ -35,6 +35,10 @@
       url = "github:chuwy/notify.hx";
       flake = false;
     };
+    smooth-scroll = {
+      url = "github:thomasschafer/smooth-scroll.hx";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {self, ...}: let
