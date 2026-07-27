@@ -8,6 +8,9 @@ language-servers = ["gopls", "golangci-lint-lsp"]
 [language-server.gopls]
 command = "gopls"
 
+[language-server.gopls.config]
+buildFlags = ["-tags=integration"]
+
 [language-server.golangci-lint-lsp]
 command = "golangci-lint-langserver"
 

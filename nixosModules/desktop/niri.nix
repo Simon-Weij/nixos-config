@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  lib,
   ...
 }: let
   niriWrapped =
@@ -221,7 +220,18 @@ in {
 
   programs.niri = {
     enable = true;
-    package = niriWrapped;
+    package = niriWrapped.override {
+      libdisplay-info = pkgs.libdisplay-info.overrideAttrs (finalAttrs: {
+        version = "0.3.0";
+        src = pkgs.fetchFromGitLab {
+          domain = "gitlab.freedesktop.org";
+          owner = "emersion";
+          repo = "libdisplay-info";
+          rev = finalAttrs.version;
+          sha256 = "sha256-nXf2KGovNKvcchlHlzKBkAOeySMJXgxMpbi5z9gLrdc=";
+        };
+      });
+    };
   };
 
   systemd.user.services.polkit-gnome-authentication-agent = {

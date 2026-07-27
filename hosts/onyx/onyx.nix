@@ -22,7 +22,6 @@ in {
       ../../nixosModules/system/default.nix
 
       ../../programs/spotify.nix
-      ../../programs/zsh.nix
       ../../programs/helix.nix
       ../../programs/chromium.nix
       ../../programs/zellij.nix

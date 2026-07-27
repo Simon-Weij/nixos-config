@@ -23,7 +23,6 @@ in {
       ../../nixosModules/docker.nix
       ../../nixosModules/development.nix
 
-      ../../programs/zsh.nix
       ../../helix/default.nix
       ../../programs/chromium.nix
       ../../programs/steam.nix
@@ -33,7 +32,8 @@ in {
       ../../programs/yazi.nix
       ../../programs/concord.nix
       ../../programs/tailscale.nix
-      ../../programs/yamp.nix
+      ../../programs/spotify.nix
+      ../../programs/starship.nix
     ];
   };
 }

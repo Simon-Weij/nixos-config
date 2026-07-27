@@ -1,4 +1,5 @@
 {
+  inputs,
   flakeConfig,
   pkgs,
   ...
@@ -12,8 +13,7 @@
         "wheel"
       ];
       initialPassword = "password";
-      shell = pkgs.zsh;
+      shell = pkgs.callPackage ./../../programs/nu.nix {inherit inputs flakeConfig;};
     };
   };
-  programs.zsh.enable = true;
 }

@@ -8,6 +8,12 @@
     steelix
     steel
 
+    # Go
+    gofumpt
+    gopls
+    golangci-lint-langserver
+    golangci-lint
+
     # Nix
     nixd
     alejandra
@@ -28,35 +34,45 @@
     ruff
   ];
 
-  hjem.clobberByDefault = true;
-  hjem.users.${flakeConfig.username}.xdg.config.files = {
-    "helix/config.toml" = {
-      source = ./config.toml;
-      type = "copy";
-    };
-    "helix/languages.toml" = {
-      source = ./languages.toml;
-      type = "copy";
-    };
-    "helix/init.scm" = {
-      source = ./init.scm;
-      type = "copy";
-    };
-    "helix/helix.scm" = {
-      source = ./helix.scm;
-      type = "copy";
-    };
-    "helix/cogs/oil" = {
-      source = inputs.oil;
-      type = "symlink";
-    };
-    "helix/cogs/notify" = {
-      source = inputs.notify;
-      type = "symlink";
-    };
-    "helix/cogs/smooth-scroll" = {
-      source = inputs.smooth-scroll;
-      type = "symlink";
+  hjem = {
+    clobberByDefault = true;
+    users.${flakeConfig.username}.xdg = {
+      config.files = {
+        "helix/config.toml" = {
+          source = ./config.toml;
+          type = "copy";
+        };
+        "helix/languages.toml" = {
+          source = ./languages.toml;
+          type = "copy";
+        };
+        "helix/init.scm" = {
+          source = ./init.scm;
+          type = "copy";
+        };
+        "helix/helix.scm" = {
+          source = ./helix.scm;
+          type = "copy";
+        };
+      };
+      data.files = {
+        "steel/cogs/notify" = {
+          source = inputs.notify;
+          type = "symlink";
+        };
+        "steel/cogs/glyph" = {
+          source = inputs.glyph;
+          type = "symlink";
+        };
+        "steel/cogs/smooth-scroll" = {
+          source = inputs.smooth-scroll;
+          type = "symlink";
+        };
+        "steel/cogs/forest" = {
+          source = inputs.forest;
+          type = "symlink";
+        };
+      };
     };
   };
 }

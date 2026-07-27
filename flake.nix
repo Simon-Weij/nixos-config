@@ -23,8 +23,8 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    yamp = {
-      url = "github:Simon-Weij/yamp";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     oil = {
@@ -39,6 +39,14 @@
       url = "github:thomasschafer/smooth-scroll.hx";
       flake = false;
     };
+    forest = {
+      url = "github:Ra77a3l3-jar/forest.hx";
+      flake = false;
+    };
+    glyph = {
+      url = "github:Ra77a3l3-jar/glyph.hx";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {self, ...}: let
@@ -46,6 +54,7 @@
       disko.nixosModules.disko
       hjem.nixosModules.default
       noctalia.nixosModules.default
+      spicetify-nix.nixosModules.spicetify
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;

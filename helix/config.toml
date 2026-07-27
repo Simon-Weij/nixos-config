@@ -23,10 +23,8 @@ render = true
 
 [keys.normal]
 space.t = ":sh script %{buffer_name} %{cursor_line}"
-space.o = ":oil"
-space.ret = ":oil-enter"
-"-" = ":oil-back"
-"." = ":oil-toggle-hidden"
+space.o = ":forest-open"
+space.s = ":wa"
 A-j = ":half-page-down-smooth"
 A-k = ":half-page-up-smooth"
 space.k = ":page-up-smooth"

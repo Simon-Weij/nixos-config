@@ -29,7 +29,6 @@ in {
 
       ../../programs/tailscale.nix
       ../../programs/kitty.nix
-      ../../programs/zsh.nix
     ];
   };
 }
