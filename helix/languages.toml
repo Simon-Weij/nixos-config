@@ -96,3 +96,27 @@ formatter.args = ["format", "-"]
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+
+# Docker
+[[language]]
+name = "dockerfile"
+auto-format = true
+formatter.command = "dockerfmt"
+
+[language-server.docker-compose]
+command = "docker-compose-langserver"
+args = ["--stdio"]
+
+# Yaml
+[[language]]
+name = "yaml"
+auto-format = true
+language-servers = ["yaml-language-server"]
+
+[language.formatter]
+command = "yamlfmt"
+args = ["-"]
+
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]

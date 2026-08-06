@@ -1,34 +1,13 @@
 {
   "nodes": {
-    "disko": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1768920986,
-        "narHash": "sha256-CNzzBsRhq7gg4BMBuTDObiWDH/rFYHEuDRVOwCcwXw4=",
-        "owner": "nix-community",
-        "repo": "disko",
-        "rev": "de5708739256238fb912c62f03988815db89ec9a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "latest",
-        "repo": "disko",
-        "type": "github"
-      }
-    },
     "forest": {
       "flake": false,
       "locked": {
-        "lastModified": 1783948657,
-        "narHash": "sha256-kQox4neRkJg5te6bbozur3/TW4m7u3VrPrZI3jE985k=",
+        "lastModified": 1785695815,
+        "narHash": "sha256-b3O7+R5F9TQ0F5m8FYe6ka8mgCLq3IGw4d1Kdh+Y1l0=",
         "owner": "Ra77a3l3-jar",
         "repo": "forest.hx",
-        "rev": "76f539932e78f3f7c6627379c9ca46dc8482128f",
+        "rev": "c487956a8f002813fe44ae2a30fffe1859fcc206",
         "type": "github"
       },
       "original": {
@@ -40,11 +19,11 @@
     "glyph": {
       "flake": false,
       "locked": {
-        "lastModified": 1785138834,
-        "narHash": "sha256-PnJcPwdqa4PS6oWE4S7wB7go89UwfAaJxewFOm23Eno=",
+        "lastModified": 1785493362,
+        "narHash": "sha256-TpYnGqROkKfoB9G+JTjADWvMtpRJbv4NVaTqiUfW1Eg=",
         "owner": "Ra77a3l3-jar",
         "repo": "glyph.hx",
-        "rev": "81c3fb34c85bd9986b4b1ce4321bceb5f505b13a",
+        "rev": "1e63ccbc8f17511543412c955879ba672f3f8ec1",
         "type": "github"
       },
       "original": {
@@ -60,11 +39,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785121190,
-        "narHash": "sha256-wYo/odcGVHPpu78Y+EbINdfUDd30CWMpwC1UsN762Ck=",
+        "lastModified": 1785929776,
+        "narHash": "sha256-qwppDYdtxqtDpI1iSp7bs8prOJ0KQSvhJchfROD04f0=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "26089c056ea561e695f74945f12872f24eb08e67",
+        "rev": "b610953d0c56da6b28fd39c21bd193b88e91341c",
         "type": "github"
       },
       "original": {
@@ -87,35 +66,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1785090369,
-        "narHash": "sha256-JmPsbx37jA7Qga36iij0jsbwV4PVRACnqoVroAt/cAc=",
-        "rev": "624af665418d3c65d544145b4d34ad696439570e",
+        "lastModified": 1785828668,
+        "narHash": "sha256-VFlH/0nM6kkWQox9IaTqx2eCT3pmkr8bB7iVZ1bkaLs=",
+        "rev": "e72e4f299401a3689d4b3d5fc6496b11db7064eb",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1042126.624af665418d/nixexprs.tar.xz?lastModified=1785090369&rev=624af665418d3c65d544145b4d34ad696439570e"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1047536.e72e4f299401/nixexprs.tar.xz?lastModified=1785828668&rev=e72e4f299401a3689d4b3d5fc6496b11db7064eb"
       },
       "original": {
         "type": "tarball",
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
-      }
-    },
-    "noctalia": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1785173355,
-        "narHash": "sha256-KiuZl97FCRlg5GlYhzuKhQykJZHE7IIfCZUknGsRloM=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia",
-        "rev": "2a4bd5788bfe392a0cba9107443bd6985fe29fe7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia",
-        "type": "github"
       }
     },
     "notify": {
@@ -134,33 +93,14 @@
         "type": "github"
       }
     },
-    "oil": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784538790,
-        "narHash": "sha256-IzTS2JNRLt7YGBecT8SVAIdCUf6ohvYFQfXQKiQoa90=",
-        "owner": "Ra77a3l3-jar",
-        "repo": "oil.hx",
-        "rev": "5e8fc997d862902b162eb96fb7914ae6ea02ae2b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Ra77a3l3-jar",
-        "repo": "oil.hx",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "disko": "disko",
         "forest": "forest",
         "glyph": "glyph",
         "hjem": "hjem",
         "kitty-nord": "kitty-nord",
         "nixpkgs": "nixpkgs",
-        "noctalia": "noctalia",
         "notify": "notify",
-        "oil": "oil",
         "smooth-scroll": "smooth-scroll",
         "spicetify-nix": "spicetify-nix",
         "wrapper-modules": "wrapper-modules"
@@ -190,11 +130,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1785048222,
-        "narHash": "sha256-LjFVfwxensz76SjnvofF1Jsw+xTLd8Qp31W0J6nh2XI=",
+        "lastModified": 1785652745,
+        "narHash": "sha256-pD0VE/XwjQ3tLyxTzXKdm6JuIEWr/Jaote6xpXGZrXk=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "17e524f330c282d31c32dfe076222d4a12277886",
+        "rev": "802040514e09bb8539237f52f68cf053b987c65e",
         "type": "github"
       },
       "original": {

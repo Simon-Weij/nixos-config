@@ -32,6 +32,14 @@
 
     # Python
     ruff
+
+    # Config formats
+    yaml-language-server
+    yamlfmt
+
+    docker-language-server
+    dockerfmt
+    docker-compose-language-service
   ];
 
   hjem = {

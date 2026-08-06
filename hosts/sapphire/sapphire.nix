@@ -16,12 +16,12 @@ in {
     specialArgs = {inherit inputs self flakeConfig;};
     modules = [
       ./hardware.nix
-      ./disko.nix
 
       ../../nixosModules/desktop/default.nix
       ../../nixosModules/system/default.nix
       ../../nixosModules/docker.nix
       ../../nixosModules/development.nix
+      ../../nixosModules/system/btrfs.nix
 
       ../../helix/default.nix
       ../../programs/chromium.nix

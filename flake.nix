@@ -11,24 +11,12 @@
       url = "github:BirdeeHub/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    disko = {
-      url = "github:nix-community/disko/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    kitty-nord = {
-      url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
-      flake = false;
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    oil = {
-      url = "github:Ra77a3l3-jar/oil.hx";
+    kitty-nord = {
+      url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
       flake = false;
     };
     notify = {
@@ -51,9 +39,7 @@
 
   outputs = inputs @ {self, ...}: let
     defaultModules = with inputs; [
-      disko.nixosModules.disko
       hjem.nixosModules.default
-      noctalia.nixosModules.default
       spicetify-nix.nixosModules.spicetify
     ];
     mkHost = path: let

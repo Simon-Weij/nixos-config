@@ -8,14 +8,7 @@
     enable = true;
     recommendedServices.enable = true;
     systemd.enable = true;
-    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
-      doCheck = false;
-      mesonFlags =
-        (old.mesonFlags or [])
-        ++ [
-          "-Dtests=disabled"
-        ];
-    });
+    package = pkgs.noctalia;
   };
   hjem = {
     clobberByDefault = true;
