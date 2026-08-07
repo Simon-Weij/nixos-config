@@ -1,7 +1,7 @@
 {
   pkgs,
-  flakeConfig,
   inputs,
+  flakeConfig,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -43,42 +43,33 @@
   ];
 
   hjem = {
-    clobberByDefault = true;
-    users.${flakeConfig.username}.xdg = {
-      config.files = {
-        "helix/config.toml" = {
-          source = ./config.toml;
-          type = "copy";
-        };
-        "helix/languages.toml" = {
-          source = ./languages.toml;
-          type = "copy";
-        };
-        "helix/init.scm" = {
-          source = ./init.scm;
-          type = "copy";
-        };
-        "helix/helix.scm" = {
-          source = ./helix.scm;
-          type = "copy";
-        };
+    extraModules = [inputs.helix-plugins.hjemModules.default];
+    users.${flakeConfig.username} = {
+      programs.helix = {
+        enable = true;
+        plugins = with inputs.helix-plugins.legacyPackages.${pkgs.stdenv.hostPlatform.system}.helixPlugins; [
+          forest
+          smooth-scroll
+        ];
       };
-      data.files = {
-        "steel/cogs/notify" = {
-          source = inputs.notify;
-          type = "symlink";
-        };
-        "steel/cogs/glyph" = {
-          source = inputs.glyph;
-          type = "symlink";
-        };
-        "steel/cogs/smooth-scroll" = {
-          source = inputs.smooth-scroll;
-          type = "symlink";
-        };
-        "steel/cogs/forest" = {
-          source = inputs.forest;
-          type = "symlink";
+      xdg = {
+        config.files = {
+          "helix/config.toml" = {
+            source = ./config.toml;
+            type = "copy";
+          };
+          "helix/languages.toml" = {
+            source = ./languages.toml;
+            type = "copy";
+          };
+          "helix/init.scm" = {
+            source = ./init.scm;
+            type = "copy";
+          };
+          "helix/helix.scm" = {
+            source = ./helix.scm;
+            type = "copy";
+          };
         };
       };
     };

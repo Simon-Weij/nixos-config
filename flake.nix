@@ -15,24 +15,12 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix-plugins = {
+      url = "github:maxschipper/helix-plugins-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     kitty-nord = {
       url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
-      flake = false;
-    };
-    notify = {
-      url = "github:chuwy/notify.hx";
-      flake = false;
-    };
-    smooth-scroll = {
-      url = "github:thomasschafer/smooth-scroll.hx";
-      flake = false;
-    };
-    forest = {
-      url = "github:Ra77a3l3-jar/forest.hx";
-      flake = false;
-    };
-    glyph = {
-      url = "github:Ra77a3l3-jar/glyph.hx";
       flake = false;
     };
   };
@@ -41,6 +29,7 @@
     defaultModules = with inputs; [
       hjem.nixosModules.default
       spicetify-nix.nixosModules.spicetify
+      inputs.helix-plugins.nixosModules.default
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;
