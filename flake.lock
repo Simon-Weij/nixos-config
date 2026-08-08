@@ -8,11 +8,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1785752145,
-        "narHash": "sha256-g9v2ysqyvENCkF7hl1fECj8SFL91FIyKPglpXbn09l4=",
+        "lastModified": 1786019239,
+        "narHash": "sha256-n3JJSfBdDEt8mDPvWYHysG/DalibN/6g4tOGv7q/O6Y=",
         "owner": "maxschipper",
         "repo": "helix-plugins-nix",
-        "rev": "0a3d332cd3361e8592724e89a3f4aba77f8a7c04",
+        "rev": "88901815a44505b527b9fd1dd15e66f6fd3f1d25",
         "type": "github"
       },
       "original": {

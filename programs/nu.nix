@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   flakeConfig,
+  config,
 }:
 inputs.wrapper-modules.wrappers.nushell.wrap {
   inherit pkgs;
@@ -81,6 +82,10 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
       $env.config.buffer_editor = $env.EDITOR
       $env.config.show_banner = false
       $env.config.edit_mode = "vi"
+      $env.DOCKER_HOST = $"unix://($env.XDG_RUNTIME_DIR)/docker.sock"
+      $env.NH_FLAKE = "${flakeConfig.flakePath}#${flakeConfig.networking.hostName}"
+
+
 
       $env.config.cursor_shape = {
         vi_insert: "line"

@@ -12,9 +12,6 @@
       };
     };
 
-    kernelPackages =
-      if flakeConfig.networking.hostName == "onyx"
-      then pkgs.linuxPackages_6_12
-      else pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_12;
   };
 }

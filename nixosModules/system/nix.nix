@@ -15,7 +15,6 @@
   };
   programs.nh = {
     enable = true;
-    flake = "${flakeConfig.flakePath}#${flakeConfig.networking.hostName}";
   };
 
   boot.loader.systemd-boot.configurationLimit = 5;

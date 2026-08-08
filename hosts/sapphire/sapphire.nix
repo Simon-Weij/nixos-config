@@ -34,6 +34,7 @@ in {
       ../../programs/tailscale.nix
       ../../programs/spotify.nix
       ../../programs/starship.nix
+      ../../programs/feishin.nix
     ];
   };
 }
