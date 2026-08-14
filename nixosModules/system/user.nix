@@ -3,7 +3,10 @@
   flakeConfig,
   pkgs,
   ...
-}: {
+}: let
+  wrappedNuShell = pkgs.callPackage ./../../programs/nu.nix {inherit inputs flakeConfig;};
+in {
+  environment.shells = [wrappedNuShell];
   users = {
     mutableUsers = true;
     users."${flakeConfig.username}" = {
@@ -13,7 +16,8 @@
         "wheel"
       ];
       initialPassword = "password";
-      shell = pkgs.callPackage ./../../programs/nu.nix {inherit inputs flakeConfig;};
+      shell = wrappedNuShell;
     };
+    defaultUserShell = wrappedNuShell;
   };
 }

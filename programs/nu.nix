@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   flakeConfig,
-  config,
 }:
 inputs.wrapper-modules.wrappers.nushell.wrap {
   inherit pkgs;
@@ -93,6 +92,7 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
       }
 
       alias pn = pnpm
+      alias dockerreset = docker system prune -a --volumes
 
       #Direnv
       use std/config *
