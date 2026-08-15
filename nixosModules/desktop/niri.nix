@@ -65,8 +65,8 @@
         };
 
         cursor = {
-          xcursor-theme = "Adwaita";
-          xcursor-size = 16;
+          xcursor-theme = "Bibata-Modern-Classic";
+          xcursor-size = 24;
 
           hide-when-typing = _: {};
           hide-after-inactive-ms = 1000;
@@ -185,6 +185,7 @@ in {
     polkit_gnome
     playerctl
     adwaita-icon-theme
+    bibata-cursors
   ];
   programs.dconf = {
     enable = true;
@@ -204,18 +205,21 @@ in {
   };
 
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    adwaita-fonts
-    adwaita-icon-theme
+    nerd-fonts.profont
   ];
 
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = ["JetBrainsMono Nerd Font" "Adwaita Sans"];
-      sansSerif = ["JetBrainsMono Nerd Font" "Adwaita Sans"];
-      serif = ["JetBrainsMono Nerd Font" "Adwaita Sans"];
+      monospace = ["ProFont Nerd Font"];
+      sansSerif = ["ProFont Nerd Font"];
+      serif = ["ProFont Nerd Font"];
     };
+  };
+
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    NIXOS_OZONE_WL = "1";
   };
 
   programs.niri = {
