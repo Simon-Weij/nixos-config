@@ -29,12 +29,9 @@ in {
       ../../programs/kitty.nix
       ../../programs/minecraft.nix
       ../../programs/git.nix
-      ../../programs/yazi.nix
-      ../../programs/concord.nix
       ../../programs/tailscale.nix
       ../../programs/spotify.nix
       ../../programs/starship.nix
-      ../../programs/feishin.nix
     ];
   };
 }

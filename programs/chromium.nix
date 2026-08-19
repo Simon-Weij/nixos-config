@@ -1,38 +1,36 @@
 {
-  flakeConfig,
   pkgs,
+  inputs,
   ...
 }: {
-  programs.chromium = {
+  nixpkgs.overlays = [inputs.helium.overlays.default];
+  environment.systemPackages = [pkgs.helium];
+
+  programs.helium = {
     enable = true;
+    policies = {
+      "ExtensionInstallForcelist" = [
+        "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark reader
 
-    homepageLocation = "https://www.duckduckgo.com/";
+        "nngceckbapebfimnlniiiahkandclblb" # bitwarden
 
-    extensions = [
-      "eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx" # dark reader
+        "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
 
-      "ddkjiahejlhfcafbddmgiahcphecmpfh;https://clients2.google.com/service/update2/crx" # ublock
+        "hfjbmagddngcpeloejdejnfgbamkjaeg" # vimium C
 
-      "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx" # bitwarden
+        "bihgaolammfihpmkpphbngkhdelcnkfa" # Middle click scroll
 
-      "mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx" # sponsorblock
+        "hjfkenebldkfgibelglepinlabpjfbll" # No shorts
 
-      "hfjbmagddngcpeloejdejnfgbamkjaeg;https://clients2.google.com/service/update2/crx" # vimium C
+        "hlepfoohegkhhmjieoechaddaejaokhf" # Refined github
+      ];
+      "DefaultSearchProviderEnabled" = true;
+      "DefaultSearchProviderName" = "DuckDuckGo";
+      "DefaultSearchProviderSearchURL" = "https://duckduckgo.com/?q={searchTerms}";
+      "DefaultSearchProviderSuggestURL" = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+      "DefaultSearchProviderIconURL" = "https://duckduckgo.com/favicon.ico";
 
-      "bihgaolammfihpmkpphbngkhdelcnkfa;https://clients2.google.com/service/update2/crx" # Middle click scroll
-
-      "hjfkenebldkfgibelglepinlabpjfbll;https://clients2.google.com/service/update2/crx" # No shorts
-
-      "hlepfoohegkhhmjieoechaddaejaokhf;https://clients2.google.com/service/update2/crx" # Refined github
-    ];
-
-    extraOpts = {
-      DefaultSearchProviderEnabled = true;
-      DefaultSearchProviderName = "DuckDuckGo";
-      DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
-      DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
-      DefaultSearchProviderIconURL = "https://duckduckgo.com/favicon.ico";
-      WebAppInstallForceList = [
+      "WebAppInstallForceList" = [
         {
           "custom_name" = "Discord";
           "create_desktop_shortcut" = true;
@@ -54,8 +52,4 @@
       ];
     };
   };
-
-  users.users."${flakeConfig.username}".packages = [
-    pkgs.chromium
-  ];
 }

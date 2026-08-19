@@ -24,13 +24,11 @@ command = [
   "--issues-exit-code=1",
 ]
 
-
 # Nix
 [[language]]
 name = "nix"
 auto-format = true
 formatter.command = "alejandra"
-
 
 # Svelte
 [[language]]
@@ -63,39 +61,6 @@ run = "onType"
 nodePath = ""
 problems.shortenToSingleLine = false
 rulesCustomizations = []
-
-
-# Rust
-[[language]]
-name = "rust"
-auto-format = true
-formatter.command = "rustfmt"
-language-servers = ["rust-analyzer"]
-
-[language-server.rust-analyzer]
-command = "rust-analyzer"
-
-[language-server.rust-analyzer.config.check]
-command = "clippy"
-
-[language-server.rust-analyzer.config.cargo]
-allFeatures = true
-
-[language-server.rust-analyzer.config.procMacro]
-enable = true
-
-
-# Python
-[[language]]
-name = "python"
-auto-format = true
-language-servers = ["ruff"]
-formatter.command = "ruff"
-formatter.args = ["format", "-"]
-
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
 
 # Docker
 [[language]]

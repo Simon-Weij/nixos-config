@@ -25,14 +25,6 @@
     vscode-langservers-extracted
     tailwindcss-language-server
 
-    # Rust
-    clippy
-    rust-analyzer
-    rustc
-
-    # Python
-    ruff
-
     # Config formats
     yaml-language-server
     yamlfmt

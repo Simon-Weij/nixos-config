@@ -23,6 +23,10 @@
       url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
       flake = false;
     };
+    helium = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let
@@ -30,6 +34,7 @@
       hjem.nixosModules.default
       spicetify-nix.nixosModules.spicetify
       inputs.helix-plugins.nixosModules.default
+      helium.nixosModules.default
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;
