@@ -27,6 +27,10 @@
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    umbriel = {
+      url = "git+https://github.com/noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let
@@ -35,6 +39,7 @@
       spicetify-nix.nixosModules.spicetify
       inputs.helix-plugins.nixosModules.default
       helium.nixosModules.default
+      inputs.umbriel.nixosModules.default
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;

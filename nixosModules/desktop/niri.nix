@@ -22,7 +22,7 @@
         };
 
         layout = {
-          gaps = 3;
+          gaps = 0;
           center-focused-column = "never";
           preset-column-widths = [
             {proportion = 0.5;}
@@ -30,7 +30,7 @@
           ];
           default-column-width = {proportion = 0.5;};
           focus-ring = {
-            width = 1;
+            width = 0;
             active-color = "#0262acff";
             inactive-color = "#505050";
           };
@@ -40,7 +40,6 @@
 
         window-rules = [
           {
-            geometry-corner-radius = 12;
             clip-to-geometry = true;
           }
         ];

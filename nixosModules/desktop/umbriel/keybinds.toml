@@ -1,0 +1,37 @@
+[keybinds]
+"Mod+T" = "spawn:kitty"
+"Mod+Q" = "window-close"
+#"Mod+D" = "overview-toggle"
+
+"Mod+V" = "spawn:noctalia msg panel-toggle control-center 1"  
+"Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
+"Shift+Escape" = "spawn:noctalia msg screenshot-region"
+
+"Mod+H" = "window-focus-left"
+"Mod+L" = "window-focus-right"
+"Mod+F" = "window-toggle-maximize"
+#"Mod+K" = "workspace-previous"
+#"Mod+J" = "workspace-next"
+
+"Mod+M" = "workspace-switch:MUSIC"
+"Mod+C" = "workspace-switch:CHAT"
+"Mod+B" = "workspace-switch:BROWSER"
+"Mod+D" = "workspace-switch:DEV"
+"Mod+O" = "workspace-switch:OTHER"
+
+"Mod+Alt+H" = "column-move-left"
+"Mod+Alt+L" = "column-move-right"
+"Mod+Alt+K" = "window-move-to-workspace-previous"
+"Mod+Alt+J" = "window-move-to-workspace-next"
+
+"XF86AudioRaiseVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"
+"XF86AudioLowerVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
+"XF86AudioMute" = "spawn:wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+"XF86AudioMicMute" = "spawn:wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+"XF86MonBrightnessUp" = "spawn:brightnessctl --class=backlight set +10%"
+"XF86MonBrightnessDown" = "spawn:brightnessctl --class=backlight set 10%-"
+"XF86AudioPlay" = "spawn:playerctl play-pause"
+"XF86AudioPause" = "spawn:playerctl play-pause"
+"XF86AudioNext" = "spawn:playerctl next"
+"XF86AudioPrev" = "spawn:playerctl previous"
+

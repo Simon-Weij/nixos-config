@@ -1,0 +1,31 @@
+[include]
+files = [
+  "keybinds.toml",
+  "outputs.toml",
+  "window_rules.toml"
+]
+
+[general]
+autostart = [
+  "noctalia",
+]
+mod_key = "Super"
+xwayland = true
+focus_on_activate = false
+
+[appearance]
+prefer_no_csd = true
+border_width = 0
+outer_border_width = 0
+corner_radius = 0
+animation_ms = 1
+
+[input.cursor]
+theme = "Bibata-Modern-Classic"
+size = 24
+hide_when_typing = true
+hide_timeout_ms = 1000
+
+[layout]
+mode = "dwindle"
+gap = 0

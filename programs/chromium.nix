@@ -49,6 +49,12 @@
           "default_launch_container" = "window";
           "url" = "https://app.commet.chat/";
         }
+        {
+          "custom_name" = "Fluxer";
+          "create_desktop_shortcut" = true;
+          "default_launch_container" = "window";
+          "url" = "https://web.canary.fluxer.app/";
+        }
       ];
     };
   };

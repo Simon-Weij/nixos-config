@@ -17,11 +17,11 @@ in {
     modules = [
       ./hardware.nix
 
-      ../../nixosModules/desktop/default.nix
       ../../nixosModules/system/default.nix
       ../../nixosModules/docker.nix
       ../../nixosModules/development.nix
       ../../nixosModules/system/btrfs.nix
+      ../../nixosModules/desktop/umbriel.nix
 
       ../../helix/default.nix
       ../../programs/chromium.nix

@@ -10,6 +10,7 @@
     experimental-features = [
       "nix-command"
       "flakes"
+      "flake-self-attrs"
     ];
     sandbox = true;
   };
