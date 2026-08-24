@@ -7,28 +7,29 @@
     flakePath = "/home/simon/Documents/nixos-config";
     stateVersion = "25.11";
     username = "simon";
-    networking.hostName = "onxy";
-    isLaptop = false;
+    networking.hostName = "onyx";
+    isLaptop = true;
   };
 in {
-  nixosConfigurations.sapphire = {
+  nixosConfigurations.onyx = {
     system = "x86_64-linux";
     specialArgs = {inherit inputs self flakeConfig;};
     modules = [
       ./hardware.nix
-      ./disko.nix
 
-      ../../nixosModules/desktop/default.nix
       ../../nixosModules/system/default.nix
+      ../../nixosModules/docker.nix
+      ../../nixosModules/development.nix
+      ../../nixosModules/desktop/umbriel.nix
+      ../../nixosModules/system/btrfs.nix
 
-      ../../programs/spotify.nix
-      ../../programs/helix.nix
+      ../../helix/default.nix
       ../../programs/chromium.nix
-      ../../programs/zellij.nix
-      ../../programs/ghostty.nix
-      ../../programs/minecraft.nix
+      ../../programs/kitty.nix
       ../../programs/git.nix
       ../../programs/tailscale.nix
+      ../../programs/spotify.nix
+      ../../programs/starship.nix
     ];
   };
 }

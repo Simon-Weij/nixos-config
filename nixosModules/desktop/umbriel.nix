@@ -117,12 +117,10 @@
           permissions = "0644";
         };
         ".config/umbriel/outputs.toml" = {
-          source = ./umbriel/outputs.toml;
-          type = "copy";
-          permissions = "0644";
-        };
-        ".config/umbriel/window_rules.toml" = {
-          source = ./umbriel/outputs.toml;
+          source =
+            if flakeConfig.isLaptop
+            then ./umbriel/outputs-laptop.toml
+            else ./umbriel/outputs.toml;
           type = "copy";
           permissions = "0644";
         };

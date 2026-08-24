@@ -14,6 +14,8 @@
 
         "nngceckbapebfimnlniiiahkandclblb" # bitwarden
 
+        "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1Password
+
         "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
 
         "hfjbmagddngcpeloejdejnfgbamkjaeg" # vimium C
