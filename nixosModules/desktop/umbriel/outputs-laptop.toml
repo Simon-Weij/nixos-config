@@ -1,3 +1,4 @@
 [output.eDP-1]
 mode = "2560x1600@165"
 workspaces = ["MUSIC", "CHAT", "BROWSER", "DEV", "OTHER"]
+scale = 1.4
