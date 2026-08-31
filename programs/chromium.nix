@@ -46,10 +46,10 @@
           "url" = "https://teams.microsoft.com/v2/";
         }
         {
-          "custom_name" = "Commet";
+          "custom_name" = "Cinny";
           "create_desktop_shortcut" = true;
           "default_launch_container" = "window";
-          "url" = "https://app.commet.chat/";
+          "url" = "https://app.cinny.in/";
         }
         {
           "custom_name" = "Fluxer";

@@ -10,8 +10,9 @@
 "Mod+H" = "window-focus-left"
 "Mod+L" = "window-focus-right"
 "Mod+F" = "window-toggle-maximize"
-#"Mod+K" = "workspace-previous"
-#"Mod+J" = "workspace-next"
+"Mod+K" = "workspace-previous"
+"Mod+J" = "workspace-next"
+"Mod+I" = "overview-toggle"
 
 "Mod+M" = "workspace-switch:MUSIC"
 "Mod+C" = "workspace-switch:CHAT"
@@ -34,4 +35,3 @@
 "XF86AudioPause" = "spawn:playerctl play-pause"
 "XF86AudioNext" = "spawn:playerctl next"
 "XF86AudioPrev" = "spawn:playerctl previous"
-

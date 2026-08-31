@@ -17,7 +17,12 @@ prefer_no_csd = true
 border_width = 0
 outer_border_width = 0
 corner_radius = 0
-animation_ms = 1
+
+[overview]
+background_blur = false
+
+#[animation]
+#enabled = false
 
 [input.touchpad]
 natural_scroll = true
@@ -28,6 +33,10 @@ size = 24
 hide_when_typing = true
 hide_timeout_ms = 1000
 
+[input.mouse]
+accel_profile = "flat"
+sensitivity = -0.4
+
 [layout]
-mode = "dwindle"
+mode = "scrolling"
 gap = 0
