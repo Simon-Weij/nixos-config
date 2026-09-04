@@ -8,7 +8,7 @@
     enable = true;
     recommendedServices.enable = true;
     systemd.enable = true;
-    package = pkgs.noctalia;
+    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
   hjem = {
     clobberByDefault = true;

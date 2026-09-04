@@ -17,6 +17,7 @@
     adwaita-icon-theme
     bibata-cursors
     adwaita-qt
+    brightnessctl
   ];
 
   services = {
@@ -40,7 +41,7 @@
     pam.services.login.enableGnomeKeyring = true;
     polkit = {
       enable = true;
-      enablePkexecWrapper = true;
+      #enablePkexecWrapper = true;
     };
   };
   networking = {

@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+      url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     };
     hjem = {
       url = "github:feel-co/hjem";
@@ -31,15 +31,20 @@
       url = "git+https://github.com/noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let
     defaultModules = with inputs; [
       hjem.nixosModules.default
       spicetify-nix.nixosModules.spicetify
-      inputs.helix-plugins.nixosModules.default
+      helix-plugins.nixosModules.default
       helium.nixosModules.default
-      inputs.umbriel.nixosModules.default
+      umbriel.nixosModules.default
+      noctalia.nixosModules.default
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;
