@@ -66,6 +66,7 @@
   users.users."${flakeConfig.username}" = {
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+bILDKycpbpINh/2HXYTtzOag/JkdTIHxqUhOI/y/t"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVLZa89LdJxDMxH2teQfmD631SWE7tnP6WPPlbVv49e"
     ];
   };
 }

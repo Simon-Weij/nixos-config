@@ -16,7 +16,6 @@ in {
     specialArgs = {inherit flakeConfig inputs self;};
     modules = [
       ./hardware.nix
-      ./disko.nix
       {
         networking = {
           hostName = "${flakeConfig.networking.hostName}";

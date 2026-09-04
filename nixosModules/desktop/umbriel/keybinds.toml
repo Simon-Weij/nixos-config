@@ -1,9 +1,9 @@
 [keybinds]
 "Mod+T" = "spawn:kitty"
 "Mod+Q" = "window-close"
-#"Mod+D" = "overview-toggle"
+"Mod" = "overview-toggle"
 
-"Mod+V" = "spawn:noctalia msg panel-toggle control-center 1"  
+"Mod+O" = "spawn:noctalia msg panel-toggle control-center 1"  
 "Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
 "Shift+Escape" = "spawn:noctalia msg screenshot-region"
 
@@ -12,13 +12,6 @@
 "Mod+F" = "window-toggle-maximize"
 "Mod+K" = "workspace-previous"
 "Mod+J" = "workspace-next"
-"Mod+I" = "overview-toggle"
-
-"Mod+M" = "workspace-switch:MUSIC"
-"Mod+C" = "workspace-switch:CHAT"
-"Mod+B" = "workspace-switch:BROWSER"
-"Mod+D" = "workspace-switch:DEV"
-"Mod+O" = "workspace-switch:OTHER"
 
 "Mod+Alt+H" = "column-move-left"
 "Mod+Alt+L" = "column-move-right"

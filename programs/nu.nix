@@ -83,8 +83,7 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
       $env.config.edit_mode = "vi"
       $env.DOCKER_HOST = $"unix://($env.XDG_RUNTIME_DIR)/docker.sock"
       $env.NH_FLAKE = "${flakeConfig.flakePath}#${flakeConfig.networking.hostName}"
-
-
+      $env.WAYLAND_DEBUG = 1
 
       $env.config.cursor_shape = {
         vi_insert: "line"
