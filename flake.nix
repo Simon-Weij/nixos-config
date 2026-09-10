@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
+      url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     };
     hjem = {
       url = "github:feel-co/hjem";

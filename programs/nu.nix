@@ -81,7 +81,7 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
       $env.config.buffer_editor = $env.EDITOR
       $env.config.show_banner = false
       $env.config.edit_mode = "vi"
-      $env.DOCKER_HOST = $"unix://($env.XDG_RUNTIME_DIR)/docker.sock"
+      $env.DOCKER_HOST = $"unix://($env.XDG_RUNTIME_DIR)/podman/podman.sock"
       $env.NH_FLAKE = "${flakeConfig.flakePath}#${flakeConfig.networking.hostName}"
       $env.WAYLAND_DEBUG = 1
 
@@ -91,9 +91,8 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
       }
 
       alias pn = pnpm
-      alias dockerreset = docker system prune -a --volumes
 
-      #Direnv
+      # Direnv
       use std/config *
 
       $env.config.hooks.env_change.PWD = $env.config.hooks.env_change.PWD? | default []

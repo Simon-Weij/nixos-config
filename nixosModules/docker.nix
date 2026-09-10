@@ -1,9 +1,11 @@
-{...}: {
-  virtualisation.docker = {
-    enable = false;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+{pkgs, ...}: {
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
+
+  environment.systemPackages = [
+    pkgs.docker-compose
+  ];
 }
