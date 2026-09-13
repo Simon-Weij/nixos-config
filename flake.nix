@@ -35,6 +35,10 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mocktail = {
+      url = "git+https://github.com/komaruworld/mocktail?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let
@@ -60,7 +64,6 @@
   in {
     nixosConfigurations =
       mkHost ./hosts/onyx/onyx.nix
-      // mkHost ./hosts/ruby/ruby.nix
       // mkHost ./hosts/sapphire/sapphire.nix;
   };
 }

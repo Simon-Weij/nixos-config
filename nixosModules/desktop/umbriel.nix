@@ -22,7 +22,6 @@
 
   services = {
     gnome.gnome-keyring.enable = true;
-    flatpak.enable = true;
     keyd = {
       enable = true;
       keyboards.default = {

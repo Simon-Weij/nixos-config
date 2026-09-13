@@ -13,7 +13,6 @@
       networking.firewall.enable = true;
       services.gnome.gnome-keyring.enable = true;
       security.pam.services.login.enableGnomeKeyring = true;
-      services.flatpak.enable = true;
       services.keyd = {
         enable = true;
         keyboards.default = {
