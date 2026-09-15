@@ -108,5 +108,9 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
 
       mkdir ($nu.data-dir | path join "vendor/autoload")
       starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+      if ($env.TMUX? | is-empty) {
+        tmux new -A
+      }
     '';
 }

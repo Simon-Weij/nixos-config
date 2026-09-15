@@ -6,7 +6,6 @@
   niriWrapped =
     (inputs.wrapper-modules.wrappers.niri.apply {
       inherit pkgs;
-      v2-settings = true;
       settings = {
         prefer-no-csd = true;
 
@@ -100,7 +99,7 @@
             content.spawn = ["noctalia" "msg" "window-switcher"];
           };
 
-          "Mod+D" = _: {
+          "Mod" = _: {
             props = {
               repeat = false;
             };

@@ -33,6 +33,7 @@ in {
       ../../programs/spotify.nix
       ../../programs/starship.nix
       ../../programs/roblox.nix
+      ../../programs/tmux.nix
     ];
   };
 }

@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     wrapper-modules = {
-      url = "github:BirdeeHub/nix-wrapper-modules";
+      url = "github:nix-community/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -21,6 +21,10 @@
     };
     kitty-nord = {
       url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
+      flake = false;
+    };
+    nord-tmux = {
+      url = "github:nordtheme/tmux";
       flake = false;
     };
     helium = {
