@@ -83,7 +83,6 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
       $env.config.edit_mode = "vi"
       $env.DOCKER_HOST = $"unix://($env.XDG_RUNTIME_DIR)/podman/podman.sock"
       $env.NH_FLAKE = "${flakeConfig.flakePath}#${flakeConfig.networking.hostName}"
-      $env.WAYLAND_DEBUG = 1
 
       $env.config.cursor_shape = {
         vi_insert: "line"
@@ -109,7 +108,7 @@ inputs.wrapper-modules.wrappers.nushell.wrap {
       mkdir ($nu.data-dir | path join "vendor/autoload")
       starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
-      if ($env.TMUX? | is-empty) {
+      if ($env.TMUX? | is-empty) and ($env.TERM? == "xterm-kitty") {
         tmux new -A
       }
     '';

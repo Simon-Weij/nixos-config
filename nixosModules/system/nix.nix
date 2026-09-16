@@ -18,8 +18,6 @@
     enable = true;
   };
 
-  boot.loader.systemd-boot.configurationLimit = 5;
-
   nix = {
     nixPath = [];
     channel.enable = false;

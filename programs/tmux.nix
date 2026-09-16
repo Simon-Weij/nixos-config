@@ -15,6 +15,10 @@
 
     configAfter = ''
       set -g prefix F12
+      set -g set-clipboard on
+      set -g default-terminal "tmux-256color"
+      set -g focus-events on
+
       unbind C-b
       bind F12 send-prefix
 
@@ -44,5 +48,6 @@
 in {
   environment.systemPackages = [
     tmuxWrapped
+    pkgs.wl-clipboard
   ];
 }

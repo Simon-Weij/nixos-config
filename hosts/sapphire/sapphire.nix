@@ -34,6 +34,7 @@ in {
       ../../programs/starship.nix
       ../../programs/roblox.nix
       ../../programs/tmux.nix
+      ../../programs/concord.nix
     ];
   };
 }

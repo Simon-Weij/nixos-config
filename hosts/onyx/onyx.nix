@@ -30,6 +30,8 @@ in {
       ../../programs/tailscale.nix
       ../../programs/spotify.nix
       ../../programs/starship.nix
+      ../../programs/tmux.nix
+      ../../programs/concord.nix
     ];
   };
 }
