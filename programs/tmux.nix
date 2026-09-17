@@ -22,8 +22,8 @@
       unbind C-b
       bind F12 send-prefix
 
-      bind u split-window -h
-      bind v split-window -v
+      bind u split-window -h -c "#{pane_current_path}"
+      bind v split-window -v -c "#{pane_current_path}"
 
       bind n next-window
       bind p previous-window

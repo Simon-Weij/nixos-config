@@ -55,7 +55,7 @@
           "custom_name" = "Fluxer";
           "create_desktop_shortcut" = true;
           "default_launch_container" = "window";
-          "url" = "https://web.canary.fluxer.app/";
+          "url" = "https://web.canary.fluxer.app/channels/@me";
         }
       ];
     };
