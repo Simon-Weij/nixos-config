@@ -10,10 +10,11 @@
     networking.hostName = "sapphire";
     isLaptop = false;
   };
+  wlib = inputs.wrapper-modules.lib;
 in {
   nixosConfigurations.sapphire = {
     system = "x86_64-linux";
-    specialArgs = {inherit inputs self flakeConfig;};
+    specialArgs = {inherit inputs self flakeConfig wlib;};
     modules = [
       ./hardware.nix
 
@@ -35,6 +36,9 @@ in {
       ../../programs/roblox.nix
       ../../programs/tmux.nix
       ../../programs/concord.nix
+      ../../programs/nautilus.nix
+      ../../programs/zsh.nix
+      ../../programs/neovim
     ];
   };
 }

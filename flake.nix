@@ -43,6 +43,10 @@
       url = "git+https://github.com/komaruworld/mocktail?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zsh-helix-mode = {
+      url = "github:multirious/zsh-helix-mode/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let
