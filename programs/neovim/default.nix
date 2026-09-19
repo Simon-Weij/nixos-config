@@ -8,6 +8,7 @@
     enable = true;
     specs.general = with pkgs.vimPlugins; [
       nord-nvim
+      mini-nvim
     ];
     runtimePkgs = [];
     settings = {
