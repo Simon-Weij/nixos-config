@@ -5,7 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    steelix
+    inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default
     steel
 
     # Go

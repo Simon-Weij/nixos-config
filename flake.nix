@@ -47,6 +47,10 @@
       url = "github:multirious/zsh-helix-mode/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix = {
+      url = "github:Simon-Weij/helix/steel-event-system";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {self, ...}: let

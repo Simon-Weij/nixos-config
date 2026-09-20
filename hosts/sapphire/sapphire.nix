@@ -38,7 +38,6 @@ in {
       ../../programs/concord.nix
       ../../programs/nautilus.nix
       ../../programs/zsh.nix
-      ../../programs/neovim
     ];
   };
 }
