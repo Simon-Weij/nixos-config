@@ -5,7 +5,6 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default
     steel
 
     # Go
@@ -39,6 +38,8 @@
     users.${flakeConfig.username} = {
       programs.helix = {
         enable = true;
+        package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
         plugins = with inputs.helix-plugins.legacyPackages.${pkgs.stdenv.hostPlatform.system}.helixPlugins; [
           forest
           smooth-scroll
