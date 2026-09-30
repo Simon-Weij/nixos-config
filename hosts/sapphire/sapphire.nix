@@ -31,7 +31,6 @@ in {
       ../../programs/minecraft.nix
       ../../programs/git.nix
       ../../programs/tailscale.nix
-      ../../programs/spotify.nix
       ../../programs/starship.nix
       ../../programs/roblox.nix
       ../../programs/tmux.nix

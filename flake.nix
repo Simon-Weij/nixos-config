@@ -19,18 +19,6 @@
       url = "github:maxschipper/helix-plugins-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    kitty-nord = {
-      url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
-      flake = false;
-    };
-    nord-tmux = {
-      url = "github:nordtheme/tmux";
-      flake = false;
-    };
-    helium = {
-      url = "github:oxcl/nix-flake-helium-browser";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     umbriel = {
       url = "git+https://github.com/noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +39,14 @@
       url = "github:Simon-Weij/helix/steel-event-system";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    kitty-nord = {
+      url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
+      flake = false;
+    };
+    nord-tmux = {
+      url = "github:nordtheme/tmux";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {self, ...}: let
@@ -58,7 +54,6 @@
       hjem.nixosModules.default
       spicetify-nix.nixosModules.spicetify
       helix-plugins.nixosModules.default
-      helium.nixosModules.default
       umbriel.nixosModules.default
       noctalia.nixosModules.default
     ];

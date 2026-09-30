@@ -12,6 +12,7 @@
       KEYTIMEOUT=1
 
       export NH_FLAKE="${flakeConfig.flakePath}#${flakeConfig.networking.hostName}"
+      export EDITOR=hx
 
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${inputs.zsh-helix-mode}/zsh-helix-mode.plugin.zsh
@@ -40,10 +41,6 @@
         zhm_move_next_word_start
         zhm_move_next_word_end
       )
-
-      if [[ -z "$TMUX" && "$TERM" == "xterm-kitty" ]]; then
-        tmux new -A
-      fi
     '';
   };
 }

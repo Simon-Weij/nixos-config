@@ -13,6 +13,10 @@
     golangci-lint-langserver
     golangci-lint
 
+    # Rust
+    rust-analyzer
+    rustfmt
+
     # Nix
     nixd
     alejandra

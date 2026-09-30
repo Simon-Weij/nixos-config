@@ -30,6 +30,11 @@ name = "nix"
 auto-format = true
 formatter.command = "alejandra"
 
+# Rust
+[[language]]
+name = "rust"
+auto-format = true
+
 # Svelte
 [[language]]
 name = "svelte"

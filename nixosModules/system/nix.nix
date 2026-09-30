@@ -19,7 +19,6 @@
   };
 
   nix = {
-    nixPath = [];
     channel.enable = false;
     package = pkgs.lixPackageSets.stable.lix;
     registry.nixpkgs = lib.mkForce {
