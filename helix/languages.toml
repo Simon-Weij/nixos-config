@@ -30,9 +30,10 @@ name = "nix"
 auto-format = true
 formatter.command = "alejandra"
 
-# Rust
+
+# Zig
 [[language]]
-name = "rust"
+name = "zig"
 auto-format = true
 
 # Svelte

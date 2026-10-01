@@ -43,4 +43,12 @@
       )
     '';
   };
+  environment.systemPackages = [
+    (inputs.wrapper-modules.wrappers.tealdeer.wrap {
+      inherit pkgs;
+      settings = {
+        updates.auto_update = true;
+      };
+    })
+  ];
 }

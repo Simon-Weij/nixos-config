@@ -11,11 +11,9 @@
     gofumpt
     gopls
     golangci-lint-langserver
-    golangci-lint
 
-    # Rust
-    rust-analyzer
-    rustfmt
+    # Zig
+    zls
 
     # Nix
     nixd
