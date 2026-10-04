@@ -30,11 +30,24 @@ name = "nix"
 auto-format = true
 formatter.command = "alejandra"
 
-
-# Zig
+# Rust
 [[language]]
-name = "zig"
+name = "rust"
 auto-format = true
+formatter.command = "rustfmt"
+language-servers = ["rust-analyzer"]
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+allFeatures = true
+
+[language-server.rust-analyzer.config.procMacro]
+enable = true
 
 # Svelte
 [[language]]

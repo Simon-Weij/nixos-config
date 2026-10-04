@@ -11,24 +11,12 @@
       url = "github:nix-community/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     helix-plugins = {
       url = "github:maxschipper/helix-plugins-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    umbriel = {
-      url = "git+https://github.com/noctalia-dev/umbriel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     mocktail = {
-      url = "git+https://github.com/komaruworld/mocktail?ref=main";
+      url = "git+https://github.com/coderdayton/nightcap";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zsh-helix-mode = {
@@ -39,10 +27,6 @@
       url = "github:Simon-Weij/helix/steel-event-system";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    kitty-nord = {
-      url = "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf";
-      flake = false;
-    };
     nord-tmux = {
       url = "github:nordtheme/tmux";
       flake = false;
@@ -52,10 +36,7 @@
   outputs = inputs @ {self, ...}: let
     defaultModules = with inputs; [
       hjem.nixosModules.default
-      spicetify-nix.nixosModules.spicetify
       helix-plugins.nixosModules.default
-      umbriel.nixosModules.default
-      noctalia.nixosModules.default
     ];
     mkHost = path: let
       hostConfigs = (import path {inherit inputs self;}).nixosConfigurations;

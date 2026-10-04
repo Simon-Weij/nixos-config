@@ -27,7 +27,7 @@ in {
       ../../helix/default.nix
       ../../programs/chromium.nix
       ../../programs/steam.nix
-      ../../programs/kitty.nix
+      ../../programs/foot.nix
       ../../programs/minecraft.nix
       ../../programs/git.nix
       ../../programs/tailscale.nix

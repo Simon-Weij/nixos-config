@@ -1,5 +1,5 @@
 [keybinds]
-"Mod+T" = "spawn:kitty"
+"Mod+T" = "spawn:foot"
 "Mod+Q" = "window-close"
 "Mod" = "overview-toggle"
 

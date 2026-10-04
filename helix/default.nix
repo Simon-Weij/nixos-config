@@ -12,8 +12,10 @@
     gopls
     golangci-lint-langserver
 
-    # Zig
-    zls
+    # Rust
+    clippy
+    rust-analyzer
+    rustc
 
     # Nix
     nixd

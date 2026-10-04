@@ -1,15 +1,16 @@
 {
-  inputs,
-  pkgs,
   flakeConfig,
+  pkgs,
   ...
 }: {
   programs.noctalia = {
     enable = true;
     recommendedServices.enable = true;
     systemd.enable = true;
-    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
+  environment.systemPackages = with pkgs; [
+    gpu-screen-recorder
+  ];
   hjem = {
     clobberByDefault = true;
     users."${flakeConfig.username}" = {
