@@ -10,18 +10,33 @@
   programs.umbriel.enable = true;
 
   environment.systemPackages = with pkgs; [
-    xwayland
-    xwayland-satellite
     polkit_gnome
     playerctl
     adwaita-icon-theme
     bibata-cursors
-    adwaita-qt
     brightnessctl
   ];
 
+  services.gnome.gnome-keyring.enable = true;
+
+  security = {
+    pam = {
+      enable = true;
+      services.login.enableGnomeKeyring = true;
+    };
+    polkit.enable = true;
+  };
+
+  systemd.user.services.polkit-gnome-authentication-agent = {
+    description = "Polkit gnome Authentication Agent";
+    wantedBy = ["graphical-session.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+    };
+  };
+
   services = {
-    gnome.gnome-keyring.enable = true;
     keyd = {
       enable = true;
       keyboards.default = {
@@ -34,13 +49,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-    };
-  };
-  security = {
-    pam.services.login.enableGnomeKeyring = true;
-    polkit = {
-      enable = true;
-      #enablePkexecWrapper = true;
     };
   };
   networking = {
@@ -88,15 +96,6 @@
         sansSerif = ["ProFont Nerd Font"];
         serif = ["ProFont Nerd Font"];
       };
-    };
-  };
-
-  systemd.user.services.polkit-gnome-authentication-agent = {
-    description = "Polkit gnome Authentication Agent";
-    wantedBy = ["graphical-session.target"];
-    serviceConfig = {
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
     };
   };
 

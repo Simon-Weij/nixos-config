@@ -8,7 +8,6 @@
     steel
 
     # Go
-    gofumpt
     gopls
     golangci-lint-langserver
 

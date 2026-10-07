@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = [
     (pkgs.chromium.override {enableWideVine = true;})
   ];

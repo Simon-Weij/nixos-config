@@ -48,11 +48,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1790803764,
-        "narHash": "sha256-U1G2gdSnq+Y2nGaa4iQuVDHaKx73NvkGDXD6qz5vpdk=",
+        "lastModified": 1791333707,
+        "narHash": "sha256-Te5qMx2tg79ViztKacf3wQGf0GfowfLdlZaSzF8WNV8=",
         "owner": "maxschipper",
         "repo": "helix-plugins-nix",
-        "rev": "9d5dbb77eaed7259aa2dff85146bdfa70b25a438",
+        "rev": "8ae6f0f41ed7e594b4633c31b4ba41c383c31b8a",
         "type": "github"
       },
       "original": {
@@ -68,17 +68,29 @@
         ]
       },
       "locked": {
-        "lastModified": 1790081753,
-        "narHash": "sha256-tycoVCB2KSVdy9ERT1lJGHdP9Hf4FHanaEY25hUxylw=",
+        "lastModified": 1791289048,
+        "narHash": "sha256-JdmZVrzGDRRcOAwsYujnE7f/d1YZ9Xtk4z/1MWmQXxM=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "cef02450f2c18a7e2b9297ea8d366f9a597254f7",
+        "rev": "2b155694ce412300f240de06735c93779f9e19a4",
         "type": "github"
       },
       "original": {
         "owner": "feel-co",
         "repo": "hjem",
         "type": "github"
+      }
+    },
+    "kitty-nord": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-rF3k2Dpd5jZ4tGyV59i2VjGhF96DXB8vmUL48nn8UXs=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/connorholyday/nord-kitty/master/nord.conf"
       }
     },
     "mocktail": {
@@ -89,11 +101,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790989352,
-        "narHash": "sha256-O5VDy34Dc0DlxwIKzPobapMzOz274ao2LWCpMZ5PJn0=",
+        "lastModified": 1791332667,
+        "narHash": "sha256-dEPnd9f2B4P0/krJ72gkjADUTFvY5n19p5Z8ywEgMo4=",
         "ref": "refs/heads/main",
-        "rev": "068f07e12532c144064712f7a4caa750221045cd",
-        "revCount": 250,
+        "rev": "5bf4eeb41b039d63a41555d851de9869df8551d9",
+        "revCount": 259,
         "type": "git",
         "url": "https://github.com/coderdayton/nightcap"
       },
@@ -104,11 +116,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1790822859,
-        "narHash": "sha256-VBA0QerzzmL+4wxgtwiCdiLwLpJg2/9xOxhgO3BRJQA=",
-        "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+        "lastModified": 1791260994,
+        "narHash": "sha256-MFBjw66d4h06MvpW6lIl7RwarLteD0sk859CncGwb1Q=",
+        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1083223.c59305bab206/nixexprs.tar.xz?lastModified=1790822859&rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1086391.151fa4e8ddfd/nixexprs.tar.xz?lastModified=1791260994&rev=151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4"
       },
       "original": {
         "type": "tarball",
@@ -151,6 +163,7 @@
         "helix": "helix",
         "helix-plugins": "helix-plugins",
         "hjem": "hjem",
+        "kitty-nord": "kitty-nord",
         "mocktail": "mocktail",
         "nixpkgs": "nixpkgs",
         "nord-tmux": "nord-tmux",
@@ -181,16 +194,15 @@
     },
     "systems": {
       "locked": {
-        "lastModified": 1774449309,
-        "narHash": "sha256-brhZ8DmuGtzkCYHJg4HEd602amKm89Y9ytsFZ5uWD1w=",
+        "lastModified": 1791244623,
+        "narHash": "sha256-uuanbkFk8a313Zfrxdcz8Us/yQtaxNnKJtX8v0ZPpd8=",
         "owner": "nix-systems",
         "repo": "default",
-        "rev": "c29398b59d2048c4ab79345812849c9bd15e9150",
+        "rev": "d36eeed142f88b5a636f2e3856a53c61654cf29b",
         "type": "github"
       },
       "original": {
         "owner": "nix-systems",
-        "ref": "future-26.11",
         "repo": "default",
         "type": "github"
       }
